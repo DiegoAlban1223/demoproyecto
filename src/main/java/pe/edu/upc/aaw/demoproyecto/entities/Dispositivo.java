@@ -16,7 +16,7 @@ public class Dispositivo {
     private String marca;
     @Column(name = "modelo",nullable = false,length = 45)
     private String modelo;
-    @Column(name = "nameDessert",nullable = false)
+    @Column(name = "fecha_registro",nullable = false)
     private LocalDate fecha_registro;
     @Column(name = "cuenta_id",nullable = false)
     private int cuenta_id;
