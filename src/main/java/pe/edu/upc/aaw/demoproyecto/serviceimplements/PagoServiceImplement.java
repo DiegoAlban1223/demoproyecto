@@ -36,8 +36,8 @@ public class PagoServiceImplement implements IPagoService {
     }
 
     @Override
-    public List<Pago> findByFecha_Pago(LocalDate Fecha_Pago) {
-        return pR.findByFecha_Pago(Fecha_Pago);
+    public List<Pago> findByDatePago(LocalDate datePago) {
+        return pR.findByDatePago(datePago);
     }
 }
 

@@ -4,9 +4,9 @@ import java.time.LocalDate;
 
 public class PagoDTO {
     private int id;
-    private int Cantidad_Pago;
-    private boolean Confirmar_Pago;
-    private LocalDate Fecha_Pago;
+    private int quantityPago;
+    private boolean payConfirmed;
+    private LocalDate datePago;
 
     public int getId() {
         return id;
@@ -16,27 +16,27 @@ public class PagoDTO {
         this.id = id;
     }
 
-    public int getCantidad_Pago() {
-        return Cantidad_Pago;
+    public int getQuantityPago() {
+        return quantityPago;
     }
 
-    public void setCantidad_Pago(int cantidad_Pago) {
-        Cantidad_Pago = cantidad_Pago;
+    public void setQuantityPago(int quantityPago) {
+        this.quantityPago = quantityPago;
     }
 
-    public boolean isConfirmar_Pago() {
-        return Confirmar_Pago;
+    public boolean isPayConfirmed() {
+        return payConfirmed;
     }
 
-    public void setConfirmar_Pago(boolean confirmar_Pago) {
-        Confirmar_Pago = confirmar_Pago;
+    public void setPayConfirmed(boolean payConfirmed) {
+        this.payConfirmed = payConfirmed;
     }
 
-    public LocalDate getFecha_Pago() {
-        return Fecha_Pago;
+    public LocalDate getDatePago() {
+        return datePago;
     }
 
-    public void setFecha_Pago(LocalDate fecha_Pago) {
-        Fecha_Pago = fecha_Pago;
+    public void setDatePago(LocalDate datePago) {
+        this.datePago = datePago;
     }
 }

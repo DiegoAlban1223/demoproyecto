@@ -10,5 +10,5 @@ import java.util.List;
 @Repository
 public interface IPagoRepository extends JpaRepository<Pago,Integer> {
 
-    List<Pago>findByFecha_Pago(LocalDate Fecha_Pago);
+    List<Pago>findByDatePago(LocalDate datePago);
 }

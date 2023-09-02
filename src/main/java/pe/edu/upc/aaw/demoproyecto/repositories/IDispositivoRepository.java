@@ -9,5 +9,5 @@ import java.util.List;
 
 @Repository
 public interface IDispositivoRepository extends JpaRepository<Dispositivo,Integer>{
-    List<Dispositivo> findByDueDateDispositivo(LocalDate dueDateDispositivo);
+    List<Dispositivo> findByDateRegistro(LocalDate dateRegistro);
 }

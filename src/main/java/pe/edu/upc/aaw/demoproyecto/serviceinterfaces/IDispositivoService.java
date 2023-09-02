@@ -11,5 +11,5 @@ public interface IDispositivoService {
     public void delete(int idDispositivo);
 
     public Dispositivo listId(int idDispositivo);
-    List<Dispositivo> findByDueDateDispositivo(LocalDate dueDateDispositivo);
+    List<Dispositivo> findByDateRegistro(LocalDate dateRegistro);
 }

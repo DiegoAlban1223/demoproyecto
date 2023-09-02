@@ -13,7 +13,7 @@ public interface IPagoService {
 
     public Pago listId(int id);
 
-    List<Pago>findByFecha_Pago(LocalDate Fecha_Pago);
+    List<Pago>findByDatePago(LocalDate datePago);
 
 
 }

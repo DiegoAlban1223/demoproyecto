@@ -10,21 +10,14 @@ public class Pago {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    @Column(name = "Cantidad_Pago",nullable = false)
-    private int Cantidad_Pago;
-    @Column(name = "Confirmar_Pago",nullable = false)
-    private boolean Confirmar_pago;
-    @Column(name = "Fecha_Pago",nullable = false)
-    private LocalDate Fecha_Pago;
+    @Column(name = "quantityPago",nullable = false)
+    private int quantityPago;
+    @Column(name = "payConfirmed",nullable = false)
+    private boolean payConfirmed;
+    @Column(name = "datePago",nullable = false)
+    private LocalDate datePago;
 
     public Pago() {}
-
-    public Pago(int id, int cantidad_Pago, boolean confirmar_pago, LocalDate fecha_Pago) {
-        this.id = id;
-        Cantidad_Pago = cantidad_Pago;
-        Confirmar_pago = confirmar_pago;
-        Fecha_Pago = fecha_Pago;
-    }
 
     public int getId() {
         return id;
@@ -34,27 +27,27 @@ public class Pago {
         this.id = id;
     }
 
-    public int getCantidad_Pago() {
-        return Cantidad_Pago;
+    public int getQuantityPago() {
+        return quantityPago;
     }
 
-    public void setCantidad_Pago(int cantidad_Pago) {
-        Cantidad_Pago = cantidad_Pago;
+    public void setQuantityPago(int quantityPago) {
+        this.quantityPago = quantityPago;
     }
 
-    public boolean isConfirmar_pago() {
-        return Confirmar_pago;
+    public boolean isPayConfirmed() {
+        return payConfirmed;
     }
 
-    public void setConfirmar_pago(boolean confirmar_pago) {
-        Confirmar_pago = confirmar_pago;
+    public void setPayConfirmed(boolean payConfirmed) {
+        this.payConfirmed = payConfirmed;
     }
 
-    public LocalDate getFecha_Pago() {
-        return Fecha_Pago;
+    public LocalDate getDatePago() {
+        return datePago;
     }
 
-    public void setFecha_Pago(LocalDate fecha_Pago) {
-        Fecha_Pago = fecha_Pago;
+    public void setDatePago(LocalDate datePago) {
+        this.datePago = datePago;
     }
 }

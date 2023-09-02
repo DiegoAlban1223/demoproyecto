@@ -41,7 +41,7 @@ public class DispositivoController {
     }
     @PostMapping("/buscar")
     public List<DispositivoDTO> buscar(@RequestBody LocalDate fecha){
-        return dS.findByDueDateDispositivo(fecha).stream().map(x->{
+        return dS.findByDateRegistro(fecha).stream().map(x->{
             ModelMapper m=new ModelMapper();
             return m.map(x,DispositivoDTO.class);
         }).collect(Collectors.toList());

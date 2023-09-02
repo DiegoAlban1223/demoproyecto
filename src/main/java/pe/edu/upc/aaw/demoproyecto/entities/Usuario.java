@@ -10,21 +10,14 @@ public class Usuario {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idUsuario;
-    @Column(name = "Nombre", nullable = false, length = 40)
-    private String Nombre;
-    @Column(name = "Contraseña", nullable = false, length = 40)
-    private String Contraseña;
-    @Column(name = "Correo", nullable = false, length = 40)
-    private String Correo;
+    @Column(name = "nameUsuario", nullable = false, length = 40)
+    private String nameUsuario;
+    @Column(name = "password", nullable = false, length = 40)
+    private String password;
+    @Column(name = "mailUsuario", nullable = false, length = 40)
+    private String mailUsuario;
 
     public Usuario() {
-    }
-
-    public Usuario(int idUsuario, String nombre, String contraseña, String correo) {
-        this.idUsuario = idUsuario;
-        Nombre = nombre;
-        Contraseña = contraseña;
-        Correo = correo;
     }
 
     public int getIdUsuario() {
@@ -35,27 +28,27 @@ public class Usuario {
         this.idUsuario = idUsuario;
     }
 
-    public String getNombre() {
-        return Nombre;
+    public String getNameUsuario() {
+        return nameUsuario;
     }
 
-    public void setNombre(String nombre) {
-        Nombre = nombre;
+    public void setNameUsuario(String nameUsuario) {
+        this.nameUsuario = nameUsuario;
     }
 
-    public String getContraseña() {
-        return Contraseña;
+    public String getPassword() {
+        return password;
     }
 
-    public void setContraseña(String contraseña) {
-        Contraseña = contraseña;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
-    public String getCorreo() {
-        return Correo;
+    public String getMailUsuario() {
+        return mailUsuario;
     }
 
-    public void setCorreo(String correo) {
-        Correo = correo;
+    public void setMailUsuario(String mailUsuario) {
+        this.mailUsuario = mailUsuario;
     }
 }

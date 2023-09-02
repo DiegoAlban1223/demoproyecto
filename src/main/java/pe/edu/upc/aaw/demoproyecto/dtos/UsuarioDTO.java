@@ -2,9 +2,9 @@ package pe.edu.upc.aaw.demoproyecto.dtos;
 
 public class UsuarioDTO {
     private int idUsuario;
-    private String Nombre;
-    private String Contraseña;
-    private String Correo;
+    private String nameUsuario;
+    private String password;
+    private String mailUsuario;
 
     public int getIdUsuario() {
         return idUsuario;
@@ -14,27 +14,27 @@ public class UsuarioDTO {
         this.idUsuario = idUsuario;
     }
 
-    public String getNombre() {
-        return Nombre;
+    public String getNameUsuario() {
+        return nameUsuario;
     }
 
-    public void setNombre(String nombre) {
-        Nombre = nombre;
+    public void setNameUsuario(String nameUsuario) {
+        this.nameUsuario = nameUsuario;
     }
 
-    public String getContraseña() {
-        return Contraseña;
+    public String getPassword() {
+        return password;
     }
 
-    public void setContraseña(String contraseña) {
-        Contraseña = contraseña;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
-    public String getCorreo() {
-        return Correo;
+    public String getMailUsuario() {
+        return mailUsuario;
     }
 
-    public void setCorreo(String correo) {
-        Correo = correo;
+    public void setMailUsuario(String mailUsuario) {
+        this.mailUsuario = mailUsuario;
     }
 }

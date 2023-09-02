@@ -8,30 +8,20 @@ public class Dispositivo {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idDispositivo;
-    @Column(name = "nombre",nullable = false,length = 45)
-    private String nombre;
-    @Column(name = "tipo",nullable = false,length = 45)
-    private String tipo;
-    @Column(name = "marca",nullable = false,length = 45)
-    private String marca;
-    @Column(name = "modelo",nullable = false,length = 45)
-    private String modelo;
-    @Column(name = "fecha_registro",nullable = false)
-    private LocalDate fecha_registro;
-    @Column(name = "cuenta_id",nullable = false)
-    private int cuenta_id;
+    @Column(name = "nameDispositivo",nullable = false,length = 45)
+    private String nameDispositivo;
+    @Column(name = "typeDispositivo",nullable = false,length = 45)
+    private String typeDispositivo;
+    @Column(name = "brandDispositivo",nullable = false,length = 45)
+    private String brandDispositivo;
+    @Column(name = "modelDispositivo",nullable = false,length = 45)
+    private String modelDispositivo;
+    @Column(name = "dateRegistro",nullable = false)
+    private LocalDate dateRegistro;
+    @Column(name = "account_id",nullable = false)
+    private int account_id;
 
     public Dispositivo() {
-    }
-
-    public Dispositivo(int idDispositivo, String nombre, String tipo, String marca, String modelo, LocalDate fecha_registro, int cuenta_id) {
-        this.idDispositivo = idDispositivo;
-        this.nombre = nombre;
-        this.tipo = tipo;
-        this.marca = marca;
-        this.modelo = modelo;
-        this.fecha_registro = fecha_registro;
-        this.cuenta_id = cuenta_id;
     }
 
     public int getIdDispositivo() {
@@ -42,51 +32,51 @@ public class Dispositivo {
         this.idDispositivo = idDispositivo;
     }
 
-    public String getNombre() {
-        return nombre;
+    public String getNameDispositivo() {
+        return nameDispositivo;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setNameDispositivo(String nameDispositivo) {
+        this.nameDispositivo = nameDispositivo;
     }
 
-    public String getTipo() {
-        return tipo;
+    public String getTypeDispositivo() {
+        return typeDispositivo;
     }
 
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
+    public void setTypeDispositivo(String typeDispositivo) {
+        this.typeDispositivo = typeDispositivo;
     }
 
-    public String getMarca() {
-        return marca;
+    public String getBrandDispositivo() {
+        return brandDispositivo;
     }
 
-    public void setMarca(String marca) {
-        this.marca = marca;
+    public void setBrandDispositivo(String brandDispositivo) {
+        this.brandDispositivo = brandDispositivo;
     }
 
-    public String getModelo() {
-        return modelo;
+    public String getModelDispositivo() {
+        return modelDispositivo;
     }
 
-    public void setModelo(String modelo) {
-        this.modelo = modelo;
+    public void setModelDispositivo(String modelDispositivo) {
+        this.modelDispositivo = modelDispositivo;
     }
 
-    public LocalDate getFecha_registro() {
-        return fecha_registro;
+    public LocalDate getDateRegistro() {
+        return dateRegistro;
     }
 
-    public void setFecha_registro(LocalDate fecha_registro) {
-        this.fecha_registro = fecha_registro;
+    public void setDateRegistro(LocalDate dateRegistro) {
+        this.dateRegistro = dateRegistro;
     }
 
-    public int getCuenta_id() {
-        return cuenta_id;
+    public int getAccount_id() {
+        return account_id;
     }
 
-    public void setCuenta_id(int cuenta_id) {
-        this.cuenta_id = cuenta_id;
+    public void setAccount_id(int account_id) {
+        this.account_id = account_id;
     }
 }

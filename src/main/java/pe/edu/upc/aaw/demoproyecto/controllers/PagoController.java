@@ -5,10 +5,12 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import pe.edu.upc.aaw.demoproyecto.dtos.DispositivoDTO;
 import pe.edu.upc.aaw.demoproyecto.dtos.PagoDTO;
 import pe.edu.upc.aaw.demoproyecto.entities.Pago;
 import pe.edu.upc.aaw.demoproyecto.serviceinterfaces.IPagoService;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -24,6 +26,13 @@ public class PagoController {
         ModelMapper m = new ModelMapper();
         Pago p = m.map(dto,Pago.class);
         pS.insert(p);
+    }
+    @PostMapping("/buscar")
+    public List<PagoDTO> buscar(@RequestBody LocalDate fecha){
+        return pS.findByDatePago(fecha).stream().map(x->{
+            ModelMapper m=new ModelMapper();
+            return m.map(x,PagoDTO.class);
+        }).collect(Collectors.toList());
     }
 
     @GetMapping
