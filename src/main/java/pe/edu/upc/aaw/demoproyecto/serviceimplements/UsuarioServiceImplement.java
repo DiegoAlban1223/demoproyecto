@@ -30,6 +30,6 @@ public class UsuarioServiceImplement implements IUsuarioService {
 
     @Override
     public Usuario listid(int idUsuario) {
-        return null;
+        return dR.findById(idUsuario).orElse(new Usuario());
     }
 }

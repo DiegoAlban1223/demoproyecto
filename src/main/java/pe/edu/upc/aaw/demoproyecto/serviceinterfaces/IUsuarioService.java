@@ -9,4 +9,5 @@ public interface IUsuarioService {
     public List<Usuario> list();
     public void delete(int idUsuario);
     public Usuario listid(int idUsuario);
+
 }

@@ -11,31 +11,35 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping("/usuario")
+@RequestMapping("/usuarios")
 public class UsuarioController {
     @Autowired
     private IUsuarioService dS;
+
     @PostMapping
-    public void registrar(@RequestBody UsuarioDTO dto){
-        ModelMapper m=new ModelMapper();
-        Usuario d=m.map(dto,Usuario.class);
+    public void registrar(@RequestBody UsuarioDTO dto) {
+        ModelMapper m = new ModelMapper();
+        Usuario d = m.map(dto, Usuario.class);
         dS.insert(d);
     }
+
     @GetMapping
-    public List<UsuarioDTO> listar(){
-        return dS.list().stream().map(x->{
-            ModelMapper m=new ModelMapper();
-            return m.map(x,UsuarioDTO.class);
+    public List<UsuarioDTO> listar() {
+        return dS.list().stream().map(x -> {
+            ModelMapper m = new ModelMapper();
+            return m.map(x, UsuarioDTO.class);
         }).collect(Collectors.toList());
     }
+
     @DeleteMapping("/{id}")
-    public void eliminar(@PathVariable("id")Integer id){
+    public void eliminar(@PathVariable("id") Integer id) {
         dS.delete(id);
     }
+
     @GetMapping("/{id}")
-    public UsuarioDTO listarId(@PathVariable("id") Integer id){
-        ModelMapper m=new ModelMapper();
-        UsuarioDTO d=m.map(dS.listid(id),UsuarioDTO.class);
+    public UsuarioDTO listarId(@PathVariable("id") Integer id) {
+        ModelMapper m = new ModelMapper();
+        UsuarioDTO d = m.map(dS.listid(id), UsuarioDTO.class);
         return d;
     }
 }

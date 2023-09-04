@@ -1,10 +1,11 @@
 package pe.edu.upc.aaw.demoproyecto.dtos;
 
 public class UsuarioDTO {
+
     private int idUsuario;
     private String nameUsuario;
     private String password;
-    private String mailUsuario;
+    private String emailUsuario;
 
     public int getIdUsuario() {
         return idUsuario;
@@ -30,11 +31,14 @@ public class UsuarioDTO {
         this.password = password;
     }
 
-    public String getMailUsuario() {
-        return mailUsuario;
+    public String getEmailUsuario() {
+        return emailUsuario;
     }
 
-    public void setMailUsuario(String mailUsuario) {
-        this.mailUsuario = mailUsuario;
+    public void setEmailUsuario(String emailUsuario) {
+        this.emailUsuario = emailUsuario;
     }
+
+
+
 }

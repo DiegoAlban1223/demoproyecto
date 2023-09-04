@@ -5,8 +5,9 @@ import org.hibernate.annotations.GeneratorType;
 import javax.persistence.*;
 
 @Entity
-@Table(name="Usuario")
+@Table(name = "Usuario")
 public class Usuario {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idUsuario;
@@ -14,11 +15,20 @@ public class Usuario {
     private String nameUsuario;
     @Column(name = "password", nullable = false, length = 40)
     private String password;
-    @Column(name = "mailUsuario", nullable = false, length = 40)
-    private String mailUsuario;
+    @Column(name = "emailUsuario", nullable = false, length = 40)
+    private String emailUsuario;
+
 
     public Usuario() {
     }
+
+    public Usuario(int idUsuario, String nameUsuario, String password, String emailUsuario) {
+        this.idUsuario = idUsuario;
+        this.nameUsuario = nameUsuario;
+        this.password = password;
+        this.emailUsuario = emailUsuario;
+    }
+
 
     public int getIdUsuario() {
         return idUsuario;
@@ -44,11 +54,13 @@ public class Usuario {
         this.password = password;
     }
 
-    public String getMailUsuario() {
-        return mailUsuario;
+    public String getEmailUsuario() {
+        return emailUsuario;
     }
 
-    public void setMailUsuario(String mailUsuario) {
-        this.mailUsuario = mailUsuario;
+    public void setEmailUsuario(String emailUsuario) {
+        this.emailUsuario = emailUsuario;
     }
+
+
 }

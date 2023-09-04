@@ -17,6 +17,13 @@ public class Pago {
     @Column(name = "datePago",nullable = false)
     private LocalDate datePago;
 
+    public Pago(int id, int quantityPago, boolean payConfirmed, LocalDate datePago) {
+        this.id = id;
+        this.quantityPago = quantityPago;
+        this.payConfirmed = payConfirmed;
+        this.datePago = datePago;
+    }
+
     public Pago() {}
 
     public int getId() {
