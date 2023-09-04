@@ -1,0 +1,65 @@
+package pe.edu.upc.aaw.demoproyecto.entities;
+
+
+import javax.persistence.*;
+import java.time.LocalDate;
+
+@Entity
+@Table(name = "Support")
+public class Support {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int idSupport;
+    @Column(name = "dateSupport", nullable = false)
+    private LocalDate dateSupport;
+    @Column(name = "descriptionSupport", nullable = false, length = 100)
+    private String descriptionSupport;
+
+    @ManyToOne
+    @JoinColumn(name = "idUsuario")
+    private Usuario usuario;
+
+    public Support() {
+    }
+
+    public Support(int idSupport, LocalDate dateSupport, String descriptionSupport, Usuario usuario) {
+        this.idSupport = idSupport;
+        this.dateSupport = dateSupport;
+        this.descriptionSupport = descriptionSupport;
+        this.usuario = usuario;
+    }
+
+    public int getIdSupport() {
+        return idSupport;
+    }
+
+    public void setIdSupport(int idSupport) {
+        this.idSupport = idSupport;
+    }
+
+    public LocalDate getDateSupport() {
+        return dateSupport;
+    }
+
+    public void setDateSupport(LocalDate dateSupport) {
+        this.dateSupport = dateSupport;
+    }
+
+    public String getDescriptionSupport() {
+        return descriptionSupport;
+    }
+
+    public void setDescriptionSupport(String descriptionSupport) {
+        this.descriptionSupport = descriptionSupport;
+    }
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
+
+}
