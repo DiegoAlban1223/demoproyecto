@@ -1,4 +1,4 @@
-package pe.edu.upc.aaw.stream.dtos;
+package pe.edu.upc.aaw.demoproyecto.dtos;
 
 public class Lista_de_ReproduccionDTO {
     private int idLista_de_Reproduccion;
