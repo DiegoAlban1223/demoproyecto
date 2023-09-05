@@ -18,17 +18,19 @@ public class Usuario {
     @Column(name = "emailUsuario", nullable = false, length = 40)
     private String emailUsuario;
 
-
+    @ManyToOne
+    @JoinColumn(name = "idTypeUser")
+    private TypeUser typeUser;
     public Usuario() {
     }
 
-    public Usuario(int idUsuario, String nameUsuario, String password, String emailUsuario) {
+    public Usuario(int idUsuario, String nameUsuario, String password, String emailUsuario, TypeUser typeUser) {
         this.idUsuario = idUsuario;
         this.nameUsuario = nameUsuario;
         this.password = password;
         this.emailUsuario = emailUsuario;
+        this.typeUser = typeUser;
     }
-
 
     public int getIdUsuario() {
         return idUsuario;
@@ -62,5 +64,11 @@ public class Usuario {
         this.emailUsuario = emailUsuario;
     }
 
+    public TypeUser getTypeUser() {
+        return typeUser;
+    }
 
+    public void setTypeUser(TypeUser typeUser) {
+        this.typeUser = typeUser;
+    }
 }
