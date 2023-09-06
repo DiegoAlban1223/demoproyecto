@@ -1,6 +1,7 @@
 package pe.edu.upc.aaw.demoproyecto.dtos;
 
 import pe.edu.upc.aaw.demoproyecto.entities.Usuario;
+import pe.edu.upc.aaw.demoproyecto.entities.Contenido;
 
 import java.time.LocalDate;
 
