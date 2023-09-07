@@ -18,10 +18,21 @@ public class Dispositivo {
     private String modelDispositivo;
     @Column(name = "dateRegistro",nullable = false)
     private LocalDate dateRegistro;
-    @Column(name = "account_id",nullable = false)
-    private int account_id;
+    @ManyToOne
+    @JoinColumn(name = "idUsuario")
+    private Usuario usuario;
 
     public Dispositivo() {
+    }
+
+    public Dispositivo(int idDispositivo, String nameDispositivo, String typeDispositivo, String brandDispositivo, String modelDispositivo, LocalDate dateRegistro, Usuario usuario) {
+        this.idDispositivo = idDispositivo;
+        this.nameDispositivo = nameDispositivo;
+        this.typeDispositivo = typeDispositivo;
+        this.brandDispositivo = brandDispositivo;
+        this.modelDispositivo = modelDispositivo;
+        this.dateRegistro = dateRegistro;
+        this.usuario = usuario;
     }
 
     public int getIdDispositivo() {
@@ -72,11 +83,11 @@ public class Dispositivo {
         this.dateRegistro = dateRegistro;
     }
 
-    public int getAccount_id() {
-        return account_id;
+    public Usuario getUsuario() {
+        return usuario;
     }
 
-    public void setAccount_id(int account_id) {
-        this.account_id = account_id;
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
     }
 }
