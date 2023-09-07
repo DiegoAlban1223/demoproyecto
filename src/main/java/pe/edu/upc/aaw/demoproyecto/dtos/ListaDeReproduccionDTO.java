@@ -1,4 +1,5 @@
 package pe.edu.upc.aaw.demoproyecto.dtos;
+import pe.edu.upc.aaw.demoproyecto.entities.Membresia;
 import pe.edu.upc.aaw.demoproyecto.entities.Usuario;
 public class ListaDeReproduccionDTO {
     private int idLista_de_Reproduccion;
@@ -6,7 +7,7 @@ public class ListaDeReproduccionDTO {
     private String descriptionLista_de_Reproduccion;
     private String list_contentsLista_de_Reproduccion;
     private String type_list_CategoryLista_de_Reproduccion;
-    private Usuario usuario;
+    private Membresia membresia;
 
     public int getIdLista_de_Reproduccion() {
         return idLista_de_Reproduccion;
@@ -48,11 +49,11 @@ public class ListaDeReproduccionDTO {
         this.type_list_CategoryLista_de_Reproduccion = type_list_CategoryLista_de_Reprodccion;
     }
 
-    public Usuario getUsuario() {
-        return usuario;
+    public Membresia getMembresia() {
+        return membresia;
     }
 
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
+    public void setMembresia(Membresia membresia) {
+        this.membresia = membresia;
     }
 }
