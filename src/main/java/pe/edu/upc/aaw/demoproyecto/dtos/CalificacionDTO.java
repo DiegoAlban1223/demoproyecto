@@ -1,9 +1,10 @@
 package pe.edu.upc.aaw.demoproyecto.dtos;
 
 import pe.edu.upc.aaw.demoproyecto.entities.Usuario;
+import pe.edu.upc.aaw.demoproyecto.entities.Contenido;
 public class CalificacionDTO {
     private int idCalificacion;
-    private int Puntuacion;
+    private int Score;
     private Contenido Contenido;
     private Usuario Usuario;
 
@@ -15,12 +16,12 @@ public class CalificacionDTO {
         this.idCalificacion = idCalificacion;
     }
 
-    public int getPuntuacion() {
-        return Puntuacion;
+    public int getScore() {
+        return Score;
     }
 
-    public void setPuntuacion(int puntuacion) {
-        Puntuacion = puntuacion;
+    public void setScore(int score) {
+        Score = score;
     }
 
     public Contenido getContenido() {

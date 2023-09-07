@@ -3,6 +3,7 @@ package pe.edu.upc.aaw.demoproyecto.serviceimplements;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import pe.edu.upc.aaw.demoproyecto.entities.Reseña;
+import pe.edu.upc.aaw.demoproyecto.entities.TypeUser;
 import pe.edu.upc.aaw.demoproyecto.repositories.IReseñaRepository;
 import pe.edu.upc.aaw.demoproyecto.serviceinterfaces.IReseñaService;
 
@@ -28,5 +29,10 @@ public class ReseñaServiceImplement implements IReseñaService {
     @Override
     public void delete(int idReseña) {
         rR.deleteById(idReseña);
+    }
+
+    @Override
+    public Reseña listId(int idReseña) {
+        return rR.findById(idReseña).orElse(new Reseña());
     }
 }

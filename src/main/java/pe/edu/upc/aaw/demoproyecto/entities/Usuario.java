@@ -18,9 +18,12 @@ public class Usuario {
     @Column(name = "emailUsuario", nullable = false, length = 40)
     private String emailUsuario;
 
+    private Boolean enabled;
+
     @ManyToOne
     @JoinColumn(name = "idTypeUser")
     private TypeUser typeUser;
+
     public Usuario() {
     }
 
@@ -62,6 +65,14 @@ public class Usuario {
 
     public void setEmailUsuario(String emailUsuario) {
         this.emailUsuario = emailUsuario;
+    }
+
+    public Boolean getEnabled() {
+        return enabled;
+    }
+
+    public void setEnabled(Boolean enabled) {
+        this.enabled = enabled;
     }
 
     public TypeUser getTypeUser() {

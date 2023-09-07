@@ -8,6 +8,7 @@ public class UsuarioDTO {
     private String nameUsuario;
     private String password;
     private String emailUsuario;
+    private Boolean enabled;
     private TypeUser typeUser;
 
     public int getIdUsuario() {
@@ -40,6 +41,13 @@ public class UsuarioDTO {
 
     public void setEmailUsuario(String emailUsuario) {
         this.emailUsuario = emailUsuario;
+    }
+    public Boolean getEnabled() {
+        return enabled;
+    }
+
+    public void setEnabled(Boolean enabled) {
+        this.enabled = enabled;
     }
 
     public TypeUser getTypeUser() {
