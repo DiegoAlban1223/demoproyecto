@@ -15,8 +15,10 @@ public class Membresia {
     private String descripMembresia;
     @Column(name = "priceMembresia",nullable = false,length = 45)
     private int priceMembresia;
-    @Column(name = "idUsuario",nullable = false)
-    private int idUsuario;
+
+    @OneToOne
+    @JoinColumn(name = "idUsuario")
+    private Usuario usuario;
 
     public Membresia() {
     }
@@ -53,11 +55,11 @@ public class Membresia {
         this.priceMembresia = priceMembresia;
     }
 
-    public int getIdUsuario() {
-        return idUsuario;
+    public Usuario getUsuario() {
+        return usuario;
     }
 
-    public void setIdUsuario(int idUsuario) {
-        this.idUsuario = idUsuario;
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
     }
 }
