@@ -7,8 +7,8 @@ import java.time.LocalDate;
 
 public class ReseñaDTO {
     private int idReseña;
-    private String Texto;
-    private LocalDate Fecha;
+    private String Text;
+    private LocalDate Date;
     private Usuario Usuario;
     private Contenido Contenido;
 
@@ -20,20 +20,18 @@ public class ReseñaDTO {
         this.idReseña = idReseña;
     }
 
-    public String getTexto() {
-        return Texto;
+    public String getText() {
+        return Text;
     }
 
-    public void setTexto(String texto) {
-        Texto = texto;
+    public void setText(String texto) {Text = texto;}
+
+    public LocalDate getDate() {
+        return Date;
     }
 
-    public LocalDate getFecha() {
-        return Fecha;
-    }
-
-    public void setFecha(LocalDate fecha) {
-        Fecha = fecha;
+    public void setDate(LocalDate fecha) {
+        Date = fecha;
     }
 
     public pe.edu.upc.aaw.demoproyecto.entities.Usuario getUsuario() {
