@@ -9,10 +9,10 @@ public class Reseña {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idReseña;
-    @Column(name = "Texto", length = 100, nullable = false)
-    private String Texto;
-    @Column(name = "Fecha", nullable = false)
-    private LocalDate Fecha;
+    @Column(name = "Text", length = 100, nullable = false)
+    private String Text;
+    @Column(name = "Date", nullable = false)
+    private LocalDate Date;
     @ManyToOne
     @JoinColumn(name = "idUsuario")
     private Usuario Usuario;
@@ -25,8 +25,8 @@ public class Reseña {
 
     public Reseña(int idReseña, String texto, LocalDate fecha, pe.edu.upc.aaw.demoproyecto.entities.Usuario usuario, Contenido contenido) {
         this.idReseña = idReseña;
-        Texto = texto;
-        Fecha = fecha;
+        Text = texto;
+        Date = fecha;
         Usuario = usuario;
         Contenido = contenido;
     }
@@ -39,20 +39,20 @@ public class Reseña {
         this.idReseña = idReseña;
     }
 
-    public String getTexto() {
-        return Texto;
+    public String getText() {
+        return Text;
     }
 
-    public void setTexto(String texto) {
-        Texto = texto;
+    public void setText(String texto) {
+        Text = texto;
     }
 
-    public LocalDate getFecha() {
-        return Fecha;
+    public LocalDate getDate() {
+        return Date;
     }
 
-    public void setFecha(LocalDate fecha) {
-        Fecha = fecha;
+    public void setDate(LocalDate fecha) {
+        Date = fecha;
     }
 
     public pe.edu.upc.aaw.demoproyecto.entities.Usuario getUsuario() {

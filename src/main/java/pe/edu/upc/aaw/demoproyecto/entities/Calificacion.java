@@ -9,7 +9,7 @@ public class Calificacion {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idCalificacion;
     @Column(name="Puntuacion", nullable = false)
-    private int Puntuacion;
+    private int Score;
     @ManyToOne
     @JoinColumn(name = "idContenido")
     private Contenido Contenido;
@@ -20,9 +20,9 @@ public class Calificacion {
     public Calificacion() {
     }
 
-    public Calificacion(int idCalificacion, int puntuacion, Contenido contenido, pe.edu.upc.aaw.demoproyecto.entities.Usuario usuario) {
+    public Calificacion(int idCalificacion, int score, Contenido contenido, pe.edu.upc.aaw.demoproyecto.entities.Usuario usuario) {
         this.idCalificacion = idCalificacion;
-        Puntuacion = puntuacion;
+        Score = score;
         Contenido = contenido;
         Usuario = usuario;
     }
@@ -35,12 +35,12 @@ public class Calificacion {
         this.idCalificacion = idCalificacion;
     }
 
-    public int getPuntuacion() {
-        return Puntuacion;
+    public int getScore() {
+        return Score;
     }
 
-    public void setPuntuacion(int puntuacion) {
-        Puntuacion = puntuacion;
+    public void setScore(int score) {
+        Score = score;
     }
 
     public Contenido getContenido() {

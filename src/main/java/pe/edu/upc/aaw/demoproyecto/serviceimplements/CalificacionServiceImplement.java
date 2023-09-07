@@ -3,6 +3,7 @@ package pe.edu.upc.aaw.demoproyecto.serviceimplements;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import pe.edu.upc.aaw.demoproyecto.entities.Calificacion;
+import pe.edu.upc.aaw.demoproyecto.entities.TypeUser;
 import pe.edu.upc.aaw.demoproyecto.repositories.ICalificacionRepository;
 import pe.edu.upc.aaw.demoproyecto.serviceinterfaces.ICalificacionService;
 
@@ -25,5 +26,10 @@ public class CalificacionServiceImplement implements ICalificacionService {
     @Override
     public void delete(int idCalificacion) {
         cR.deleteById(idCalificacion);
+    }
+
+    @Override
+    public Calificacion listId(int idCalificacion) {
+        return cR.findById(idCalificacion).orElse(new Calificacion());
     }
 }
