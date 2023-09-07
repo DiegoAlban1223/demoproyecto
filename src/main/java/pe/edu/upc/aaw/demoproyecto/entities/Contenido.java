@@ -21,8 +21,10 @@ public class Contenido {
     private String typeContenido;
     @Column(name = "seasonsContenido",nullable = false,length = 45)
     private int seasonsContenido;
-    @Column(name = "idLista_de_Reproduccion",nullable = false)
-    private int idLista_de_Reproduccion;
+
+    @ManyToOne
+    @JoinColumn(name = "idLista_de_Reproduccion")
+    private ListaDeReproduccion listadereproduccion;
     @Column(name = "languageContenido",nullable = false,length = 45)
     private String languageContenido;
     @Column(name = "subContenido",nullable = false,length = 45)
@@ -91,12 +93,14 @@ public class Contenido {
         this.seasonsContenido = seasonsContenido;
     }
 
-    public int getIdLista_de_Reproduccion() {
-        return idLista_de_Reproduccion;
+  
+
+    public ListaDeReproduccion getListadereproduccion() {
+        return listadereproduccion;
     }
 
-    public void setIdLista_de_Reproduccion(int idLista_de_Reproduccion) {
-        this.idLista_de_Reproduccion = idLista_de_Reproduccion;
+    public void setListadereproduccion(ListaDeReproduccion listadereproduccion) {
+        this.listadereproduccion = listadereproduccion;
     }
 
     public String getLanguageContenido() {
