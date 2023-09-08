@@ -12,11 +12,23 @@ public class ListaDeReproduccion {
     @Column(name = "descriptionLista_de_Reproduccion",nullable = false,length = 100)
     private String descriptionLista_de_Reproduccion;
     @Column(name = "list_contentsLista_de_Reprodccion",nullable = false,length = 1000)
-    private String list_contentsLista_de_Reprodccion;
-    @Column(name = "account_id",nullable = false)
-    private int account_id;
+    private String list_contentsLista_de_Reproduccion;
+    @Column(name = "type_list_CategoryLista_de_Reproduccion",nullable = false,length = 1000)
+    private String type_list_CategoryLista_de_Reproduccion;
+    @ManyToOne
+    @JoinColumn(name = "idUsuario")
+    private Usuario usuario;
 
     public ListaDeReproduccion() {
+    }
+
+    public ListaDeReproduccion(int idLista_de_Reproduccion, String nameLista_de_Reproduccion, String descriptionLista_de_Reproduccion, String list_contentsLista_de_Reproduccion, String type_list_CategoryLista_de_Reproduccion, Usuario usuario) {
+        this.idLista_de_Reproduccion = idLista_de_Reproduccion;
+        this.nameLista_de_Reproduccion = nameLista_de_Reproduccion;
+        this.descriptionLista_de_Reproduccion = descriptionLista_de_Reproduccion;
+        this.list_contentsLista_de_Reproduccion = list_contentsLista_de_Reproduccion;
+        this.type_list_CategoryLista_de_Reproduccion = type_list_CategoryLista_de_Reproduccion;
+        this.usuario = usuario;
     }
 
     public int getIdLista_de_Reproduccion() {
@@ -44,18 +56,26 @@ public class ListaDeReproduccion {
     }
 
     public String getList_contentsLista_de_Reprodccion() {
-        return list_contentsLista_de_Reprodccion;
+        return list_contentsLista_de_Reproduccion;
     }
 
-    public void setList_contentsLista_de_Reprodccion(String list_contentsLista_de_Reprodccion) {
-        this.list_contentsLista_de_Reprodccion = list_contentsLista_de_Reprodccion;
+    public void setList_contentsLista_de_Reproduccion(String list_contentsLista_de_Reproduccion) {
+        this.list_contentsLista_de_Reproduccion = list_contentsLista_de_Reproduccion;
     }
 
-    public int getAccount_id() {
-        return account_id;
+    public String getType_list_CategoryLista_de_Reproduccion() {
+        return type_list_CategoryLista_de_Reproduccion;
     }
 
-    public void setAccount_id(int account_id) {
-        this.account_id = account_id;
+    public void setType_list_CategoryLista_de_Reproduccion(String type_list_CategoryLista_de_Reproduccion) {
+        this.type_list_CategoryLista_de_Reproduccion = type_list_CategoryLista_de_Reproduccion;
+    }
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
     }
 }

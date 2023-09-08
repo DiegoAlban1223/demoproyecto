@@ -1,5 +1,7 @@
 package pe.edu.upc.aaw.demoproyecto.dtos;
 
+import pe.edu.upc.aaw.demoproyecto.entities.Usuario;
+
 import java.time.LocalDate;
 
 public class DispositivoDTO {
@@ -9,7 +11,7 @@ public class DispositivoDTO {
     private String brandDispositivo;
     private String modelDispositivo;
     private LocalDate dateRegistro;
-    private int account_id;
+    private Usuario usuario;
 
     public int getIdDispositivo() {
         return idDispositivo;
@@ -59,11 +61,11 @@ public class DispositivoDTO {
         this.dateRegistro = dateRegistro;
     }
 
-    public int getAccount_id() {
-        return account_id;
+    public Usuario getUsuario() {
+        return usuario;
     }
 
-    public void setAccount_id(int account_id) {
-        this.account_id = account_id;
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
     }
 }
