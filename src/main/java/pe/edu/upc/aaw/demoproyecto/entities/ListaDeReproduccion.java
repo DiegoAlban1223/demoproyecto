@@ -16,19 +16,19 @@ public class ListaDeReproduccion {
     @Column(name = "type_list_CategoryLista_de_Reproduccion",nullable = false,length = 1000)
     private String type_list_CategoryLista_de_Reproduccion;
     @ManyToOne
-    @JoinColumn(name = "idMembresia")
-    private Membresia membresia;
+    @JoinColumn(name = "idUsuario")
+    private Usuario usuario;
 
     public ListaDeReproduccion() {
     }
 
-    public ListaDeReproduccion(int idLista_de_Reproduccion, String nameLista_de_Reproduccion, String descriptionLista_de_Reproduccion, String list_contentsLista_de_Reproduccion, String type_list_CategoryLista_de_Reproduccion, Membresia membresia) {
+    public ListaDeReproduccion(int idLista_de_Reproduccion, String nameLista_de_Reproduccion, String descriptionLista_de_Reproduccion, String list_contentsLista_de_Reproduccion, String type_list_CategoryLista_de_Reproduccion, Usuario usuario) {
         this.idLista_de_Reproduccion = idLista_de_Reproduccion;
         this.nameLista_de_Reproduccion = nameLista_de_Reproduccion;
         this.descriptionLista_de_Reproduccion = descriptionLista_de_Reproduccion;
         this.list_contentsLista_de_Reproduccion = list_contentsLista_de_Reproduccion;
         this.type_list_CategoryLista_de_Reproduccion = type_list_CategoryLista_de_Reproduccion;
-        this.membresia = membresia;
+        this.usuario = usuario;
     }
 
     public int getIdLista_de_Reproduccion() {
@@ -75,11 +75,11 @@ public class ListaDeReproduccion {
         return list_contentsLista_de_Reproduccion;
     }
 
-    public Membresia getMembresia() {
-        return membresia;
+    public Usuario getUsuario() {
+        return usuario;
     }
 
-    public void setMembresia(Membresia membresia) {
-        this.membresia = membresia;
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
     }
 }
