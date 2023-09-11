@@ -1,15 +1,15 @@
 package pe.edu.upc.aaw.demoproyecto.dtos;
 
 public class TypeUserDTO {
-    private int idTypeUser;
+    private Long idTypeUser;
 
     private String typeTypeUser;
 
-    public int getIdTypeUser() {
+    public Long getIdTypeUser() {
         return idTypeUser;
     }
 
-    public void setIdTypeUser(int idTypeUser) {
+    public void setIdTypeUser(Long idTypeUser) {
         this.idTypeUser = idTypeUser;
     }
 
