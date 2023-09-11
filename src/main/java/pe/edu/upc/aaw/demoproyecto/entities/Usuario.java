@@ -3,6 +3,7 @@ package pe.edu.upc.aaw.demoproyecto.entities;
 import org.hibernate.annotations.GeneratorType;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "Usuario")
@@ -10,36 +11,36 @@ public class Usuario {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int idUsuario;
-    @Column(name = "nameUsuario", nullable = false, length = 40)
+    private Long idUsuario;
+    @Column(name = "nameUsuario", nullable = false, length = 100)
     private String nameUsuario;
-    @Column(name = "password", nullable = false, length = 40)
+    @Column(name = "password", nullable = false, length = 100)
     private String password;
-    @Column(name = "emailUsuario", nullable = false, length = 40)
+    @Column(name = "emailUsuario", nullable = false, length = 50)
     private String emailUsuario;
 
     private Boolean enabled;
 
-    @ManyToOne
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinColumn(name = "idTypeUser")
-    private TypeUser typeUser;
+    private List<TypeUser> roles;
 
     public Usuario() {
     }
 
-    public Usuario(int idUsuario, String nameUsuario, String password, String emailUsuario, TypeUser typeUser) {
+    public Usuario(Long idUsuario, String nameUsuario, String password, String emailUsuario) {
         this.idUsuario = idUsuario;
         this.nameUsuario = nameUsuario;
         this.password = password;
         this.emailUsuario = emailUsuario;
-        this.typeUser = typeUser;
+
     }
 
-    public int getIdUsuario() {
+    public Long getIdUsuario() {
         return idUsuario;
     }
 
-    public void setIdUsuario(int idUsuario) {
+    public void setIdUsuario(Long idUsuario) {
         this.idUsuario = idUsuario;
     }
 
@@ -75,11 +76,11 @@ public class Usuario {
         this.enabled = enabled;
     }
 
-    public TypeUser getTypeUser() {
-        return typeUser;
+    public List<TypeUser> getRoles() {
+        return roles;
     }
 
-    public void setTypeUser(TypeUser typeUser) {
-        this.typeUser = typeUser;
+    public void setRoles(List<TypeUser> roles) {
+        this.roles = roles;
     }
 }
