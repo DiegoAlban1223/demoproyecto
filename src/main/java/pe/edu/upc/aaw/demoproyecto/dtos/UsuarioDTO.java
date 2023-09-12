@@ -4,18 +4,18 @@ import pe.edu.upc.aaw.demoproyecto.entities.TypeUser;
 
 public class UsuarioDTO {
 
-    private int idUsuario;
+    private Long idUsuario;
     private String nameUsuario;
     private String password;
     private String emailUsuario;
     private Boolean enabled;
     private TypeUser typeUser;
 
-    public int getIdUsuario() {
+    public Long getIdUsuario() {
         return idUsuario;
     }
 
-    public void setIdUsuario(int idUsuario) {
+    public void setIdUsuario(Long idUsuario) {
         this.idUsuario = idUsuario;
     }
 
