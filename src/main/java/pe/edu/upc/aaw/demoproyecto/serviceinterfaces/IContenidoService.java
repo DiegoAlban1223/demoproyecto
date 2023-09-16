@@ -12,4 +12,5 @@ public interface IContenidoService {
     public void delete(int idContenido);
 
     public Contenido listId(int idContenido);
+    public List<String[]> SearchContentByKeyword();
 }

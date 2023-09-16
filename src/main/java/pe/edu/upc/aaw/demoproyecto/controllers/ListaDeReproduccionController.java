@@ -2,13 +2,16 @@ package pe.edu.upc.aaw.demoproyecto.controllers;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.aaw.demoproyecto.dtos.ListaDeReproduccionDTO;
+import pe.edu.upc.aaw.demoproyecto.dtos.ListaPeliculasFavoritasDTO;
 import pe.edu.upc.aaw.demoproyecto.entities.ListaDeReproduccion;
 import pe.edu.upc.aaw.demoproyecto.serviceinterfaces.IListaDeReproduccionService;
 
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -40,6 +43,18 @@ public class ListaDeReproduccionController {
         ListaDeReproduccionDTO d = m.map(lS.listId(id), ListaDeReproduccionDTO.class);
         return d;
     }
+    @GetMapping("/ListaPeliculaFavorita")
+    @PreAuthorize("hasAnyAuthority('user')")
+    public List<ListaPeliculasFavoritasDTO> listapeliculasfavoritas(){
+        List<String[]>lista=lS.ListFavoriteFilm();
+        List<ListaPeliculasFavoritasDTO> listaDTO=new ArrayList<>();
 
+        for(String[] data:lista){
+            ListaPeliculasFavoritasDTO dto=new ListaPeliculasFavoritasDTO();
+            dto.setFavoriteFilm(data[0]);
+            listaDTO.add(dto);
+        }
+        return listaDTO;
+    }
 
 }
