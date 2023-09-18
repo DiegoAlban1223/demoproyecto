@@ -17,21 +17,21 @@ public class AccountPayServiceImplement implements IAccountPayService {
     private IAccountPayRepository apR;
     @Override
     public void insert(AccountPay accountPay) {
-
+        apR.save(accountPay);
     }
 
     @Override
     public List<AccountPay> list() {
-        return null;
+        return apR.findAll();
     }
 
     @Override
     public void delete(int idPayAccount) {
-
+    apR.deleteById(idPayAccount);
     }
 
     @Override
     public AccountPay listId(int idPayAccount) {
-        return null;
+        return apR.findById(idPayAccount).orElse(new AccountPay());
     }
 }
