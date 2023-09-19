@@ -26,7 +26,7 @@ public class UsuarioController {
     }
 
     @GetMapping
-    @PreAuthorize("hasAuthority('user')")
+    @PreAuthorize("hasAuthority('user') or hasAuthority('admin')")
     public List<UsuarioDTO> listar() {
         return dS.list().stream().map(x -> {
             ModelMapper m = new ModelMapper();
