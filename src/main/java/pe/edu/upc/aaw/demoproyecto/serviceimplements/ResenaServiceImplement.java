@@ -3,17 +3,17 @@ package pe.edu.upc.aaw.demoproyecto.serviceimplements;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import pe.edu.upc.aaw.demoproyecto.entities.Resena;
-import pe.edu.upc.aaw.demoproyecto.repositories.IReseñaRepository;
-import pe.edu.upc.aaw.demoproyecto.serviceinterfaces.IReseñaService;
+import pe.edu.upc.aaw.demoproyecto.repositories.IResenaRepository;
+import pe.edu.upc.aaw.demoproyecto.serviceinterfaces.IResenaService;
 
 import java.util.List;
 
 @Service
 
-public class ReseñaServiceImplement implements IReseñaService {
+public class ResenaServiceImplement implements IResenaService {
 
     @Autowired
-    private IReseñaRepository rR;
+    private IResenaRepository rR;
 
     @Override
     public void insert(Resena reseña) {
@@ -26,12 +26,12 @@ public class ReseñaServiceImplement implements IReseñaService {
     }
 
     @Override
-    public void delete(int idReseña) {
-        rR.deleteById(idReseña);
+    public void delete(int idResena) {
+        rR.deleteById(idResena);
     }
 
     @Override
-    public Resena listId(int idReseña) {
-        return rR.findById(idReseña).orElse(new Resena());
+    public Resena listId(int idResena) {
+        return rR.findById(idResena).orElse(new Resena());
     }
 }
