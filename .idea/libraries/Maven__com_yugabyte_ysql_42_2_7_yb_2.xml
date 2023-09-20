@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: com.yugabyte:ysql:42.2.7-yb-2">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/yugabyte/ysql/42.2.7-yb-2/ysql-42.2.7-yb-2.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/com/yugabyte/ysql/42.2.7-yb-2/ysql-42.2.7-yb-2-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/yugabyte/ysql/42.2.7-yb-2/ysql-42.2.7-yb-2-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
