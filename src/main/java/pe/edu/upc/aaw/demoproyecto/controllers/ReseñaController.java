@@ -4,8 +4,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.aaw.demoproyecto.dtos.ReseñaDTO;
-import pe.edu.upc.aaw.demoproyecto.entities.Reseña;
-import pe.edu.upc.aaw.demoproyecto.entities.TypeUser;
+import pe.edu.upc.aaw.demoproyecto.entities.Resena;
 import pe.edu.upc.aaw.demoproyecto.serviceinterfaces.IReseñaService;
 
 import java.util.List;
@@ -20,7 +19,7 @@ public class ReseñaController {
     @PostMapping
     public void registrar(@RequestBody ReseñaDTO dto) {
         ModelMapper m = new ModelMapper();
-        Reseña d = m.map(dto, Reseña.class);
+        Resena d = m.map(dto, Resena.class);
         rS.insert(d);
     }
 
@@ -37,9 +36,9 @@ public class ReseñaController {
         rS.delete(id);
     }
     @PutMapping
-    public void modificar(@RequestBody Reseña dto){
+    public void modificar(@RequestBody Resena dto){
         ModelMapper m=new ModelMapper();
-        Reseña d=m.map(dto,Reseña.class);
+        Resena d=m.map(dto, Resena.class);
         rS.insert(d);
     }
 }

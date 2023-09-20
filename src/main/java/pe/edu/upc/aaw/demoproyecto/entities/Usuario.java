@@ -14,24 +14,25 @@ public class Usuario {
     private Long idUsuario;
     @Column(name = "nameUsuario", nullable = false, length = 100)
     private String nameUsuario;
-    @Column(name = "password", nullable = false, length = 100)
-    private String password;
+    @Column(name = "passwordUsuario", nullable = false, length = 100)
+    private String passwordUsuario;
     @Column(name = "emailUsuario", nullable = false, length = 50)
     private String emailUsuario;
 
-    private Boolean enabled;
+    @Column(name = "enabledUsuario",nullable = false)
+    private Boolean enabledUsuario;
 
     @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @JoinColumn(name = "idTypeUser")
+    @JoinColumn(name = "usuario_id")
     private List<TypeUser> roles;
 
     public Usuario() {
     }
 
-    public Usuario(Long idUsuario, String nameUsuario, String password, String emailUsuario) {
+    public Usuario(Long idUsuario, String nameUsuario, String passwordUsuario, String emailUsuario) {
         this.idUsuario = idUsuario;
         this.nameUsuario = nameUsuario;
-        this.password = password;
+        this.passwordUsuario = passwordUsuario;
         this.emailUsuario = emailUsuario;
 
     }
@@ -53,11 +54,11 @@ public class Usuario {
     }
 
     public String getPassword() {
-        return password;
+        return passwordUsuario;
     }
 
     public void setPassword(String password) {
-        this.password = password;
+        this.passwordUsuario = password;
     }
 
     public String getEmailUsuario() {
@@ -69,11 +70,11 @@ public class Usuario {
     }
 
     public Boolean getEnabled() {
-        return enabled;
+        return enabledUsuario;
     }
 
     public void setEnabled(Boolean enabled) {
-        this.enabled = enabled;
+        this.enabledUsuario = enabled;
     }
 
     public List<TypeUser> getRoles() {
