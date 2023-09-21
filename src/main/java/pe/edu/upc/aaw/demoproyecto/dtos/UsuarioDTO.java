@@ -2,14 +2,21 @@ package pe.edu.upc.aaw.demoproyecto.dtos;
 
 import pe.edu.upc.aaw.demoproyecto.entities.TypeUser;
 
+import javax.persistence.*;
+import java.util.List;
+
 public class UsuarioDTO {
 
+
     private Long idUsuario;
+
     private String nameUsuario;
-    private String password;
+
+    private String passwordUsuario;
+
     private String emailUsuario;
-    private Boolean enabled;
-    private TypeUser typeUser;
+
+    private Boolean enabledUsuario;
 
     public Long getIdUsuario() {
         return idUsuario;
@@ -27,12 +34,12 @@ public class UsuarioDTO {
         this.nameUsuario = nameUsuario;
     }
 
-    public String getPassword() {
-        return password;
+    public String getPasswordUsuario() {
+        return passwordUsuario;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setPasswordUsuario(String passwordUsuario) {
+        this.passwordUsuario = passwordUsuario;
     }
 
     public String getEmailUsuario() {
@@ -42,19 +49,12 @@ public class UsuarioDTO {
     public void setEmailUsuario(String emailUsuario) {
         this.emailUsuario = emailUsuario;
     }
-    public Boolean getEnabled() {
-        return enabled;
+
+    public Boolean getEnabledUsuario() {
+        return enabledUsuario;
     }
 
-    public void setEnabled(Boolean enabled) {
-        this.enabled = enabled;
-    }
-
-    public TypeUser getTypeUser() {
-        return typeUser;
-    }
-
-    public void setTypeUser(TypeUser typeUser) {
-        this.typeUser = typeUser;
+    public void setEnabledUsuario(Boolean enabledUsuario) {
+        this.enabledUsuario = enabledUsuario;
     }
 }
