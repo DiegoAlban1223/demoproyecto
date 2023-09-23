@@ -34,5 +34,15 @@ public class UsuarioServiceImplement implements IUsuarioService {
         return null;
     }
 
+    @Override
+    public List<String[]> UsersRolUser() {
+        return dR.UsersRolUser();
+    }
+
+
+    @Override
+    public List<String[]> CantUsers() {
+        return dR.CantUsers();
+    }
 
 }

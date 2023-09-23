@@ -4,10 +4,12 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
+import pe.edu.upc.aaw.demoproyecto.dtos.CantUserDTO;
 import pe.edu.upc.aaw.demoproyecto.dtos.UsuarioDTO;
 import pe.edu.upc.aaw.demoproyecto.entities.Usuario;
 import pe.edu.upc.aaw.demoproyecto.serviceinterfaces.IUsuarioService;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -49,5 +51,34 @@ public class UsuarioController {
         ModelMapper m=new ModelMapper();
         Usuario d=m.map(dto,Usuario.class);
         dS.insert(d);
+    }
+    @GetMapping("/usuariosroluser")
+    @PreAuthorize("hasAuthority('admin')")
+    public List<UsuarioDTO> UsuariosRolUser(){
+        List<String[]> lista = dS.UsersRolUser();
+        List<UsuarioDTO> listaDTO = new ArrayList<>();
+        for(String[] data:lista){
+            UsuarioDTO dto = new UsuarioDTO();
+            dto.setIdUsuario(Long.parseLong(data[0]));
+            dto.setEmailUsuario(data[1]);
+            dto.setEnabledUsuario(Boolean.parseBoolean(data[2]));
+            dto.setNameUsuario(data[3]);
+            dto.setPasswordUsuario(data[4]);
+            listaDTO.add(dto);
+        }
+        return listaDTO;
+    }
+
+    @GetMapping("/cantusuarios")
+    @PreAuthorize("hasAuthority('admin')")
+    public List<CantUserDTO> CantidadUsuarios(){
+        List<String[]> lista = dS.CantUsers();
+        List<CantUserDTO> listaDTO = new ArrayList<>();
+        for(String[] data:lista){
+            CantUserDTO dto = new CantUserDTO();
+            dto.setCant(Long.parseLong(data[0]));
+            listaDTO.add(dto);
+        }
+        return listaDTO;
     }
 }

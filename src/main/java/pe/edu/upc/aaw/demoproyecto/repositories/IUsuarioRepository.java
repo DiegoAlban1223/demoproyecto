@@ -8,6 +8,8 @@ import org.springframework.stereotype.Repository;
 import pe.edu.upc.aaw.demoproyecto.entities.Usuario;
 
 import javax.transaction.Transactional;
+import java.security.SecureRandom;
+import java.util.List;
 
 @Repository
 public interface IUsuarioRepository extends JpaRepository<Usuario, Long> {
@@ -21,5 +23,14 @@ public interface IUsuarioRepository extends JpaRepository<Usuario, Long> {
     @Transactional
     @Modifying
     @Query(value = "insert into roles (typeTypeUser, idTypeUser) VALUES (:typeTypeUser, :idTypeUser)", nativeQuery = true)
-    public  void insRol(@Param("typeTypeUser") String authority, @Param("idTypeUser") Long idTypeUser);
+    public void insRol(@Param("typeTypeUser") String authority, @Param("idTypeUser") Long idTypeUser);
+
+    @Query(value = "SELECT u.*\n" +
+            " FROM usuario u INNER JOIN type_users t\n" +
+            " ON u.id_usuario = t.usuario_id\n" +
+            " WHERE t.type_type_user = 'user'", nativeQuery = true)
+    public List<String[]> UsersRolUser();
+    @Query(value = "SELECT COUNT(id_usuario) FROM usuario \n", nativeQuery = true)
+    public List<String[]> CantUsers();
+
 }
