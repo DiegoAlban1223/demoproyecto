@@ -13,9 +13,9 @@ public class Usuario {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idUsuario;
     @Column(name = "nameUsuario", nullable = false, length = 100)
-    private String nameUsuario;
+    private String nameUsuario;//puede ser username
     @Column(name = "passwordUsuario", nullable = false, length = 100)
-    private String passwordUsuario;
+    private String passwordUsuario;// puede ser password
     @Column(name = "emailUsuario", nullable = false, length = 50)
     private String emailUsuario;
 
