@@ -18,6 +18,7 @@
 		<java.version>17</java.version>
 	</properties>
 	<dependencies>
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
@@ -77,11 +78,6 @@
 			<artifactId>spring-boot-starter-validation</artifactId>
 		</dependency>
 
-		<dependency>
-			<groupId>com.yugabyte</groupId>
-			<artifactId>ysql</artifactId>
-			<version>42.2.7-yb-2</version>
-		</dependency>
 
 
 	</dependencies>

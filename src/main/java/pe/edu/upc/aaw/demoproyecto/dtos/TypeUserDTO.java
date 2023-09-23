@@ -1,8 +1,14 @@
 package pe.edu.upc.aaw.demoproyecto.dtos;
 
-public class TypeUserDTO {
-    private Long idTypeUser;
+import pe.edu.upc.aaw.demoproyecto.entities.Usuario;
 
+import javax.persistence.Column;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+
+public class TypeUserDTO {
+
+    private Long idTypeUser;
     private String typeTypeUser;
 
     public Long getIdTypeUser() {

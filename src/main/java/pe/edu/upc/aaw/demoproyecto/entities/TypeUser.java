@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
-@Table(name = "TypeUser", uniqueConstraints = {@UniqueConstraint(columnNames = {"idTypeUser", "typeTypeUser"})})
+@Table(name = "typeUsers", uniqueConstraints = {@UniqueConstraint(columnNames = {"usuario_id", "typeTypeUser"})})
 public class TypeUser implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
@@ -14,7 +14,7 @@ public class TypeUser implements Serializable {
     private String typeTypeUser;
 
     @ManyToOne
-    @JoinColumn(name = "idUsuario", nullable = false)
+    @JoinColumn(name = "usuario_id", nullable = false)
     private Usuario user;
 
     public TypeUser() {

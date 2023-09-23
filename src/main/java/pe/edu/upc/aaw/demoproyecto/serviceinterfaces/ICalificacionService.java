@@ -1,7 +1,6 @@
 package pe.edu.upc.aaw.demoproyecto.serviceinterfaces;
 
 import pe.edu.upc.aaw.demoproyecto.entities.Calificacion;
-import pe.edu.upc.aaw.demoproyecto.entities.Reseña;
 
 import java.util.List;
 
