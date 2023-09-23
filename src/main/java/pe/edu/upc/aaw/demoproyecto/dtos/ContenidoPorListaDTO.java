@@ -15,7 +15,6 @@ public class ContenidoPorListaDTO {
     public int getQuantityContenido() {
         return quantityContenido;
     }
-
     public void setQuantityContenido(int quantityContenido) {
         this.quantityContenido = quantityContenido;
     }
