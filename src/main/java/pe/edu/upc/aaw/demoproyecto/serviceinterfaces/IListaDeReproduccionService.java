@@ -11,5 +11,5 @@ public interface IListaDeReproduccionService {
 
     public ListaDeReproduccion listId(int idLista_de_Reproduccion);
 
-    public List<String[]> ListFavoriteFilm();
+    public List<String[]>CantidadContenidoPorListaDeReproduccion();
 }
