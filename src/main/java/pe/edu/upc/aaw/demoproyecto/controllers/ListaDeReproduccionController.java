@@ -42,8 +42,8 @@ public class ListaDeReproduccionController {
         ListaDeReproduccionDTO d = m.map(lS.listId(id), ListaDeReproduccionDTO.class);
         return d;
     }
-    @GetMapping("/cantidades")
-    @PreAuthorize("hasAnyAuthority('ADMIN')")
+    @GetMapping("/cantidadcontenido")
+    @PreAuthorize("hasAnyAuthority('admin')")
     public List<ContenidoPorListaDTO> cantidadContenidoPorLista(){
         List<String[]>lista=lS.CantidadContenidoPorListaDeReproduccion();
         List<ContenidoPorListaDTO> listaDTO=new ArrayList<>();
