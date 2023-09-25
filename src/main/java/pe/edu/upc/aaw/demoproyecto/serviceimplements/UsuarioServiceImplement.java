@@ -25,9 +25,7 @@ public class UsuarioServiceImplement implements IUsuarioService {
 
     @Override
     public void delete(int idUsuario) {
-
     }
-
 
     @Override
     public Usuario listid(int idUsuario) {

@@ -29,21 +29,22 @@ public class TypeUserController {
     }
 
     @GetMapping
-    public List<TypeUserDTO> listar(){
-        return dS.list().stream().map(x->{
-            ModelMapper m=new ModelMapper();
-            return m.map(x,TypeUserDTO.class);
+    public List<TypeUserDTO> listar() {
+        return dS.list().stream().map(x -> {
+            ModelMapper m = new ModelMapper();
+            return m.map(x, TypeUserDTO.class);
         }).collect(Collectors.toList());
     }
+
     @DeleteMapping("/{id}")
     public void eliminar(@PathVariable("id") Integer id) {
         dS.delete(id);
     }
 
     @PutMapping// es para modificar
-    public void modificar(@RequestBody TypeUser dto){
-        ModelMapper m=new ModelMapper();
-        TypeUser d=m.map(dto,TypeUser.class);
+    public void modificar(@RequestBody TypeUser dto) {
+        ModelMapper m = new ModelMapper();
+        TypeUser d = m.map(dto, TypeUser.class);
         dS.insert(d);
     }
 }

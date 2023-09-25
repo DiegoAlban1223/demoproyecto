@@ -18,7 +18,6 @@ public class Usuario {
     private String passwordUsuario;// puede ser password
     @Column(name = "emailUsuario", nullable = false, length = 50)
     private String emailUsuario;
-
     @Column(name = "enabledUsuario",nullable = false)
     private Boolean enabledUsuario;
 
