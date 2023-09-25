@@ -1,5 +1,6 @@
 package pe.edu.upc.aaw.demoproyecto.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.GeneratorType;
 
 import javax.persistence.*;
@@ -20,9 +21,8 @@ public class Usuario {
     private String emailUsuario;
     @Column(name = "enabledUsuario",nullable = false)
     private Boolean enabledUsuario;
-
-    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @JoinColumn(name = "usuario_id")
+    @JsonIgnore
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<TypeUser> roles;
 
     public Usuario() {

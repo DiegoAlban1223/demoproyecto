@@ -2,6 +2,7 @@ package pe.edu.upc.aaw.demoproyecto.controllers;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.aaw.demoproyecto.dtos.CantUserDTO;
@@ -11,6 +12,7 @@ import pe.edu.upc.aaw.demoproyecto.serviceinterfaces.IUsuarioService;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @RestController
@@ -36,21 +38,31 @@ public class UsuarioController {
     }
 
     @DeleteMapping("/{id}")
-    public void eliminar(@PathVariable("id") Integer id) {
+    public ResponseEntity<String> deleteUser(@PathVariable Long id){
         dS.delete(id);
+        return ResponseEntity.ok("Usuario eliminado correctamente");
     }
-
     @GetMapping("/{id}")
-    public UsuarioDTO listarId(@PathVariable("id") Integer id) {
+    public UsuarioDTO listarId(@PathVariable("id") Long id) {
         ModelMapper m = new ModelMapper();
         UsuarioDTO d = m.map(dS.listid(id), UsuarioDTO.class);
         return d;
     }
     @PutMapping
-    public void modificar(@RequestBody Usuario dto){
-        ModelMapper m=new ModelMapper();
-        Usuario d=m.map(dto,Usuario.class);
-        dS.insert(d);
+    public ResponseEntity<String>modificar(@RequestBody UsuarioDTO dto)
+    {
+        Optional<Usuario> usuarioExistente = Optional.ofNullable(dS.listid(dto.getIdUsuario()));
+
+        if(usuarioExistente.isPresent())
+        {
+            ModelMapper m =  new ModelMapper();
+            m.map(dto,usuarioExistente.get());
+            dS.insert(usuarioExistente.get());
+
+            return ResponseEntity.ok("Usuario modificado correctamente");
+        } else {
+            return ResponseEntity.notFound().build();
+        }
     }
     @GetMapping("/usuariosroluser")
     @PreAuthorize("hasAuthority('admin')")
