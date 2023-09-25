@@ -15,30 +15,30 @@ import java.io.Serializable;
 @NoArgsConstructor*/
 public class JwtRequest implements Serializable {
 	private static final long serialVersionUID = 5926468583005150707L;
-	private String username;
-	private String password;
+	private String nameUsuario;
+	private String passwordUsuario;
 	public JwtRequest() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public JwtRequest(String username, String password) {
+	public JwtRequest(String nameUsuario, String passwordUsuario) {
 		super();
-		this.username = username;
-		this.password = password;
+		this.nameUsuario = nameUsuario;
+		this.passwordUsuario = passwordUsuario;
 	}
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
-	public String getUsername() {
-		return username;
+	public String getNameUsuario() {
+		return nameUsuario;
 	}
-	public String getPassword() {
-		return password;
+	public String getPasswordUsuario() {
+		return passwordUsuario;
 	}
-	public void setUsername(String username) {
-		this.username = username;
+	public void setNameUsuario(String nameUsuario) {
+		this.nameUsuario = nameUsuario;
 	}
-	public void setPassword(String password) {
-		this.password = password;
+	public void setPasswordUsuario(String passwordUsuario) {
+		this.passwordUsuario = passwordUsuario;
 	}
 }
