@@ -12,15 +12,7 @@ public class PagoDTO {
     private boolean payConfirmed;
     private LocalDate datePago;
     private Membresia membresia;
-    private Card card;
 
-    public Card getCard() {
-        return card;
-    }
-
-    public void setCard(Card card) {
-        this.card = card;
-    }
 
     public int getId() {
         return id;

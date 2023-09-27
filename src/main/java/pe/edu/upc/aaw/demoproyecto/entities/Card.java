@@ -8,14 +8,20 @@ public class Card {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idCard;
-    @Column
-    private int typeTarjeta;
+    @Column(name = "typeTarjeta", nullable = false)
+    private String typeTarjeta;
 
     @OneToOne
     @JoinColumn(name = "id")
     private Pago pago;
 
     public Card() {
+    }
+
+    public Card(int idCard, String typeTarjeta, Pago pago) {
+        this.idCard = idCard;
+        this.typeTarjeta = typeTarjeta;
+        this.pago = pago;
     }
 
     public int getIdCard() {
@@ -26,11 +32,11 @@ public class Card {
         this.idCard = idCard;
     }
 
-    public int getTypeTarjeta() {
+    public String getTypeTarjeta() {
         return typeTarjeta;
     }
 
-    public void setTypeTarjeta(int typeTarjeta) {
+    public void setTypeTarjeta(String typeTarjeta) {
         this.typeTarjeta = typeTarjeta;
     }
 

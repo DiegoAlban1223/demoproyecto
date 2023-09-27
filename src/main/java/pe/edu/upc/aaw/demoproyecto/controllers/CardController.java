@@ -2,10 +2,15 @@ package pe.edu.upc.aaw.demoproyecto.controllers;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.aaw.demoproyecto.dtos.CardDTO;
 import pe.edu.upc.aaw.demoproyecto.entities.Card;
+import pe.edu.upc.aaw.demoproyecto.entities.Membresia;
+import pe.edu.upc.aaw.demoproyecto.entities.Pago;
+import pe.edu.upc.aaw.demoproyecto.entities.Usuario;
 import pe.edu.upc.aaw.demoproyecto.serviceinterfaces.ICardService;
+import pe.edu.upc.aaw.demoproyecto.serviceinterfaces.IPagoService;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -18,12 +23,29 @@ public class CardController {
     @Autowired
     private ICardService cS;
 
+    @Autowired
+    private IPagoService pS;
+
     @PostMapping//es para  crear
-    public void registrar(@RequestBody CardDTO dto) {
+    public ResponseEntity<String> registrar(@RequestBody CardDTO dto) {
         ModelMapper m = new ModelMapper();
         Card c = m.map(dto, Card.class);
+        Pago p = c.getPago();
+
+        if (p == null || p.getId() == 0 ||!PagoExiste(p.getId())) {
+            return ResponseEntity.badRequest().body("No existe membresía asociada");
+        }
+
         cS.insert(c);
+
+        return ResponseEntity.ok("Registrado exitosamente");
     }
+
+    private boolean PagoExiste(int id) {
+        Pago pago = pS.listId(id);
+        return pago!=null && pago.getId() > 0 ;
+    }
+
 
     @GetMapping//es para retornar
     public List<CardDTO> listar() {

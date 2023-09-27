@@ -15,5 +15,8 @@ public interface IPagoService {
 
     List<Pago>findByDatePago(LocalDate datePago);
 
+    List<Pago> findPagosAnioActualMayor100Credito();
+    List<Object[]> findPagosMenosDe200AnualCreditoConSumaTotal();
+
 
 }
