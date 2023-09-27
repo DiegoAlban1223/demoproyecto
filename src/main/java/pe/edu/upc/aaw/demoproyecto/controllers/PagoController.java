@@ -3,14 +3,18 @@ package pe.edu.upc.aaw.demoproyecto.controllers;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.aaw.demoproyecto.dtos.DispositivoDTO;
 import pe.edu.upc.aaw.demoproyecto.dtos.PagoDTO;
+import pe.edu.upc.aaw.demoproyecto.entities.Card;
 import pe.edu.upc.aaw.demoproyecto.entities.Membresia;
 import pe.edu.upc.aaw.demoproyecto.entities.Pago;
+import pe.edu.upc.aaw.demoproyecto.repositories.IPagoRepository;
 import pe.edu.upc.aaw.demoproyecto.serviceimplements.MembresiaServiceImplement;
+import pe.edu.upc.aaw.demoproyecto.serviceinterfaces.ICardService;
 import pe.edu.upc.aaw.demoproyecto.serviceinterfaces.IMembresiaService;
 import pe.edu.upc.aaw.demoproyecto.serviceinterfaces.IPagoService;
 
@@ -30,6 +34,11 @@ public class PagoController {
     @Autowired
     private IMembresiaService mS;
 
+    @Autowired
+    private ICardService cS;
+
+    @Autowired
+    IPagoRepository pr;
     @PostMapping
     public ResponseEntity<String> registrar(@RequestBody PagoDTO dto) {
         ModelMapper m = new ModelMapper();
@@ -66,8 +75,6 @@ public class PagoController {
         }).collect(Collectors.toList());
     }
 
-    @DeleteMapping("/{id}")
-    public void eliminar(@PathVariable("id") Integer id){pS.delete(id);}
 
     @GetMapping("/{id}")
     public PagoDTO listarId(@PathVariable("id")Integer id){
@@ -80,7 +87,7 @@ public class PagoController {
         List<Pago>pagos = pS.findPagosAnioActualMayor100Credito();
         return ResponseEntity.ok(pagos);
     }
-
+/*
     @GetMapping("/pagostotal")
     public ResponseEntity<List<Pago>> findPagosMenosDe200AnualCreditoConSumaTotal() {
         List<Object[]> resultados = pS.findPagosMenosDe200AnualCreditoConSumaTotal();
@@ -92,7 +99,7 @@ public class PagoController {
 
         return ResponseEntity.ok(pagos);
     }
-
+*/
 
 
 }

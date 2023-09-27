@@ -1,25 +1,29 @@
 package pe.edu.upc.aaw.demoproyecto.entities;
 
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import javax.persistence.*;
 import java.time.LocalDate;
 
 @Entity
 @Table(name = "Pago")
 public class Pago {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
-    @Column(name = "quantityPago",nullable = false)
-    private int quantityPago;
-    @Column(name = "payConfirmed",nullable = false)
-    private boolean payConfirmed;
-    @Column(name = "datePago",nullable = false)
-    private LocalDate datePago;
+        @Id
+        @GeneratedValue(strategy = GenerationType.IDENTITY)
+        private int id;
+        @Column(name = "quantityPago",nullable = false)
+        private int quantityPago;
+        @Column(name = "payConfirmed",nullable = false)
+        private boolean payConfirmed;
+        @Column(name = "datePago",nullable = false)
+        private LocalDate datePago;
 
-    @ManyToOne
-    @JoinColumn(name = "idMembresia")
-    private Membresia membresia;
+        @ManyToOne
+        @JoinColumn(name = "idMembresia")
+        private Membresia membresia;
+
 
 
 

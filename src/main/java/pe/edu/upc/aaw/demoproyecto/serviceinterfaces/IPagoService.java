@@ -9,7 +9,7 @@ public interface IPagoService {
     public void insert(Pago pago);
     public List<Pago> list();
 
-    public void delete(int id);
+    public boolean delete(int id);
 
     public Pago listId(int id);
 
