@@ -12,19 +12,19 @@ public class Calificacion {
     private int Score;
     @ManyToOne
     @JoinColumn(name = "idContenido")
-    private Contenido Contenido;
+    private Contenido contenido;
     @ManyToOne
     @JoinColumn(name = "idUsuario")
-    private Usuario Usuario;
+    private Usuario usuario;
 
     public Calificacion() {
     }
 
-    public Calificacion(int idCalificacion, int score, Contenido contenido, pe.edu.upc.aaw.demoproyecto.entities.Usuario usuario) {
+    public Calificacion(int idCalificacion, int score, Contenido contenido, Usuario usuario) {
         this.idCalificacion = idCalificacion;
         Score = score;
-        Contenido = contenido;
-        Usuario = usuario;
+        this.contenido = contenido;
+        this.usuario = usuario;
     }
 
     public int getIdCalificacion() {
@@ -44,18 +44,18 @@ public class Calificacion {
     }
 
     public Contenido getContenido() {
-        return Contenido;
+        return contenido;
     }
 
     public void setContenido(Contenido contenido) {
-        Contenido = contenido;
+        this.contenido = contenido;
     }
 
-    public pe.edu.upc.aaw.demoproyecto.entities.Usuario getUsuario() {
-        return Usuario;
+    public Usuario getUsuario() {
+        return usuario;
     }
 
-    public void setUsuario(pe.edu.upc.aaw.demoproyecto.entities.Usuario usuario) {
-        Usuario = usuario;
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
     }
 }
