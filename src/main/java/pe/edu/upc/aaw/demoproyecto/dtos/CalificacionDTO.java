@@ -5,8 +5,8 @@ import pe.edu.upc.aaw.demoproyecto.entities.Contenido;
 public class CalificacionDTO {
     private int idCalificacion;
     private int Score;
-    private Contenido Contenido;
-    private Usuario Usuario;
+    private Contenido contenido;
+    private Usuario usuario;
 
     public int getIdCalificacion() {
         return idCalificacion;
@@ -25,18 +25,18 @@ public class CalificacionDTO {
     }
 
     public Contenido getContenido() {
-        return Contenido;
+        return contenido;
     }
 
     public void setContenido(Contenido contenido) {
-        Contenido = contenido;
+        this.contenido = contenido;
     }
 
-    public pe.edu.upc.aaw.demoproyecto.entities.Usuario getUsuario() {
-        return Usuario;
+    public Usuario getUsuario() {
+        return usuario;
     }
 
-    public void setUsuario(pe.edu.upc.aaw.demoproyecto.entities.Usuario usuario) {
-        Usuario = usuario;
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
     }
 }

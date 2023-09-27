@@ -9,16 +9,10 @@ public class ResenaDTO {
     private int idResena;
     private String Text;
     private LocalDate Date;
-    private Usuario Usuario;
-    private Contenido Contenido;
+    private Usuario usuario;
+    private Contenido contenido;
 
-    public int getIdReseña() {
-        return idResena;
-    }
 
-    public void setIdReseña(int idReseña) {
-        this.idResena = idReseña;
-    }
 
     public String getText() {
         return Text;
@@ -34,19 +28,22 @@ public class ResenaDTO {
         Date = fecha;
     }
 
-    public pe.edu.upc.aaw.demoproyecto.entities.Usuario getUsuario() {
-        return Usuario;
+    public int getIdResena() {
+        return idResena;
     }
-
-    public void setUsuario(pe.edu.upc.aaw.demoproyecto.entities.Usuario usuario) {
-        Usuario = usuario;
+    public void setIdResena(int idResena) {
+        this.idResena = idResena;
     }
-
+    public Usuario getUsuario() {
+        return usuario;
+    }
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
     public Contenido getContenido() {
-        return Contenido;
+        return contenido;
     }
-
     public void setContenido(Contenido contenido) {
-        Contenido = contenido;
+        this.contenido = contenido;
     }
 }
