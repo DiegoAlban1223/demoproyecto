@@ -10,6 +10,8 @@ public class PagoDTO {
     private int id;
     private int quantityPago;
     private boolean payConfirmed;
+
+    private Card card;
     private LocalDate datePago;
     private Membresia membresia;
 
@@ -53,4 +55,6 @@ public class PagoDTO {
     public void setMembresia(Membresia membresia) {
         this.membresia = membresia;
     }
+
+
 }

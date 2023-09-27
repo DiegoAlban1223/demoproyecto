@@ -1,6 +1,9 @@
 package pe.edu.upc.aaw.demoproyecto.entities;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "Card")

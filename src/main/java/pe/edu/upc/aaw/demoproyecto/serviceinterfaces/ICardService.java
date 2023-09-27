@@ -10,4 +10,6 @@ public interface ICardService {
     public List<Card> list();
     public void delete(int idCard);
     public Card listId(int idCard);
+
+
 }

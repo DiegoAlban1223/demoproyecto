@@ -1,6 +1,7 @@
 package pe.edu.upc.aaw.demoproyecto.serviceimplements;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 import pe.edu.upc.aaw.demoproyecto.entities.Pago;
 import pe.edu.upc.aaw.demoproyecto.repositories.IMembresiaRepository;
@@ -30,8 +31,13 @@ public class PagoServiceImplement implements IPagoService {
     }
 
     @Override
-    public void delete(int id) {
-        pR.deleteById(id);
+    public boolean delete(int id) {
+        try {
+            pR.deleteById(id);
+            return true; // Devuelve true si la eliminación fue exitosa
+        } catch (EmptyResultDataAccessException ex) {
+            return false; // Devuelve false si no se encontró el registro
+        }
     }
 
     @Override

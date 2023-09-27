@@ -30,7 +30,7 @@ public class CardController {
     public ResponseEntity<String> registrar(@RequestBody CardDTO dto) {
         ModelMapper m = new ModelMapper();
         Card c = m.map(dto, Card.class);
-        Pago p = c.getPago();
+        Pago p = (Pago) c.getPago();
 
         if (p == null || p.getId() == 0 ||!PagoExiste(p.getId())) {
             return ResponseEntity.badRequest().body("No existe membresía asociada");
@@ -62,8 +62,10 @@ public class CardController {
         cS.insert(c);
     }
     @DeleteMapping("/{id}")//es para borrar
-    public void eliminar(@PathVariable("id") Integer id) {
-        cS.delete(id);
+    public ResponseEntity<String> eliminar(@PathVariable("id") Integer id) {
+            cS.delete(id);
+            return ResponseEntity.ok("Eliminado exitosamente");
+
     }
 
     @GetMapping("/{id}")
