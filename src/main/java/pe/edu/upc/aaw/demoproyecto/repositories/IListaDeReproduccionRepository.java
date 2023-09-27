@@ -7,9 +7,9 @@ import pe.edu.upc.aaw.demoproyecto.entities.ListaDeReproduccion;
 import java.util.List;
 
 public interface IListaDeReproduccionRepository extends JpaRepository<ListaDeReproduccion,Integer> {
-    @Query(value = "SELECT l.nameLista_de_Reproduccion,count(c.idContenido)\n" +
-            " FROM ListaDeReproduccion l INNER JOIN contenido c \n" +
-            " ON l.idLista_de_Reproduccion=c.idLista_de_Reproduccion \n" +
-            " GROUP BY c.nameLista_de_Reproduccion;",nativeQuery = true)
+    @Query(value = "SELECT l.name_lista_de_reproduccion,count(c.id_contenido)\n" +
+            "FROM lista_de_reproduccion l INNER JOIN contenido c\n" +
+            "ON l.id_lista_de_reproduccion=c.id_lista_de_reproduccion\n" +
+            "GROUP BY l.name_lista_de_reproduccion",nativeQuery = true)
     public List<String[]>CantidadContenidoPorListaDeReproduccion();
 }
