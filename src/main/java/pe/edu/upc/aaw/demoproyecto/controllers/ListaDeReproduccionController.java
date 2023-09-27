@@ -4,8 +4,10 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
+import pe.edu.upc.aaw.demoproyecto.dtos.ContenidoDTO;
 import pe.edu.upc.aaw.demoproyecto.dtos.ContenidoPorListaDTO;
 import pe.edu.upc.aaw.demoproyecto.dtos.ListaDeReproduccionDTO;
+import pe.edu.upc.aaw.demoproyecto.entities.Contenido;
 import pe.edu.upc.aaw.demoproyecto.entities.ListaDeReproduccion;
 import pe.edu.upc.aaw.demoproyecto.serviceinterfaces.IListaDeReproduccionService;
 
@@ -35,7 +37,12 @@ public class ListaDeReproduccionController {
             return m.map(x, ListaDeReproduccionDTO.class);
         }).collect(Collectors.toList());
     }
-
+    @PutMapping
+    public void modificar(@RequestBody ListaDeReproduccionDTO dto){
+        ModelMapper m=new ModelMapper();
+        ListaDeReproduccion p = m.map(dto,ListaDeReproduccion.class);
+        lS.insert(p);
+    }
     @GetMapping("/{id}")
     public ListaDeReproduccionDTO listarId(@PathVariable("id") Integer id) {
         ModelMapper m = new ModelMapper();
