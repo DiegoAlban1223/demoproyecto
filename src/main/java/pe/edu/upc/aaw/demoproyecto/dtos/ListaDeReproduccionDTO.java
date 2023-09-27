@@ -1,24 +1,28 @@
 package pe.edu.upc.aaw.demoproyecto.dtos;
 import pe.edu.upc.aaw.demoproyecto.entities.Usuario;
 public class ListaDeReproduccionDTO {
-    private int idLista_de_Reproduccion;
-    private String nameLista_de_Reproduccion;
+
+    private int idListadeReproduccion;
+
+
+    private String nameListadeReproduccion;
+
     private Usuario usuario;
 
-    public int getIdLista_de_Reproduccion() {
-        return idLista_de_Reproduccion;
+    public int getIdListadeReproduccion() {
+        return idListadeReproduccion;
     }
 
-    public void setIdLista_de_Reproduccion(int idLista_de_Reproduccion) {
-        this.idLista_de_Reproduccion = idLista_de_Reproduccion;
+    public void setIdListadeReproduccion(int idLista_de_Reproduccion) {
+        this.idListadeReproduccion = idLista_de_Reproduccion;
     }
 
-    public String getNameLista_de_Reproduccion() {
-        return nameLista_de_Reproduccion;
+    public String getNameListadeReproduccion() {
+        return nameListadeReproduccion;
     }
 
-    public void setNameLista_de_Reproduccion(String nameLista_de_Reproduccion) {
-        this.nameLista_de_Reproduccion = nameLista_de_Reproduccion;
+    public void setNameListadeReproduccion(String nameListadeReproduccion) {
+        this.nameListadeReproduccion = nameListadeReproduccion;
     }
 
     public Usuario getUsuario() {

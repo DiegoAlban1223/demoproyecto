@@ -17,14 +17,24 @@ public class Pago {
     @Column(name = "datePago",nullable = false)
     private LocalDate datePago;
 
-    public Pago(int id, int quantityPago, boolean payConfirmed, LocalDate datePago) {
+    @ManyToOne
+    @JoinColumn(name = "idMembresia")
+    private Membresia membresia;
+
+
+
+    public Pago() {
+    }
+
+
+    public Pago(int id, int quantityPago, boolean payConfirmed, LocalDate datePago, Membresia membresia) {
         this.id = id;
         this.quantityPago = quantityPago;
         this.payConfirmed = payConfirmed;
         this.datePago = datePago;
-    }
+        this.membresia = membresia;
 
-    public Pago() {}
+    }
 
     public int getId() {
         return id;
@@ -57,4 +67,14 @@ public class Pago {
     public void setDatePago(LocalDate datePago) {
         this.datePago = datePago;
     }
+
+    public Membresia getMembresia() {
+        return membresia;
+    }
+
+    public void setMembresia(Membresia membresia) {
+        this.membresia = membresia;
+    }
+
+
 }

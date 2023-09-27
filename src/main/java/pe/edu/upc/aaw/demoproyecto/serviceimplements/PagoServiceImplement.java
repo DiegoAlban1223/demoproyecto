@@ -3,6 +3,7 @@ package pe.edu.upc.aaw.demoproyecto.serviceimplements;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import pe.edu.upc.aaw.demoproyecto.entities.Pago;
+import pe.edu.upc.aaw.demoproyecto.repositories.IMembresiaRepository;
 import pe.edu.upc.aaw.demoproyecto.repositories.IPagoRepository;
 import pe.edu.upc.aaw.demoproyecto.serviceinterfaces.IPagoService;
 
@@ -13,12 +14,15 @@ import java.util.List;
 public class PagoServiceImplement implements IPagoService {
     @Autowired
     private IPagoRepository pR;
+    @Autowired
+    private IMembresiaRepository mR;
 
     @Override
     public void insert(Pago pago) {
         pR.save(pago);
 
     }
+
 
     @Override
     public List<Pago> list() {
@@ -39,5 +43,17 @@ public class PagoServiceImplement implements IPagoService {
     public List<Pago> findByDatePago(LocalDate datePago) {
         return pR.findByDatePago(datePago);
     }
+
+    @Override
+    public List<Pago> findPagosAnioActualMayor100Credito() {
+        return pR.findPagosAnioActualMayor100Credito();
+    }
+
+    @Override
+    public List<Object[]> findPagosMenosDe200AnualCreditoConSumaTotal() {
+        return pR.findPagosMenosDe200AnualCreditoConSumaTotal();
+    }
+
+
 }
 

@@ -1,5 +1,9 @@
 package pe.edu.upc.aaw.demoproyecto.dtos;
 
+import pe.edu.upc.aaw.demoproyecto.entities.Card;
+import pe.edu.upc.aaw.demoproyecto.entities.Membresia;
+
+import javax.persistence.*;
 import java.time.LocalDate;
 
 public class PagoDTO {
@@ -7,6 +11,8 @@ public class PagoDTO {
     private int quantityPago;
     private boolean payConfirmed;
     private LocalDate datePago;
+    private Membresia membresia;
+
 
     public int getId() {
         return id;
@@ -38,5 +44,13 @@ public class PagoDTO {
 
     public void setDatePago(LocalDate datePago) {
         this.datePago = datePago;
+    }
+
+    public Membresia getMembresia() {
+        return membresia;
+    }
+
+    public void setMembresia(Membresia membresia) {
+        this.membresia = membresia;
     }
 }

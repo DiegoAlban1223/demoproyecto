@@ -7,7 +7,7 @@ public class ListaDeReproduccion {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idListaDeReproduccion;
-    @Column(name = "nameListaDeReproduccion",nullable = false,length = 45)
+    @Column(name = "nameListaDeReproduccion",length = 45)
     private String nameListaDeReproduccion;
 
     @ManyToOne

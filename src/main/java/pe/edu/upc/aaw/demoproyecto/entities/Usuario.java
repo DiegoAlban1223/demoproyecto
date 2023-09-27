@@ -1,5 +1,6 @@
 package pe.edu.upc.aaw.demoproyecto.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.GeneratorType;
 
 import javax.persistence.*;
@@ -13,17 +14,16 @@ public class Usuario {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idUsuario;
     @Column(name = "nameUsuario", nullable = false, length = 100)
-    private String nameUsuario;
+    private String nameUsuario;//puede ser username
     @Column(name = "passwordUsuario", nullable = false, length = 100)
-    private String passwordUsuario;
+    private String passwordUsuario;// puede ser password
     @Column(name = "emailUsuario", nullable = false, length = 50)
     private String emailUsuario;
 
     @Column(name = "enabledUsuario",nullable = false)
     private Boolean enabledUsuario;
-
-    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @JoinColumn(name = "usuario_id")
+    @JsonIgnore
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<TypeUser> roles;
 
     public Usuario() {
