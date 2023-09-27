@@ -16,22 +16,19 @@ public class CardServiceImplement implements ICardService {
 
 
     @Override
-    public void insert(Card card) {
+    public void insert(Card card) { cR.save(card); }
 
-    }
 
     @Override
-    public List<Card> list() {
-        return null;
-    }
+    public List<Card> list() {  return cR.findAll();}
 
     @Override
     public void delete(int idCard) {
-
+        cR.deleteById(idCard);
     }
 
     @Override
     public Card listId(int idCard) {
-        return null;
+        return cR.findById(idCard).orElse(new Card());
     }
 }

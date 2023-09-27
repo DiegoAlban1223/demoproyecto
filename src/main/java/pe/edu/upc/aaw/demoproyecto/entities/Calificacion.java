@@ -8,7 +8,7 @@ public class Calificacion {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idCalificacion;
-    @Column(name="Puntuacion", nullable = false)
+    @Column(name="Score", nullable = false)
     private int Score;
     @ManyToOne
     @JoinColumn(name = "idContenido")

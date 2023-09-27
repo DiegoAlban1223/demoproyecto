@@ -1,30 +1,43 @@
 package pe.edu.upc.aaw.demoproyecto.entities;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
-@Table(name = "TypeUser")
-public class TypeUser {
-
+@Table(name = "typeUsers", uniqueConstraints = {@UniqueConstraint(columnNames = {"usuario_id", "typeTypeUser"})})
+public class TypeUser implements Serializable {
+    private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int idTypeUser;
-    @Column(name = "typeTupeUser",nullable = false,length = 15)
+    private Long idTypeUser;
+    @Column(name = "typeTypeUser",nullable = false,length = 15)
     private String typeTypeUser;
+
+    @ManyToOne
+    @JoinColumn(name = "usuario_id", nullable = false)
+    private Usuario user;
 
     public TypeUser() {
     }
 
-    public TypeUser(int idTypeUser, String typeTypeUser) {
+    public TypeUser(Long idTypeUser, String typeTypeUser) {
         this.idTypeUser = idTypeUser;
         this.typeTypeUser = typeTypeUser;
     }
 
-    public int getIdTypeUser() {
+    public Usuario getUser() {
+        return user;
+    }
+
+    public void setUser(Usuario user) {
+        this.user = user;
+    }
+
+    public Long getIdTypeUser() {
         return idTypeUser;
     }
 
-    public void setIdTypeUser(int idTypeUser) {
+    public void setIdTypeUser(Long idTypeUser) {
         this.idTypeUser = idTypeUser;
     }
 

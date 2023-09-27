@@ -3,6 +3,7 @@ package pe.edu.upc.aaw.demoproyecto.entities;
 import org.hibernate.annotations.GeneratorType;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "Usuario")
@@ -10,36 +11,37 @@ public class Usuario {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int idUsuario;
-    @Column(name = "nameUsuario", nullable = false, length = 40)
-    private String nameUsuario;
-    @Column(name = "password", nullable = false, length = 40)
-    private String password;
-    @Column(name = "emailUsuario", nullable = false, length = 40)
+    private Long idUsuario;
+    @Column(name = "nameUsuario", nullable = false, length = 100)
+    private String nameUsuario;//puede ser username
+    @Column(name = "passwordUsuario", nullable = false, length = 100)
+    private String passwordUsuario;// puede ser password
+    @Column(name = "emailUsuario", nullable = false, length = 50)
     private String emailUsuario;
 
-    private Boolean enabled;
+    @Column(name = "enabledUsuario",nullable = false)
+    private Boolean enabledUsuario;
 
-    @ManyToOne
-    @JoinColumn(name = "idTypeUser")
-    private TypeUser typeUser;
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinColumn(name = "usuario_id")
+    private List<TypeUser> roles;
 
     public Usuario() {
     }
 
-    public Usuario(int idUsuario, String nameUsuario, String password, String emailUsuario, TypeUser typeUser) {
+    public Usuario(Long idUsuario, String nameUsuario, String passwordUsuario, String emailUsuario) {
         this.idUsuario = idUsuario;
         this.nameUsuario = nameUsuario;
-        this.password = password;
+        this.passwordUsuario = passwordUsuario;
         this.emailUsuario = emailUsuario;
-        this.typeUser = typeUser;
+
     }
 
-    public int getIdUsuario() {
+    public Long getIdUsuario() {
         return idUsuario;
     }
 
-    public void setIdUsuario(int idUsuario) {
+    public void setIdUsuario(Long idUsuario) {
         this.idUsuario = idUsuario;
     }
 
@@ -52,11 +54,11 @@ public class Usuario {
     }
 
     public String getPassword() {
-        return password;
+        return passwordUsuario;
     }
 
     public void setPassword(String password) {
-        this.password = password;
+        this.passwordUsuario = password;
     }
 
     public String getEmailUsuario() {
@@ -68,18 +70,18 @@ public class Usuario {
     }
 
     public Boolean getEnabled() {
-        return enabled;
+        return enabledUsuario;
     }
 
     public void setEnabled(Boolean enabled) {
-        this.enabled = enabled;
+        this.enabledUsuario = enabled;
     }
 
-    public TypeUser getTypeUser() {
-        return typeUser;
+    public List<TypeUser> getRoles() {
+        return roles;
     }
 
-    public void setTypeUser(TypeUser typeUser) {
-        this.typeUser = typeUser;
+    public void setRoles(List<TypeUser> roles) {
+        this.roles = roles;
     }
 }

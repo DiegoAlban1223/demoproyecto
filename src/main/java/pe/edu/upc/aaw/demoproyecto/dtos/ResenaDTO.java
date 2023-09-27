@@ -5,19 +5,19 @@ import pe.edu.upc.aaw.demoproyecto.entities.Contenido;
 
 import java.time.LocalDate;
 
-public class ReseñaDTO {
-    private int idReseña;
+public class ResenaDTO {
+    private int idResena;
     private String Text;
     private LocalDate Date;
     private Usuario Usuario;
     private Contenido Contenido;
 
     public int getIdReseña() {
-        return idReseña;
+        return idResena;
     }
 
     public void setIdReseña(int idReseña) {
-        this.idReseña = idReseña;
+        this.idResena = idReseña;
     }
 
     public String getText() {
