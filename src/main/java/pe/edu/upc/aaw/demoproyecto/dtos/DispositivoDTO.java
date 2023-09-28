@@ -1,7 +1,9 @@
 package pe.edu.upc.aaw.demoproyecto.dtos;
 
+import pe.edu.upc.aaw.demoproyecto.entities.Membresia;
 import pe.edu.upc.aaw.demoproyecto.entities.Usuario;
 
+import javax.persistence.*;
 import java.time.LocalDate;
 
 public class DispositivoDTO {
@@ -11,7 +13,7 @@ public class DispositivoDTO {
     private String brandDispositivo;
     private String modelDispositivo;
     private LocalDate dateRegistro;
-    private Usuario usuario;
+    private Membresia membresia;
 
     public int getIdDispositivo() {
         return idDispositivo;
@@ -61,11 +63,11 @@ public class DispositivoDTO {
         this.dateRegistro = dateRegistro;
     }
 
-    public Usuario getUsuario() {
-        return usuario;
+    public Membresia getMembresia() {
+        return membresia;
     }
 
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
+    public void setMembresia(Membresia membresia) {
+        this.membresia = membresia;
     }
 }

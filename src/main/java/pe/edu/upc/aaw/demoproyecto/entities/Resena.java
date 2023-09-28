@@ -15,20 +15,20 @@ public class Resena {
     private LocalDate dateResena;
     @ManyToOne
     @JoinColumn(name = "idUsuario")
-    private Usuario Usuario;
+    private Usuario usuario;
     @ManyToOne
     @JoinColumn(name = "idContenido")
-    private Contenido Contenido;
+    private Contenido contenido;
 
     public Resena() {
     }
 
-    public Resena(int idResena, String textResena, LocalDate dateResena, pe.edu.upc.aaw.demoproyecto.entities.Usuario usuario, pe.edu.upc.aaw.demoproyecto.entities.Contenido contenido) {
+    public Resena(int idResena, String textResena, LocalDate dateResena, Usuario usuario, Contenido contenido) {
         this.idResena = idResena;
         this.textResena = textResena;
         this.dateResena = dateResena;
-        Usuario = usuario;
-        Contenido = contenido;
+        this.usuario = usuario;
+        this.contenido = contenido;
     }
 
     public int getIdResena() {
@@ -55,19 +55,19 @@ public class Resena {
         this.dateResena = dateResena;
     }
 
-    public pe.edu.upc.aaw.demoproyecto.entities.Usuario getUsuario() {
-        return Usuario;
+    public Usuario getUsuario() {
+        return usuario;
     }
 
-    public void setUsuario(pe.edu.upc.aaw.demoproyecto.entities.Usuario usuario) {
-        Usuario = usuario;
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
     }
 
-    public pe.edu.upc.aaw.demoproyecto.entities.Contenido getContenido() {
-        return Contenido;
+    public Contenido getContenido() {
+        return contenido;
     }
 
-    public void setContenido(pe.edu.upc.aaw.demoproyecto.entities.Contenido contenido) {
-        Contenido = contenido;
+    public void setContenido(Contenido contenido) {
+        this.contenido = contenido;
     }
 }

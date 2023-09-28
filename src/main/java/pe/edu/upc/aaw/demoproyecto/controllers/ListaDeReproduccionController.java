@@ -40,6 +40,15 @@ public class ListaDeReproduccionController {
         ListaDeReproduccionDTO d = m.map(lS.listId(id), ListaDeReproduccionDTO.class);
         return d;
     }
+    @PutMapping
+    public void modificar(@RequestBody ListaDeReproduccionDTO dto) {
+        ModelMapper m = new ModelMapper();
+        ListaDeReproduccion p = m.map(dto,ListaDeReproduccion.class);
+        lS.insert(p);
+    }
 
-
+    @DeleteMapping("/{id}")
+    public void eliminar(@PathVariable("id") Integer id){
+        lS.delete(id);
+    }
 }

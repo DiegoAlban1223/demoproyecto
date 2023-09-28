@@ -1,10 +1,12 @@
 package pe.edu.upc.aaw.demoproyecto.entities;
 
+import org.hibernate.annotations.Cascade;
+
 import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
-@Table(name = "typeUsers", uniqueConstraints = {@UniqueConstraint(columnNames = {"usuario_id", "typeTypeUser"})})
+@Table(name = "typeUsers", uniqueConstraints = {@UniqueConstraint(columnNames = {"idUsuario", "typeTypeUser"})})
 public class TypeUser implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
@@ -13,23 +15,17 @@ public class TypeUser implements Serializable {
     @Column(name = "typeTypeUser",nullable = false,length = 15)
     private String typeTypeUser;
 
-    @ManyToOne
-    @JoinColumn(name = "usuario_id", nullable = false)
+    @ManyToOne(cascade = CascadeType.PERSIST)// agregamos esto para ingresar un usuario dentro
+    @JoinColumn(name = "idUsuario", nullable = false)
+   // @Cascade(CascadeType.PERSIST) // Configura la cascada para la operación de persistencia
     private Usuario user;
 
     public TypeUser() {
     }
 
-    public TypeUser(Long idTypeUser, String typeTypeUser) {
+    public TypeUser(Long idTypeUser, String typeTypeUser, Usuario user) {
         this.idTypeUser = idTypeUser;
         this.typeTypeUser = typeTypeUser;
-    }
-
-    public Usuario getUser() {
-        return user;
-    }
-
-    public void setUser(Usuario user) {
         this.user = user;
     }
 
@@ -47,5 +43,13 @@ public class TypeUser implements Serializable {
 
     public void setTypeTypeUser(String typeTypeUser) {
         this.typeTypeUser = typeTypeUser;
+    }
+
+    public Usuario getUser() {
+        return user;
+    }
+
+    public void setUser(Usuario user) {
+        this.user = user;
     }
 }
