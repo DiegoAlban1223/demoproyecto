@@ -35,6 +35,7 @@ public class ResenaController {
     public void eliminar(@PathVariable("id") Integer id) {
         rS.delete(id);
     }
+
     @PutMapping
     public void modificar(@RequestBody Resena dto){
         ModelMapper m=new ModelMapper();
