@@ -32,4 +32,11 @@ public class ListaDeReproduccionServiceImplement implements IListaDeReproduccion
     public ListaDeReproduccion listId(int idLista_de_Reproduccion) {
         return dR.findById(idLista_de_Reproduccion).orElse(new ListaDeReproduccion());
     }
+
+    @Override
+    public List<String[]> CantidadContenidoPorListaDeReproduccion() {
+        return dR.CantidadContenidoPorListaDeReproduccion();
+    }
+
+
 }

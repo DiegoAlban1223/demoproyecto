@@ -2,6 +2,7 @@ package pe.edu.upc.aaw.demoproyecto.controllers;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.Banner;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.aaw.demoproyecto.dtos.DispositivoDTO;
 import pe.edu.upc.aaw.demoproyecto.dtos.MembresiaDTO;
@@ -46,5 +47,13 @@ public class MembresiaController {
         ModelMapper m=new ModelMapper();
         Membresia me=m.map(dto,Membresia.class);
         mS.insert(me);
+    }
+
+    @GetMapping("/buscar")
+    public List<MembresiaDTO>  buscarPorPrecio(@RequestParam Integer precio){
+        return mS.findBypriceMembresia(precio).stream().map(x->{
+            ModelMapper m=new ModelMapper();
+            return m.map(x,MembresiaDTO.class);
+        }).collect(Collectors.toList());
     }
 }
