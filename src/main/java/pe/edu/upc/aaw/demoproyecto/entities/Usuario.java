@@ -21,6 +21,7 @@ public class Usuario {
     private String emailUsuario;
     @Column(name = "enabledUsuario",nullable = false)
     private Boolean enabledUsuario;
+
     @JsonIgnore
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<TypeUser> roles;

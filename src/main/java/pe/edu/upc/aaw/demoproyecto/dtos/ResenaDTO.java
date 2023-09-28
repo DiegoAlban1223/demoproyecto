@@ -3,50 +3,54 @@ package pe.edu.upc.aaw.demoproyecto.dtos;
 import pe.edu.upc.aaw.demoproyecto.entities.Usuario;
 import pe.edu.upc.aaw.demoproyecto.entities.Contenido;
 
+import javax.persistence.*;
 import java.time.LocalDate;
 
 public class ResenaDTO {
-    private int idResena;
-    private String Text;
-    private LocalDate Date;
-    private Usuario Usuario;
-    private Contenido Contenido;
 
-    public int getIdReseña() {
+    private int idResena;
+    private String textResena;
+    private LocalDate dateResena;
+    private Usuario usuario;
+    private Contenido contenido;
+
+    public int getIdResena() {
         return idResena;
     }
 
-    public void setIdReseña(int idReseña) {
-        this.idResena = idReseña;
+    public void setIdResena(int idResena) {
+        this.idResena = idResena;
     }
 
-    public String getText() {
-        return Text;
+    public String getTextResena() {
+        return textResena;
     }
 
-    public void setText(String texto) {Text = texto;}
-
-    public LocalDate getDate() {
-        return Date;
+    public void setTextResena(String textResena) {
+        this.textResena = textResena;
     }
 
-    public void setDate(LocalDate fecha) {
-        Date = fecha;
+    public LocalDate getDateResena() {
+        return dateResena;
     }
 
-    public pe.edu.upc.aaw.demoproyecto.entities.Usuario getUsuario() {
-        return Usuario;
+    public void setDateResena(LocalDate dateResena) {
+        this.dateResena = dateResena;
     }
 
-    public void setUsuario(pe.edu.upc.aaw.demoproyecto.entities.Usuario usuario) {
-        Usuario = usuario;
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
     }
 
     public Contenido getContenido() {
-        return Contenido;
+        return contenido;
     }
 
     public void setContenido(Contenido contenido) {
-        Contenido = contenido;
+        this.contenido = contenido;
     }
 }

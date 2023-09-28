@@ -1,12 +1,16 @@
 package pe.edu.upc.aaw.demoproyecto.dtos;
 
+import pe.edu.upc.aaw.demoproyecto.entities.Usuario;
+
+import javax.persistence.*;
+
 public class MembresiaDTO {
 
     private int idMembresia;
     private String typeMembresia;
     private String descripMembresia;
     private int priceMembresia;
-    private int idUsuario;
+    private Usuario usuario;
 
     public int getIdMembresia() {
         return idMembresia;
@@ -40,11 +44,11 @@ public class MembresiaDTO {
         this.priceMembresia = priceMembresia;
     }
 
-    public int getIdUsuario() {
-        return idUsuario;
+    public Usuario getUsuario() {
+        return usuario;
     }
 
-    public void setIdUsuario(int idUsuario) {
-        this.idUsuario = idUsuario;
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
     }
 }

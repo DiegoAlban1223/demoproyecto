@@ -1,5 +1,6 @@
 package pe.edu.upc.aaw.demoproyecto.serviceinterfaces;
 
+import org.springframework.data.repository.query.Param;
 import pe.edu.upc.aaw.demoproyecto.entities.Contenido;
 
 
@@ -12,4 +13,6 @@ public interface IContenidoService {
     public void delete(int idContenido);
 
     public Contenido listId(int idContenido);
+
+    List<Contenido> findContenidoByNameList( String nameList);
 }

@@ -1,19 +1,22 @@
 package pe.edu.upc.aaw.demoproyecto.dtos;
 
+import pe.edu.upc.aaw.demoproyecto.entities.ListaDeReproduccion;
+
+import javax.persistence.*;
+
 public class ContenidoDTO {
 
     private int idContenido;
     private String titleContenido;
     private String descripContenido;
-    private String cateContenido;
     private int yearContenido;
+    private String directorContenido;
     private String typeContenido;
-    private int seasonsContenido;
-    private int idLista_de_Reproduccion;
+    private String genderContenido;
+    private  String originCountryContenido;
+    private String urlContenido;
     private String languageContenido;
-    private String subContenido;
-    private String typequalityContenido;
-    private int speedContenido;
+    private ListaDeReproduccion listadereproduccion;
 
     public int getIdContenido() {
         return idContenido;
@@ -39,20 +42,20 @@ public class ContenidoDTO {
         this.descripContenido = descripContenido;
     }
 
-    public String getCateContenido() {
-        return cateContenido;
-    }
-
-    public void setCateContenido(String cateContenido) {
-        this.cateContenido = cateContenido;
-    }
-
     public int getYearContenido() {
         return yearContenido;
     }
 
     public void setYearContenido(int yearContenido) {
         this.yearContenido = yearContenido;
+    }
+
+    public String getDirectorContenido() {
+        return directorContenido;
+    }
+
+    public void setDirectorContenido(String directorContenido) {
+        this.directorContenido = directorContenido;
     }
 
     public String getTypeContenido() {
@@ -63,20 +66,28 @@ public class ContenidoDTO {
         this.typeContenido = typeContenido;
     }
 
-    public int getSeasonsContenido() {
-        return seasonsContenido;
+    public String getGenderContenido() {
+        return genderContenido;
     }
 
-    public void setSeasonsContenido(int seasonsContenido) {
-        this.seasonsContenido = seasonsContenido;
+    public void setGenderContenido(String genderContenido) {
+        this.genderContenido = genderContenido;
     }
 
-    public int getIdLista_de_Reproduccion() {
-        return idLista_de_Reproduccion;
+    public String getOriginCountryContenido() {
+        return originCountryContenido;
     }
 
-    public void setIdLista_de_Reproduccion(int idLista_de_Reproduccion) {
-        this.idLista_de_Reproduccion = idLista_de_Reproduccion;
+    public void setOriginCountryContenido(String originCountryContenido) {
+        this.originCountryContenido = originCountryContenido;
+    }
+
+    public String getUrlContenido() {
+        return urlContenido;
+    }
+
+    public void setUrlContenido(String urlContenido) {
+        this.urlContenido = urlContenido;
     }
 
     public String getLanguageContenido() {
@@ -87,27 +98,11 @@ public class ContenidoDTO {
         this.languageContenido = languageContenido;
     }
 
-    public String getSubContenido() {
-        return subContenido;
+    public ListaDeReproduccion getListadereproduccion() {
+        return listadereproduccion;
     }
 
-    public void setSubContenido(String subContenido) {
-        this.subContenido = subContenido;
-    }
-
-    public String getTypequalityContenido() {
-        return typequalityContenido;
-    }
-
-    public void setTypequalityContenido(String typequalityContenido) {
-        this.typequalityContenido = typequalityContenido;
-    }
-
-    public int getSpeedContenido() {
-        return speedContenido;
-    }
-
-    public void setSpeedContenido(int speedContenido) {
-        this.speedContenido = speedContenido;
+    public void setListadereproduccion(ListaDeReproduccion listadereproduccion) {
+        this.listadereproduccion = listadereproduccion;
     }
 }
