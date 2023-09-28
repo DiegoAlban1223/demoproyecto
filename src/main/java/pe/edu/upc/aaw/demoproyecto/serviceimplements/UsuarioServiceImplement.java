@@ -38,5 +38,15 @@ public class UsuarioServiceImplement implements IUsuarioService {
         return dR.findById(idUsuario).orElse(new Usuario());
     }
 
+    @Override
+    public List<String[]> UsersRolUser() {
+        return dR.UsersRolUser();
+    }
+
+    @Override
+    public List<String[]> CantUsers() {
+        return dR.CantUsers();
+    }
+
 
 }
