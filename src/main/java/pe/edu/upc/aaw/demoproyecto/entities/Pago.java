@@ -24,20 +24,23 @@ public class Pago {
         @JoinColumn(name = "idMembresia")
         private Membresia membresia;
 
+        @ManyToOne
+        @JoinColumn(name = "idCard")
+        private Card card;
+
 
 
 
     public Pago() {
     }
 
-
-    public Pago(int id, int quantityPago, boolean payConfirmed, LocalDate datePago, Membresia membresia) {
+    public Pago(int id, int quantityPago, boolean payConfirmed, LocalDate datePago, Membresia membresia, Card card) {
         this.id = id;
         this.quantityPago = quantityPago;
         this.payConfirmed = payConfirmed;
         this.datePago = datePago;
         this.membresia = membresia;
-
+        this.card = card;
     }
 
     public int getId() {
@@ -80,5 +83,11 @@ public class Pago {
         this.membresia = membresia;
     }
 
+    public Card getCard() {
+        return card;
+    }
 
+    public void setCard(Card card) {
+        this.card = card;
+    }
 }

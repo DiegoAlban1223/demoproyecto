@@ -13,6 +13,8 @@ public class PagoDTO {
     private LocalDate datePago;
     private Membresia membresia;
 
+    private Card card;
+
 
     public int getId() {
         return id;
@@ -54,5 +56,11 @@ public class PagoDTO {
         this.membresia = membresia;
     }
 
+    public Card getCard() {
+        return card;
+    }
 
+    public void setCard(Card card) {
+        this.card = card;
+    }
 }

@@ -14,17 +14,15 @@ public class Card {
     @Column(name = "typeTarjeta", nullable = false)
     private String typeTarjeta;
 
-    @OneToOne
-    @JoinColumn(name = "id")
-    private Pago pago;
+
 
     public Card() {
     }
 
-    public Card(int idCard, String typeTarjeta, Pago pago) {
+    public Card(int idCard, String typeTarjeta) {
         this.idCard = idCard;
         this.typeTarjeta = typeTarjeta;
-        this.pago = pago;
+
     }
 
     public int getIdCard() {
@@ -43,11 +41,5 @@ public class Card {
         this.typeTarjeta = typeTarjeta;
     }
 
-    public Pago getPago() {
-        return pago;
-    }
 
-    public void setPago(Pago pago) {
-        this.pago = pago;
-    }
 }
