@@ -1,5 +1,6 @@
 package pe.edu.upc.aaw.demoproyecto.serviceinterfaces;
 
+import org.springframework.data.jpa.repository.Query;
 import pe.edu.upc.aaw.demoproyecto.entities.Usuario;
 
 import java.util.List;
@@ -11,5 +12,9 @@ public interface IUsuarioService {
     public Usuario listid(Long idUsuario);
 
 
+
+    public List<String[]>UsersRolUser();
+
+    public List<String[]>CantUsers();
 
 }

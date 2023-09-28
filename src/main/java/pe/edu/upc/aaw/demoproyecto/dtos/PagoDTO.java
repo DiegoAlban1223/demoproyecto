@@ -63,4 +63,5 @@ public class PagoDTO {
     public void setCard(Card card) {
         this.card = card;
     }
+
 }

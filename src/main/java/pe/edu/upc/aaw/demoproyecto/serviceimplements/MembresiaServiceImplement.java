@@ -34,6 +34,10 @@ public class MembresiaServiceImplement implements IMembresiaService {
         return mR.findById(idMembresia).orElse(new Membresia());
     }
 
+    @Override
+    public List<Membresia> findBypriceMembresia(Integer precio) {
+        return mR.findBypriceMembresia(precio);
+    }
 
 
 

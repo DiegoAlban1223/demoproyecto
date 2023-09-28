@@ -13,10 +13,12 @@ public interface IPagoService {
 
     public Pago listId(int id);
 
+    List<Pago> findPagosAnioActualMayor100Credito();
     List<Pago>findByDatePago(LocalDate datePago);
 
-    List<Pago> findPagosAnioActualMayor100Credito();
+
     List<Object[]> findPagosMenosDe200AnualCreditoConSumaTotal();
+
 
 
 }

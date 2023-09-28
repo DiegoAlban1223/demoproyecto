@@ -10,4 +10,6 @@ public interface IListaDeReproduccionService {
     public void delete(int idLista_de_Reproduccion);
 
     public ListaDeReproduccion listId(int idLista_de_Reproduccion);
+
+    public List<String[]> CantidadContenidoPorListaDeReproduccion();
 }
