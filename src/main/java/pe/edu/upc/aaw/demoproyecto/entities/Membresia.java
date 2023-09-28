@@ -23,6 +23,14 @@ public class Membresia {
     public Membresia() {
     }
 
+    public Membresia(int idMembresia, String typeMembresia, String descripMembresia, int priceMembresia, Usuario usuario) {
+        this.idMembresia = idMembresia;
+        this.typeMembresia = typeMembresia;
+        this.descripMembresia = descripMembresia;
+        this.priceMembresia = priceMembresia;
+        this.usuario = usuario;
+    }
+
     public int getIdMembresia() {
         return idMembresia;
     }
