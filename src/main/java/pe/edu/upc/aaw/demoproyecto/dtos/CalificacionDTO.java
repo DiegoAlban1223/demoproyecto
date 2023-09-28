@@ -4,7 +4,7 @@ import pe.edu.upc.aaw.demoproyecto.entities.Usuario;
 import pe.edu.upc.aaw.demoproyecto.entities.Contenido;
 public class CalificacionDTO {
     private int idCalificacion;
-    private int Score;
+    private int score;
     private Contenido contenido;
     private Usuario usuario;
 
@@ -17,11 +17,11 @@ public class CalificacionDTO {
     }
 
     public int getScore() {
-        return Score;
+        return score;
     }
 
     public void setScore(int score) {
-        Score = score;
+        this.score = score;
     }
 
     public Contenido getContenido() {

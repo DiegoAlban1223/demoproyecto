@@ -2,29 +2,29 @@ package pe.edu.upc.aaw.demoproyecto.dtos;
 
 import pe.edu.upc.aaw.demoproyecto.entities.ListaDeReproduccion;
 
-import javax.persistence.Column;
+import javax.persistence.*;
 
 public class ContenidoDTO {
 
-
+    private int idContenido;
     private String titleContenido;
-
     private String descripContenido;
-
-
     private int yearContenido;
-
     private String directorContenido;
     private String typeContenido;
-
     private String genderContenido;
-
     private  String originCountryContenido;
-
     private String urlContenido;
-
     private String languageContenido;
-    private ListaDeReproduccion listaDeReproduccion;
+    private ListaDeReproduccion listadereproduccion;
+
+    public int getIdContenido() {
+        return idContenido;
+    }
+
+    public void setIdContenido(int idContenido) {
+        this.idContenido = idContenido;
+    }
 
     public String getTitleContenido() {
         return titleContenido;
@@ -98,11 +98,11 @@ public class ContenidoDTO {
         this.languageContenido = languageContenido;
     }
 
-    public ListaDeReproduccion getListaDeReproduccion() {
-        return listaDeReproduccion;
+    public ListaDeReproduccion getListadereproduccion() {
+        return listadereproduccion;
     }
 
-    public void setListaDeReproduccion(ListaDeReproduccion listaDeReproduccion) {
-        this.listaDeReproduccion = listaDeReproduccion;
+    public void setListadereproduccion(ListaDeReproduccion listadereproduccion) {
+        this.listadereproduccion = listadereproduccion;
     }
 }

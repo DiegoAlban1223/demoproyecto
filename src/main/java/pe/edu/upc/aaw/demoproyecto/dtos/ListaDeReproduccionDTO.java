@@ -1,5 +1,8 @@
 package pe.edu.upc.aaw.demoproyecto.dtos;
 import pe.edu.upc.aaw.demoproyecto.entities.Usuario;
+
+import javax.persistence.*;
+
 public class ListaDeReproduccionDTO {
 
     private int idListadeReproduccion;

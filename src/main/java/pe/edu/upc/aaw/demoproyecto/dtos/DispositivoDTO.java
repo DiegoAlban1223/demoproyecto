@@ -1,7 +1,9 @@
 package pe.edu.upc.aaw.demoproyecto.dtos;
 
 import pe.edu.upc.aaw.demoproyecto.entities.Membresia;
+import pe.edu.upc.aaw.demoproyecto.entities.Usuario;
 
+import javax.persistence.*;
 import java.time.LocalDate;
 
 public class DispositivoDTO {

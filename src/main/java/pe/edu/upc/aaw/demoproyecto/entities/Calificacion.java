@@ -8,8 +8,8 @@ public class Calificacion {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idCalificacion;
-    @Column(name="Score", nullable = false)
-    private int Score;
+    @Column(name="score", nullable = false)
+    private int score;
     @ManyToOne
     @JoinColumn(name = "idContenido")
     private Contenido contenido;
@@ -22,7 +22,7 @@ public class Calificacion {
 
     public Calificacion(int idCalificacion, int score, Contenido contenido, Usuario usuario) {
         this.idCalificacion = idCalificacion;
-        Score = score;
+        this.score = score;
         this.contenido = contenido;
         this.usuario = usuario;
     }
@@ -36,11 +36,11 @@ public class Calificacion {
     }
 
     public int getScore() {
-        return Score;
+        return score;
     }
 
     public void setScore(int score) {
-        Score = score;
+        this.score = score;
     }
 
     public Contenido getContenido() {

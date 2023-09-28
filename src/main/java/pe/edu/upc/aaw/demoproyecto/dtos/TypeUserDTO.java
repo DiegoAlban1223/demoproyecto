@@ -11,6 +11,8 @@ public class TypeUserDTO {
     private Long idTypeUser;
     private String typeTypeUser;
 
+    private Usuario user;
+
     public Long getIdTypeUser() {
         return idTypeUser;
     }
@@ -26,4 +28,13 @@ public class TypeUserDTO {
     public void setTypeTypeUser(String typeTypeUser) {
         this.typeTypeUser = typeTypeUser;
     }
+
+    public Usuario getUser() {
+        return user;
+    }
+
+    public void setUser(Usuario user) {
+        this.user = user;
+    }
+
 }
