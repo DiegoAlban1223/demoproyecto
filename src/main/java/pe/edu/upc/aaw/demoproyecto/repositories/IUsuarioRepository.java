@@ -24,7 +24,7 @@ public interface IUsuarioRepository extends JpaRepository<Usuario, Long> {
     @Query(value = "insert into roles (typeTypeUser, idTypeUser) VALUES (:typeTypeUser, :idTypeUser)", nativeQuery = true)
     public void insRol(@Param("typeTypeUser") String authority, @Param("idTypeUser") Long idTypeUser);
 
-
+//================================================================================
     @Query(value = "SELECT u.*\n" +
             " FROM usuario u INNER JOIN type_users t\n" +
             " ON u.id_usuario = t.id_usuario\n" +

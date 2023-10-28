@@ -3,30 +3,32 @@ package pe.edu.upc.aaw.demoproyecto.entities;
 import javax.persistence.*;
 
 @Entity
-@Table(name ="Contenido")
+@Table(name = "Contenido")
 public class Contenido {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idContenido;
-    @Column(name = "titleContenido",nullable = false,length = 45)
+    @Column(name = "titleContenido", nullable = false, length = 45)
     private String titleContenido;
-    @Column(name = "descripContenido",nullable = false,length = 60)
+    @Column(name = "descripContenido", nullable = false, length = 60)
     private String descripContenido;
 
-    @Column(name = "yearContenido",nullable = false,length = 45)
+    @Column(name = "yearContenido", nullable = false, length = 45)
     private int yearContenido;
-    @Column(name = "directorContenido",nullable = false,length = 45)
+    @Column(name = "directorContenido", nullable = false, length = 45)
     private String directorContenido;
-    @Column(name = "typeContenido",nullable = false,length = 45)
+    @Column(name = "typeContenido", nullable = false, length = 45)
     private String typeContenido;
-    @Column(name = "genderContenido",nullable = false,length = 45)
+    @Column(name = "genderContenido", nullable = false, length = 45)
     private String genderContenido;
-    @Column(name = "originCountryContenido",nullable = false,length = 45)
-    private  String originCountryContenido;
-    @Column(name = "urlContenido",nullable = false,length = 100)
+    @Column(name = "originCountryContenido", nullable = false, length = 45)
+    private String originCountryContenido;
+    @Column(name = "urlContenido", nullable = false, length = 100)
     private String urlContenido;
-    @Column(name = "languageContenido",nullable = false,length = 45)
+    @Column(name = "urlImageContenido", nullable = false, length = 254)
+    private String urlImageContenido;
+    @Column(name = "languageContenido", nullable = false, length = 45)
     private String languageContenido;
     @ManyToOne
     @JoinColumn(name = "idListaDeReproduccion")
@@ -36,7 +38,7 @@ public class Contenido {
     public Contenido() {
     }
 
-    public Contenido(int idContenido, String titleContenido, String descripContenido, int yearContenido, String directorContenido, String typeContenido, String genderContenido, String originCountryContenido, String urlContenido, String languageContenido, ListaDeReproduccion listadereproduccion) {
+    public Contenido(int idContenido, String titleContenido, String descripContenido, int yearContenido, String directorContenido, String typeContenido, String genderContenido, String originCountryContenido, String urlContenido, String urlImageContenido, String languageContenido, ListaDeReproduccion listadereproduccion) {
         this.idContenido = idContenido;
         this.titleContenido = titleContenido;
         this.descripContenido = descripContenido;
@@ -46,6 +48,7 @@ public class Contenido {
         this.genderContenido = genderContenido;
         this.originCountryContenido = originCountryContenido;
         this.urlContenido = urlContenido;
+        this.urlImageContenido = urlImageContenido;
         this.languageContenido = languageContenido;
         this.listadereproduccion = listadereproduccion;
     }
@@ -136,5 +139,13 @@ public class Contenido {
 
     public void setListadereproduccion(ListaDeReproduccion listadereproduccion) {
         this.listadereproduccion = listadereproduccion;
+    }
+
+    public String getUrlImageContenido() {
+        return urlImageContenido;
+    }
+
+    public void setUrlImageContenido(String urlImageContenido) {
+        this.urlImageContenido = urlImageContenido;
     }
 }

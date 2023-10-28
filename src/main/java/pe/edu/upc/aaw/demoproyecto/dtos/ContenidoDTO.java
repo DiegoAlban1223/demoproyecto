@@ -15,6 +15,7 @@ public class ContenidoDTO {
     private String genderContenido;
     private  String originCountryContenido;
     private String urlContenido;
+    private String urlImageContenido;
     private String languageContenido;
     private ListaDeReproduccion listadereproduccion;
 
@@ -104,5 +105,13 @@ public class ContenidoDTO {
 
     public void setListadereproduccion(ListaDeReproduccion listadereproduccion) {
         this.listadereproduccion = listadereproduccion;
+    }
+
+    public String getUrlImageContenido() {
+        return urlImageContenido;
+    }
+
+    public void setUrlImageContenido(String urlImageContenido) {
+        this.urlImageContenido = urlImageContenido;
     }
 }
