@@ -2,13 +2,16 @@ package pe.edu.upc.aaw.demoproyecto.controllers;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import pe.edu.upc.aaw.demoproyecto.dtos.ContenidoPorListaDTO;
 import pe.edu.upc.aaw.demoproyecto.dtos.ListaDeReproduccionDTO;
 import pe.edu.upc.aaw.demoproyecto.entities.ListaDeReproduccion;
 import pe.edu.upc.aaw.demoproyecto.serviceinterfaces.IListaDeReproduccionService;
 
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -50,5 +53,21 @@ public class ListaDeReproduccionController {
     @DeleteMapping("/{id}")
     public void eliminar(@PathVariable("id") Integer id){
         lS.delete(id);
+    }
+
+
+    @GetMapping("/cantidades")
+    @PreAuthorize("hasAnyAuthority('admin')")
+    public List<ContenidoPorListaDTO> cantidadContenidoPorLista(){
+        List<String[]>lista=lS.CantidadContenidoPorListaDeReproduccion();
+        List<ContenidoPorListaDTO> listaDTO=new ArrayList<>();
+
+        for(String[] data:lista){
+            ContenidoPorListaDTO dto=new ContenidoPorListaDTO();
+            dto.setNameListaDeReproduccion(data[0]);
+            dto.setQuantityContenido(Integer.parseInt(data[1]));
+            listaDTO.add(dto);
+        }
+        return listaDTO;
     }
 }

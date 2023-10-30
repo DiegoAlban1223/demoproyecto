@@ -43,7 +43,6 @@ public class UsuarioServiceImplement implements IUsuarioService {
         return dR.UsersRolUser();
     }
 
-
     @Override
     public List<String[]> CantUsers() {
         return dR.CantUsers();

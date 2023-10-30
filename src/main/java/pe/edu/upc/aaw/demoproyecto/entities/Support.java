@@ -18,7 +18,7 @@ public class Support {
 
     @ManyToOne
     @JoinColumn(name = "idUsuario")
-    private Usuario usuario;
+    private Usuario usuario; //siempre se usa idNombreDeLaClase
 
     public Support() {
     }

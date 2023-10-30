@@ -2,6 +2,7 @@ package pe.edu.upc.aaw.demoproyecto.controllers;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.Banner;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.aaw.demoproyecto.dtos.DispositivoDTO;
 import pe.edu.upc.aaw.demoproyecto.dtos.MembresiaDTO;
@@ -13,7 +14,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping("/membresias")
+@RequestMapping("/Ayala")
 public class MembresiaController {
     @Autowired
     private IMembresiaService mS;
@@ -41,10 +42,18 @@ public class MembresiaController {
         MembresiaDTO me=m.map(mS.listId(id),MembresiaDTO.class);
         return me;
     }
-    @PutMapping
+    @PutMapping("/Juan")
     public void modificar(@RequestBody MembresiaDTO dto){
         ModelMapper m=new ModelMapper();
         Membresia me=m.map(dto,Membresia.class);
         mS.insert(me);
+    }
+
+    @GetMapping("/buscar")
+    public List<MembresiaDTO>  buscarPorPrecio(@RequestParam Integer precio){
+        return mS.findBypriceMembresia(precio).stream().map(x->{
+            ModelMapper m=new ModelMapper();
+            return m.map(x,MembresiaDTO.class);
+        }).collect(Collectors.toList());
     }
 }

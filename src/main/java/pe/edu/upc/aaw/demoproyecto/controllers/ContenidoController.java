@@ -3,6 +3,7 @@ package pe.edu.upc.aaw.demoproyecto.controllers;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.aaw.demoproyecto.dtos.ContenidoDTO;
 import pe.edu.upc.aaw.demoproyecto.entities.Contenido;
@@ -50,7 +51,6 @@ public class ContenidoController {
         Contenido c = m.map(dto, Contenido.class);
         cS.insert(c);
     }
-
     @GetMapping("/buscar")
     public List<ContenidoDTO> buscar(@RequestParam String nombreLista) {
         return cS.findContenidoByNameList(nombreLista).stream().map(x -> {
@@ -58,4 +58,5 @@ public class ContenidoController {
             return m.map(x, ContenidoDTO.class);
         }).collect(Collectors.toList());
     }
+    //localhost:8080/contenidos/buscar?nombreLista=nueva
 }

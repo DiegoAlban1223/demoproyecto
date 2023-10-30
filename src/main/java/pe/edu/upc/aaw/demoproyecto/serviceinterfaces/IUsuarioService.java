@@ -1,5 +1,6 @@
 package pe.edu.upc.aaw.demoproyecto.serviceinterfaces;
 
+import org.springframework.data.jpa.repository.Query;
 import pe.edu.upc.aaw.demoproyecto.entities.Usuario;
 
 import java.util.List;

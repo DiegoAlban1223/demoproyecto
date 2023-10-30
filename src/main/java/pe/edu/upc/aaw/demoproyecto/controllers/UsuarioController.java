@@ -64,6 +64,7 @@ public class UsuarioController {
             return ResponseEntity.notFound().build();
         }
     }
+
     @GetMapping("/usuariosroluser")
     @PreAuthorize("hasAuthority('admin')")
     public List<UsuarioDTO> UsuariosRolUser(){
