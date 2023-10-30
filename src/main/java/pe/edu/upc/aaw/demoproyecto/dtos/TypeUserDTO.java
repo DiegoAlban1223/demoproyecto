@@ -10,7 +10,6 @@ public class TypeUserDTO {
 
     private Long idTypeUser;
     private String typeTypeUser;
-
     private Usuario user;
 
     public Long getIdTypeUser() {
