@@ -46,7 +46,7 @@ public class JwtUserDetailsService implements UserDetailsService {
         user.getRoles().forEach(rol -> {
             roles.add(new SimpleGrantedAuthority(rol.getTypeTypeUser()));
         });
-
+        //Solo si es enabled:true--> es considerado valido y nos genera el token en otro caso no
         UserDetails ud = new org.springframework.security.core.userdetails.User(user.getNameUsuario(), user.getPassword(), user.getEnabled(), true, true, true, roles);
 
         return ud;
