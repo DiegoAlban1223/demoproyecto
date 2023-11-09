@@ -57,7 +57,7 @@ public class ListaDeReproduccionController {
 
 
     @GetMapping("/cantidades")
-    @PreAuthorize("hasAnyAuthority('admin')")
+   // @PreAuthorize("hasAnyAuthority('admin')")
     public List<ContenidoPorListaDTO> cantidadContenidoPorLista(){
         List<String[]>lista=lS.CantidadContenidoPorListaDeReproduccion();
         List<ContenidoPorListaDTO> listaDTO=new ArrayList<>();

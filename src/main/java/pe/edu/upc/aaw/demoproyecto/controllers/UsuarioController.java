@@ -29,7 +29,7 @@ public class UsuarioController {
     }
 
     @GetMapping
-    @PreAuthorize("hasAuthority('user') or hasAuthority('admin')")
+    //@PreAuthorize("hasAuthority('user') or hasAuthority('admin')")
     public List<UsuarioDTO> listar() {
         return dS.list().stream().map(x -> {
             ModelMapper m = new ModelMapper();
@@ -67,7 +67,7 @@ public class UsuarioController {
 
 
     @GetMapping("/usuariosroluser")
-    @PreAuthorize("hasAuthority('admin')")
+   // @PreAuthorize("hasAuthority('admin')")
     public List<UsuarioDTO> UsuariosRolUser(){
         List<String[]> lista = dS.UsersRolUser();
         List<UsuarioDTO> listaDTO = new ArrayList<>();
@@ -82,9 +82,23 @@ public class UsuarioController {
         }
         return listaDTO;
     }
-
+    @GetMapping("/usuariosroladmin")
+    public List<UsuarioDTO> UsuariosRolAdmin(){
+        List<String[]> lista = dS.UsersRolAdmin();
+        List<UsuarioDTO> listaDTO = new ArrayList<>();
+        for(String[] data:lista){
+            UsuarioDTO dto = new UsuarioDTO();
+            dto.setIdUsuario(Long.parseLong(data[0]));
+            dto.setEmailUsuario(data[1]);
+            dto.setEnabledUsuario(Boolean.parseBoolean(data[2]));
+            dto.setNameUsuario(data[3]);
+            dto.setPasswordUsuario(data[4]);
+            listaDTO.add(dto);
+        }
+        return listaDTO;
+    }
     @GetMapping("/cantusuarios")
-    @PreAuthorize("hasAuthority('admin')")
+   // @PreAuthorize("hasAuthority('admin')")
     public List<CantUserDTO> CantidadUsuarios(){
         List<String[]> lista = dS.CantUsers();
         List<CantUserDTO> listaDTO = new ArrayList<>();

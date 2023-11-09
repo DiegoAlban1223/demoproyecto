@@ -1,6 +1,7 @@
 package pe.edu.upc.aaw.demoproyecto.entities;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 
 @Entity
 @Table(name = "Contenido")
@@ -14,8 +15,8 @@ public class Contenido {
     @Column(name = "descripContenido", nullable = false, length = 60)
     private String descripContenido;
 
-    @Column(name = "yearContenido", nullable = false, length = 45)
-    private int yearContenido;
+    @Column(name = "yearContenido", nullable = false)
+    private LocalDate yearContenido;
     @Column(name = "directorContenido", nullable = false, length = 45)
     private String directorContenido;
     @Column(name = "typeContenido", nullable = false, length = 45)
@@ -31,14 +32,14 @@ public class Contenido {
     @Column(name = "languageContenido", nullable = false, length = 45)
     private String languageContenido;
     @ManyToOne
-    @JoinColumn(name = "idListaDeReproduccion")
+    @JoinColumn(name = "idListaDeReproduccion",nullable = true)
     private ListaDeReproduccion listadereproduccion;
 
 
     public Contenido() {
     }
 
-    public Contenido(int idContenido, String titleContenido, String descripContenido, int yearContenido, String directorContenido, String typeContenido, String genderContenido, String originCountryContenido, String urlContenido, String urlImageContenido, String languageContenido, ListaDeReproduccion listadereproduccion) {
+    public Contenido(int idContenido, String titleContenido, String descripContenido, LocalDate yearContenido, String directorContenido, String typeContenido, String genderContenido, String originCountryContenido, String urlContenido, String urlImageContenido, String languageContenido, ListaDeReproduccion listadereproduccion) {
         this.idContenido = idContenido;
         this.titleContenido = titleContenido;
         this.descripContenido = descripContenido;
@@ -77,11 +78,11 @@ public class Contenido {
         this.descripContenido = descripContenido;
     }
 
-    public int getYearContenido() {
+    public LocalDate getYearContenido() {
         return yearContenido;
     }
 
-    public void setYearContenido(int yearContenido) {
+    public void setYearContenido(LocalDate yearContenido) {
         this.yearContenido = yearContenido;
     }
 

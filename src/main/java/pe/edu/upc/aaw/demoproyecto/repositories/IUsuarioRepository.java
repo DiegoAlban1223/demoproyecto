@@ -30,7 +30,11 @@ public interface IUsuarioRepository extends JpaRepository<Usuario, Long> {
             " ON u.id_usuario = t.id_usuario\n" +
             " WHERE t.type_type_user = 'user'", nativeQuery = true)
     public List<String[]> UsersRolUser();
-
+    @Query(value = "SELECT u.*\n" +
+            " FROM usuario u INNER JOIN type_users t\n" +
+            " ON u.id_usuario = t.id_usuario\n" +
+            " WHERE t.type_type_user = 'admin'", nativeQuery = true)
+    public List<String[]> UsersRolAdmin();
     @Query(value = "SELECT COUNT(id_usuario) FROM usuario \n", nativeQuery = true)
     public List<String[]> CantUsers();
 }
