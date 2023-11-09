@@ -11,7 +11,7 @@ public class ListaDeReproduccion {
     private String nameListaDeReproduccion;
 
     @ManyToOne
-    @JoinColumn(name = "idUsuario")
+    @JoinColumn(name = "idUsuario",nullable = true)
     private Usuario usuario;
 
     public ListaDeReproduccion() {

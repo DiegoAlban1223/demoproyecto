@@ -36,7 +36,7 @@ public class DispositivoServiceImplement implements IDispositivoService{
 
     @Override
     public List<Dispositivo> findByDateRegistro(LocalDate dateRegistro) {
-        return null;
+        return dR.findByDateRegistro(dateRegistro);
     }
 
 

@@ -16,5 +16,5 @@ public interface IUsuarioService {
     public List<String[]>UsersRolUser();
 
     public List<String[]>CantUsers();
-
+    public List<String[]> UsersRolAdmin();
 }

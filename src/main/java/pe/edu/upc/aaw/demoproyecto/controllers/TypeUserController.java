@@ -36,7 +36,7 @@ public class TypeUserController {
         }).collect(Collectors.toList());
     }
     @DeleteMapping("/{id}")
-    public void eliminar(@PathVariable("id") Integer id) {
+    public void eliminar(@PathVariable("id") Long id) {
         dS.delete(id);
     }
 

@@ -37,7 +37,10 @@ public class UsuarioServiceImplement implements IUsuarioService {
     public Usuario listid(Long idUsuario) {
         return dR.findById(idUsuario).orElse(new Usuario());
     }
-
+    @Override
+    public List<String[]> UsersRolAdmin(){
+        return dR.UsersRolAdmin();
+    }
     @Override
     public List<String[]> UsersRolUser() {
         return dR.UsersRolUser();

@@ -1,10 +1,8 @@
 package pe.edu.upc.aaw.demoproyecto.entities;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.util.Date;
-import java.util.List;
 
 @Entity
 @Table(name = "Card")
@@ -12,25 +10,25 @@ public class Card {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idCard;
-    @Column(name = "typeTarjeta", nullable = false)
-    private String typeTarjeta;
-    @Column(name = "nameTareta", nullable = false)
-    private String nameTarjeta;
-    @Column(name = "FechaVencimiento", nullable = false)
-    private Date FechaVencimiento;
-    @Column(name = "CVV", nullable = false)
-    private int CVV;
+    @Column(name = "typeCard", nullable = false)
+    private String typeCard;
+    @Column(name = "nameCard", nullable = false)
+    private String nameCard;
+    @Column(name = "fechaVencimientoCard", nullable = false)
+    private LocalDate fechaVencimientoCard;
+    @Column(name = "cvvCard", nullable = false)
+    private int cvvCard;
 
 
     public Card() {
     }
 
-    public Card(int idCard, String typeTarjeta, String nameTarjeta, Date fechaVencimiento, int CVV) {
+    public Card(int idCard, String typeCard, String nameCard, LocalDate fechaVencimientoCard, int cvvCard) {
         this.idCard = idCard;
-        this.typeTarjeta = typeTarjeta;
-        this.nameTarjeta = nameTarjeta;
-        FechaVencimiento = fechaVencimiento;
-        this.CVV = CVV;
+        this.typeCard = typeCard;
+        this.nameCard = nameCard;
+        this.fechaVencimientoCard = fechaVencimientoCard;
+        this.cvvCard = cvvCard;
     }
 
     public int getIdCard() {
@@ -41,35 +39,35 @@ public class Card {
         this.idCard = idCard;
     }
 
-    public String getTypeTarjeta() {
-        return typeTarjeta;
+    public String getTypeCard() {
+        return typeCard;
     }
 
-    public void setTypeTarjeta(String typeTarjeta) {
-        this.typeTarjeta = typeTarjeta;
+    public void setTypeCard(String typeCard) {
+        this.typeCard = typeCard;
     }
 
-    public String getNameTarjeta() {
-        return nameTarjeta;
+    public String getNameCard() {
+        return nameCard;
     }
 
-    public void setNameTarjeta(String nameTarjeta) {
-        this.nameTarjeta = nameTarjeta;
+    public void setNameCard(String nameCard) {
+        this.nameCard = nameCard;
     }
 
-    public Date getFechaVencimiento() {
-        return FechaVencimiento;
+    public LocalDate getFechaVencimientoCard() {
+        return fechaVencimientoCard;
     }
 
-    public void setFechaVencimiento(Date fechaVencimiento) {
-        FechaVencimiento = fechaVencimiento;
+    public void setFechaVencimientoCard(LocalDate fechaVencimientoCard) {
+        this.fechaVencimientoCard = fechaVencimientoCard;
     }
 
-    public int getCVV() {
-        return CVV;
+    public int getCvvCard() {
+        return cvvCard;
     }
 
-    public void setCVV(int CVV) {
-        this.CVV = CVV;
+    public void setCvvCard(int cvvCard) {
+        this.cvvCard = cvvCard;
     }
 }
