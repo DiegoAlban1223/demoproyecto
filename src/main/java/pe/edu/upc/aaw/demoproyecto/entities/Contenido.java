@@ -12,7 +12,7 @@ public class Contenido {
     private int idContenido;
     @Column(name = "titleContenido", nullable = false, length = 45)
     private String titleContenido;
-    @Column(name = "descripContenido", nullable = false, length = 60)
+    @Column(name = "descripContenido", nullable = false,length = 255)
     private String descripContenido;
 
     @Column(name = "yearContenido", nullable = false)

@@ -57,7 +57,7 @@ public class WebSecurityConfig {
         httpSecurity
                 .csrf().disable()
                 .authorizeRequests()
-                .antMatchers("/authenticate").permitAll() //.hasAuthority("ADMIN")
+                .antMatchers("/authenticate","/usuarios/registerUser","/typeUsers/registerRole").permitAll() //.hasAuthority("ADMIN")
                 .anyRequest().authenticated()
                 .and()
                 .exceptionHandling().authenticationEntryPoint(jwtAuthenticationEntryPoint)
@@ -71,3 +71,4 @@ public class WebSecurityConfig {
         return httpSecurity.build();
     }
 }
+//SE AGREGO EL  "/usuarios/registerUser"  para que no solicite token para esta ruta

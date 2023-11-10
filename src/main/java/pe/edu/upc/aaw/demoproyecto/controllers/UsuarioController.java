@@ -27,7 +27,13 @@ public class UsuarioController {
         Usuario d = m.map(dto, Usuario.class);
         dS.insert(d);
     }
-
+    //ES PARA EL REGISTRAR SIN AUTENTICACION EN EL FRONT
+    @PostMapping("/registerUser")
+    public void registrarNuevo(@RequestBody UsuarioDTO dto) {
+        ModelMapper m = new ModelMapper();
+        Usuario d = m.map(dto, Usuario.class);
+        dS.insert(d);
+    }
     @GetMapping
     //@PreAuthorize("hasAuthority('user') or hasAuthority('admin')")
     public List<UsuarioDTO> listar() {
@@ -36,6 +42,7 @@ public class UsuarioController {
             return m.map(x, UsuarioDTO.class);
         }).collect(Collectors.toList());
     }
+
 
     @DeleteMapping("/{id}")
     public ResponseEntity<String> deleteUser(@PathVariable Long id){
