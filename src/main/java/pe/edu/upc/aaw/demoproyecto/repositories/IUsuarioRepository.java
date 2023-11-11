@@ -37,4 +37,7 @@ public interface IUsuarioRepository extends JpaRepository<Usuario, Long> {
     public List<String[]> UsersRolAdmin();
     @Query(value = "SELECT COUNT(id_usuario) FROM usuario \n", nativeQuery = true)
     public List<String[]> CantUsers();
+
+    //PARA EL REGISTRAR
+    public List<Usuario> findUsuarioByNameUsuario(String nameUsuario);
 }

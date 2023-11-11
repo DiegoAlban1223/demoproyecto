@@ -7,7 +7,9 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.aaw.demoproyecto.dtos.CantUserDTO;
 import pe.edu.upc.aaw.demoproyecto.dtos.UsuarioDTO;
+import pe.edu.upc.aaw.demoproyecto.entities.TypeUser;
 import pe.edu.upc.aaw.demoproyecto.entities.Usuario;
+import pe.edu.upc.aaw.demoproyecto.serviceinterfaces.ITypeUserService;
 import pe.edu.upc.aaw.demoproyecto.serviceinterfaces.IUsuarioService;
 
 import java.util.ArrayList;
@@ -21,6 +23,10 @@ public class UsuarioController {
     @Autowired
     private IUsuarioService dS;
 
+    //ESTO ES PARA GENERAR ROLEA AUTOMATICOS
+    @Autowired
+    private ITypeUserService tS;
+
     @PostMapping
     public void registrar(@RequestBody UsuarioDTO dto) {
         ModelMapper m = new ModelMapper();
@@ -30,9 +36,28 @@ public class UsuarioController {
     //ES PARA EL REGISTRAR SIN AUTENTICACION EN EL FRONT
     @PostMapping("/registerUser")
     public void registrarNuevo(@RequestBody UsuarioDTO dto) {
-        ModelMapper m = new ModelMapper();
+       /* ModelMapper m = new ModelMapper();
         Usuario d = m.map(dto, Usuario.class);
         dS.insert(d);
+        TypeUser rol=new TypeUser();
+        rol.setTypeTypeUser("user");
+        rol.setUser(d);
+        tS.insert(rol);*/
+
+        ModelMapper m = new ModelMapper();
+        Usuario usuario = m.map(dto, Usuario.class);
+
+        // Insertar el usuario en la base de datos
+        dS.insert(usuario);
+
+        // Recargar el usuario desde la base de datos para obtener una instancia gestionada
+        List<Usuario> usuarioGestionado = dS.findUsuarioByNameUsuario(usuario.getNameUsuario());
+
+        // Crear y persistir el TypeUser asociado al usuario gestionado
+        TypeUser rol = new TypeUser();
+        rol.setTypeTypeUser("user");
+        rol.setUser(usuarioGestionado.get(0));
+        tS.insert(rol);
     }
     @GetMapping
     //@PreAuthorize("hasAuthority('user') or hasAuthority('admin')")
