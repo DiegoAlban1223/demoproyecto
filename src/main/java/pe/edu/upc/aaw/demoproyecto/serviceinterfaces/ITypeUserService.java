@@ -8,6 +8,6 @@ public interface ITypeUserService  {
 
     public void insert(TypeUser typeUser);
     public List<TypeUser>list();
-    public void delete(int idTypeUser);
-    public TypeUser listId(int idTypeUser);
+    public void delete(Long idTypeUser);
+    public TypeUser listId(Long idTypeUser);
 }

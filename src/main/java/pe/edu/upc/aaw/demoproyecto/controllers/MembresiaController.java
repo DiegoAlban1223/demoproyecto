@@ -14,7 +14,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping("/Ayala")
+@RequestMapping("/membresias")
 public class MembresiaController {
     @Autowired
     private IMembresiaService mS;
@@ -42,7 +42,7 @@ public class MembresiaController {
         MembresiaDTO me=m.map(mS.listId(id),MembresiaDTO.class);
         return me;
     }
-    @PutMapping("/Juan")
+    @PutMapping
     public void modificar(@RequestBody MembresiaDTO dto){
         ModelMapper m=new ModelMapper();
         Membresia me=m.map(dto,Membresia.class);

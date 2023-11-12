@@ -34,4 +34,9 @@ public class ResenaServiceImplement implements IResenaService {
     public Resena listId(int idResena) {
         return rR.findById(idResena).orElse(new Resena());
     }
+
+    @Override
+    public List<String[]>resenasdeContenido(int idcontenido){
+        return rR.resenasdeContenido(idcontenido);
+    }
 }

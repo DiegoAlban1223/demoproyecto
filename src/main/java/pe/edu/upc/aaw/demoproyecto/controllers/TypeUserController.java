@@ -27,7 +27,13 @@ public class TypeUserController {
         TypeUser d = m.map(dto, TypeUser.class);
         dS.insert(d);
     }
+    @PostMapping("/registerRole")
+    public void registrarNuevo(@RequestBody TypeUserDTO dto) {
 
+        ModelMapper m = new ModelMapper();
+        TypeUser d = m.map(dto, TypeUser.class);
+        dS.insert(d);
+    }
     @GetMapping
     public List<TypeUserDTO> listar() {
         return dS.list().stream().map(x -> {
@@ -37,7 +43,7 @@ public class TypeUserController {
     }
 
     @DeleteMapping("/{id}")
-    public void eliminar(@PathVariable("id") Integer id) {
+    public void eliminar(@PathVariable("id") Long id) {
         dS.delete(id);
     }
 

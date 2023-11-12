@@ -27,7 +27,7 @@ public class SupportController {
         dS.insert(p);
     }
     @GetMapping//es para retornar
-    @PreAuthorize("hasAuthority('user') or hasAuthority('admin')")
+    //@PreAuthorize("hasAuthority('user') or hasAuthority('admin')")
     public List<SupportDTO> listar() {
         return dS.list().stream().map(x -> {
             ModelMapper m = new ModelMapper();
