@@ -54,8 +54,10 @@ public class ListaDeReproduccionController {
     public void eliminar(@PathVariable("id") Integer id){
         lS.delete(id);
     }
+
+
     @GetMapping("/cantidades")
-    @PreAuthorize("hasAnyAuthority('admin')")
+   // @PreAuthorize("hasAnyAuthority('admin')")
     public List<ContenidoPorListaDTO> cantidadContenidoPorLista(){
         List<String[]>lista=lS.CantidadContenidoPorListaDeReproduccion();
         List<ContenidoPorListaDTO> listaDTO=new ArrayList<>();

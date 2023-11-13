@@ -6,9 +6,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.aaw.demoproyecto.dtos.CardDTO;
 import pe.edu.upc.aaw.demoproyecto.entities.Card;
-import pe.edu.upc.aaw.demoproyecto.entities.Membresia;
 import pe.edu.upc.aaw.demoproyecto.entities.Pago;
-import pe.edu.upc.aaw.demoproyecto.entities.Usuario;
 import pe.edu.upc.aaw.demoproyecto.serviceinterfaces.ICardService;
 import pe.edu.upc.aaw.demoproyecto.serviceinterfaces.IPagoService;
 
@@ -25,21 +23,42 @@ public class CardController {
 
     @Autowired
     private IPagoService pS;
+    /*
+    @PostMapping//es para  crear
+    public void registrar(@RequestBody CardDTO dto) {
+        ModelMapper m = new ModelMapper();
+        Card c = m.map(dto, Card.class);
+        cS.insert(c);
+    }
 
+     */
+    @PostMapping
+    public ResponseEntity<String> registrar(@RequestBody CardDTO dto)
+    {
+        ModelMapper m = new ModelMapper();
+        Card c = m.map(dto, Card.class);
+        cS.insert(c);
+        return ResponseEntity.ok("Registrado Correctamente");
+    }
+    /*
     @PostMapping//es para  crear
     public ResponseEntity<String> registrar(@RequestBody CardDTO dto) {
         ModelMapper m = new ModelMapper();
         Card c = m.map(dto, Card.class);
         Pago p = (Pago) c.getPago();
 
-        if (p == null || p.getId() == 0 ||!PagoExiste(p.getId())) {
-            return ResponseEntity.badRequest().body("No existe membresía asociada");
+        if (p == null  p.getId() == 0 !PagoExiste(p.getId())) {
+            return ResponseEntity.badRequest().body("No existe pago asociada");
         }
 
         cS.insert(c);
 
         return ResponseEntity.ok("Registrado exitosamente");
     }
+
+     */
+
+
 
     private boolean PagoExiste(int id) {
         Pago pago = pS.listId(id);
@@ -63,8 +82,8 @@ public class CardController {
     }
     @DeleteMapping("/{id}")//es para borrar
     public ResponseEntity<String> eliminar(@PathVariable("id") Integer id) {
-            cS.delete(id);
-            return ResponseEntity.ok("Eliminado exitosamente");
+        cS.delete(id);
+        return ResponseEntity.ok("Eliminado exitosamente");
 
     }
 

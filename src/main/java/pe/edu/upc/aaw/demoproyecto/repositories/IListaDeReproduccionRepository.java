@@ -10,9 +10,10 @@ import java.util.List;
 
 @Repository
 public interface IListaDeReproduccionRepository extends JpaRepository<ListaDeReproduccion,Integer> {
-      @Query(value= "SELECT l.name_lista_de_reproduccion,count(c.id_contenido)\n" +
-              "FROM lista_de_reproduccion l INNER JOIN contenido c\n" +
-              "ON l.id_lista_de_reproduccion=c.id_lista_de_reproduccion\n" +
-              "GROUP BY l.name_lista_de_reproduccion",nativeQuery = true)
-      public List<String[]> CantidadContenidoPorListaDeReproduccion();
+
+    @Query(value= "SELECT l.name_lista_de_reproduccion,count(c.id_contenido)\n" +
+            "FROM lista_de_reproduccion l INNER JOIN contenido c\n" +
+            "ON l.id_lista_de_reproduccion=c.id_lista_de_reproduccion\n" +
+            "GROUP BY l.name_lista_de_reproduccion",nativeQuery = true)
+    public List<String[]> CantidadContenidoPorListaDeReproduccion();
 }

@@ -1,6 +1,7 @@
 package pe.edu.upc.aaw.demoproyecto.dtos;
 
 public class ContenidoPorListaDTO {
+
     private String nameListaDeReproduccion;
     private int quantityContenido;
 

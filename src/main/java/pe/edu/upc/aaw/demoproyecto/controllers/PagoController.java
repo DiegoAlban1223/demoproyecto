@@ -3,25 +3,20 @@ package pe.edu.upc.aaw.demoproyecto.controllers;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.aaw.demoproyecto.dtos.DispositivoDTO;
 import pe.edu.upc.aaw.demoproyecto.dtos.PagoDTO;
-import pe.edu.upc.aaw.demoproyecto.entities.Card;
 import pe.edu.upc.aaw.demoproyecto.entities.Membresia;
 import pe.edu.upc.aaw.demoproyecto.entities.Pago;
 import pe.edu.upc.aaw.demoproyecto.repositories.IPagoRepository;
-import pe.edu.upc.aaw.demoproyecto.serviceimplements.MembresiaServiceImplement;
 import pe.edu.upc.aaw.demoproyecto.serviceinterfaces.ICardService;
 import pe.edu.upc.aaw.demoproyecto.serviceinterfaces.IMembresiaService;
 import pe.edu.upc.aaw.demoproyecto.serviceinterfaces.IPagoService;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 import java.util.stream.Collectors;
 
 @RestController
@@ -45,7 +40,7 @@ public class PagoController {
         Pago p = m.map(dto, Pago.class);
         // Realizar la validación de la membresía aquí
         Membresia membresia = p.getMembresia();
-        if (membresia == null || membresia.getIdMembresia() == 0 ||!membresiaExiste(membresia.getIdMembresia())) {
+        if (membresia == null || membresia.getIdMembresia() == 0|| !membresiaExiste(membresia.getIdMembresia())) {
             return ResponseEntity.badRequest().body("No existe membresía asociada");
         }
 
@@ -54,11 +49,9 @@ public class PagoController {
         return ResponseEntity.ok("Registrado exitosamente");
     }
     private boolean membresiaExiste(int membresiaId) {
-       Membresia membresia = mS.listId(membresiaId);
-       return membresia!=null && membresia.getIdMembresia() > 0 ;
+        Membresia membresia = mS.listId(membresiaId);
+        return membresia!=null && membresia.getIdMembresia() > 0 ;
     }
-
-
     @PostMapping("/buscar")
     public List<PagoDTO> buscar(@RequestBody LocalDate fecha){
         return pS.findByDatePago(fecha).stream().map(x->{
@@ -100,6 +93,7 @@ public class PagoController {
         return ResponseEntity.ok(pagos);
     }
 */
+
 
 
 }

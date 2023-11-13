@@ -1,5 +1,6 @@
 package pe.edu.upc.aaw.demoproyecto.serviceinterfaces;
 
+import org.springframework.data.jpa.repository.Query;
 import pe.edu.upc.aaw.demoproyecto.entities.Usuario;
 
 import java.util.List;
@@ -12,4 +13,10 @@ public interface IUsuarioService {
 
 
 
+    public List<String[]>UsersRolUser();
+
+    public List<String[]>CantUsers();
+    public List<String[]> UsersRolAdmin();
+//PARA EL REGISTRAR
+    public List<Usuario> findUsuarioByNameUsuario(String nameUsuario);
 }

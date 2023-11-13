@@ -9,14 +9,10 @@ public interface IPagoService {
     public void insert(Pago pago);
     public List<Pago> list();
 
-    public boolean delete(int id);
+    public void delete(int id);
 
     public Pago listId(int id);
 
-    List<Pago>findByDatePago(LocalDate datePago);
-
     List<Pago> findPagosAnioActualMayor100Credito();
-    List<Object[]> findPagosMenosDe200AnualCreditoConSumaTotal();
-
-
+    List<Pago>findByDatePago(LocalDate datePago);
 }

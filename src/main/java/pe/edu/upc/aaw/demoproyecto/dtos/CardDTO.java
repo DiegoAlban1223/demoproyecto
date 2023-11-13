@@ -5,7 +5,7 @@ import pe.edu.upc.aaw.demoproyecto.entities.Pago;
 public class CardDTO {
     private int idCard;
     private String typeTarjeta;
-    private Pago pago;
+
 
     public int getIdCard() {
         return idCard;
@@ -23,11 +23,4 @@ public class CardDTO {
         this.typeTarjeta = typeTarjeta;
     }
 
-    public Pago getPago() {
-        return pago;
-    }
-
-    public void setPago(Pago pago) {
-        this.pago = pago;
-    }
 }
