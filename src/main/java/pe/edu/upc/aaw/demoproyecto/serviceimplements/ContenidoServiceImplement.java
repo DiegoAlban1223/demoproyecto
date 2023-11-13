@@ -32,4 +32,11 @@ public class ContenidoServiceImplement implements IContenidoService {
     public Contenido listId(int idContenido) {
         return cR.findById(idContenido).orElse(new Contenido());
     }
+
+    @Override
+    public List<Contenido> findContenidoByNameList(String nameList) {
+        return cR.findContenidoByNameList(nameList);
+    }
+
+
 }

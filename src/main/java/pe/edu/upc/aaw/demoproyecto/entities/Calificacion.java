@@ -3,28 +3,28 @@ package pe.edu.upc.aaw.demoproyecto.entities;
 import javax.persistence.*;
 
 @Entity
-@Table(name="Calificaion")
+@Table(name="Calificacion")
 public class Calificacion {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idCalificacion;
-    @Column(name="Score", nullable = false)
-    private int Score;
+    @Column(name="score", nullable = false)
+    private int score;
     @ManyToOne
     @JoinColumn(name = "idContenido")
-    private Contenido Contenido;
+    private Contenido contenido;
     @ManyToOne
     @JoinColumn(name = "idUsuario")
-    private Usuario Usuario;
+    private Usuario usuario;
 
     public Calificacion() {
     }
 
-    public Calificacion(int idCalificacion, int score, Contenido contenido, pe.edu.upc.aaw.demoproyecto.entities.Usuario usuario) {
+    public Calificacion(int idCalificacion, int score, Contenido contenido, Usuario usuario) {
         this.idCalificacion = idCalificacion;
-        Score = score;
-        Contenido = contenido;
-        Usuario = usuario;
+        this.score = score;
+        this.contenido = contenido;
+        this.usuario = usuario;
     }
 
     public int getIdCalificacion() {
@@ -36,26 +36,26 @@ public class Calificacion {
     }
 
     public int getScore() {
-        return Score;
+        return score;
     }
 
     public void setScore(int score) {
-        Score = score;
+        this.score = score;
     }
 
     public Contenido getContenido() {
-        return Contenido;
+        return contenido;
     }
 
     public void setContenido(Contenido contenido) {
-        Contenido = contenido;
+        this.contenido = contenido;
     }
 
-    public pe.edu.upc.aaw.demoproyecto.entities.Usuario getUsuario() {
-        return Usuario;
+    public Usuario getUsuario() {
+        return usuario;
     }
 
-    public void setUsuario(pe.edu.upc.aaw.demoproyecto.entities.Usuario usuario) {
-        Usuario = usuario;
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
     }
 }

@@ -2,6 +2,7 @@ package pe.edu.upc.aaw.demoproyecto.controllers;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.aaw.demoproyecto.dtos.PagoDTO;
 import pe.edu.upc.aaw.demoproyecto.dtos.SupportDTO;
@@ -25,8 +26,8 @@ public class SupportController {
         Support p = m.map(dto, Support.class);
         dS.insert(p);
     }
-
     @GetMapping//es para retornar
+    //@PreAuthorize("hasAuthority('user') or hasAuthority('admin')")
     public List<SupportDTO> listar() {
         return dS.list().stream().map(x -> {
             ModelMapper m = new ModelMapper();

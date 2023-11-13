@@ -2,13 +2,19 @@ package pe.edu.upc.aaw.demoproyecto.controllers;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
+import pe.edu.upc.aaw.demoproyecto.dtos.CantUserDTO;
 import pe.edu.upc.aaw.demoproyecto.dtos.UsuarioDTO;
+import pe.edu.upc.aaw.demoproyecto.entities.TypeUser;
 import pe.edu.upc.aaw.demoproyecto.entities.Usuario;
+import pe.edu.upc.aaw.demoproyecto.serviceinterfaces.ITypeUserService;
 import pe.edu.upc.aaw.demoproyecto.serviceinterfaces.IUsuarioService;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @RestController
@@ -17,15 +23,44 @@ public class UsuarioController {
     @Autowired
     private IUsuarioService dS;
 
+    //ESTO ES PARA GENERAR ROLEA AUTOMATICOS
+    @Autowired
+    private ITypeUserService tS;
+
     @PostMapping
     public void registrar(@RequestBody UsuarioDTO dto) {
         ModelMapper m = new ModelMapper();
         Usuario d = m.map(dto, Usuario.class);
         dS.insert(d);
     }
+    //ES PARA EL REGISTRAR SIN AUTENTICACION EN EL FRONT
+    @PostMapping("/registerUser")
+    public void registrarNuevo(@RequestBody UsuarioDTO dto) {
+       /* ModelMapper m = new ModelMapper();
+        Usuario d = m.map(dto, Usuario.class);
+        dS.insert(d);
+        TypeUser rol=new TypeUser();
+        rol.setTypeTypeUser("user");
+        rol.setUser(d);
+        tS.insert(rol);*/
 
+        ModelMapper m = new ModelMapper();
+        Usuario usuario = m.map(dto, Usuario.class);
+
+        // Insertar el usuario en la base de datos
+        dS.insert(usuario);
+
+        // Recargar el usuario desde la base de datos para obtener una instancia gestionada
+        List<Usuario> usuarioGestionado = dS.findUsuarioByNameUsuario(usuario.getNameUsuario());
+
+        // Crear y persistir el TypeUser asociado al usuario gestionado
+        TypeUser rol = new TypeUser();
+        rol.setTypeTypeUser("user");
+        rol.setUser(usuarioGestionado.get(0));
+        tS.insert(rol);
+    }
     @GetMapping
-    @PreAuthorize("hasAuthority('user') or hasAuthority('admin')")
+    //@PreAuthorize("hasAuthority('user') or hasAuthority('admin')")
     public List<UsuarioDTO> listar() {
         return dS.list().stream().map(x -> {
             ModelMapper m = new ModelMapper();
@@ -33,21 +68,77 @@ public class UsuarioController {
         }).collect(Collectors.toList());
     }
 
-    @DeleteMapping("/{id}")
-    public void eliminar(@PathVariable("id") Integer id) {
-        dS.delete(id);
-    }
 
+    @DeleteMapping("/{id}")
+    public ResponseEntity<String> deleteUser(@PathVariable Long id){
+        dS.delete(id);
+        return ResponseEntity.ok("Usuario eliminado correctamente");
+    }
     @GetMapping("/{id}")
-    public UsuarioDTO listarId(@PathVariable("id") Integer id) {
+    public UsuarioDTO listarId(@PathVariable("id") Long id) {
         ModelMapper m = new ModelMapper();
         UsuarioDTO d = m.map(dS.listid(id), UsuarioDTO.class);
         return d;
     }
     @PutMapping
-    public void modificar(@RequestBody Usuario dto){
-        ModelMapper m=new ModelMapper();
-        Usuario d=m.map(dto,Usuario.class);
-        dS.insert(d);
+    public ResponseEntity<String>modificar(@RequestBody UsuarioDTO dto)
+    {
+        Optional<Usuario> usuarioExistente = Optional.ofNullable(dS.listid(dto.getIdUsuario()));
+
+        if(usuarioExistente.isPresent())
+        {
+            ModelMapper m =  new ModelMapper();
+            m.map(dto,usuarioExistente.get());
+            dS.insert(usuarioExistente.get());
+
+            return ResponseEntity.ok("Usuario modificado correctamente");
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
+
+    @GetMapping("/usuariosroluser")
+   // @PreAuthorize("hasAuthority('admin')")
+    public List<UsuarioDTO> UsuariosRolUser(){
+        List<String[]> lista = dS.UsersRolUser();
+        List<UsuarioDTO> listaDTO = new ArrayList<>();
+        for(String[] data:lista){
+            UsuarioDTO dto = new UsuarioDTO();
+            dto.setIdUsuario(Long.parseLong(data[0]));
+            dto.setEmailUsuario(data[1]);
+            dto.setEnabledUsuario(Boolean.parseBoolean(data[2]));
+            dto.setNameUsuario(data[3]);
+            dto.setPasswordUsuario(data[4]);
+            listaDTO.add(dto);
+        }
+        return listaDTO;
+    }
+    @GetMapping("/usuariosroladmin")
+    public List<UsuarioDTO> UsuariosRolAdmin(){
+        List<String[]> lista = dS.UsersRolAdmin();
+        List<UsuarioDTO> listaDTO = new ArrayList<>();
+        for(String[] data:lista){
+            UsuarioDTO dto = new UsuarioDTO();
+            dto.setIdUsuario(Long.parseLong(data[0]));
+            dto.setEmailUsuario(data[1]);
+            dto.setEnabledUsuario(Boolean.parseBoolean(data[2]));
+            dto.setNameUsuario(data[3]);
+            dto.setPasswordUsuario(data[4]);
+            listaDTO.add(dto);
+        }
+        return listaDTO;
+    }
+    @GetMapping("/cantusuarios")
+   // @PreAuthorize("hasAuthority('admin')")
+    public List<CantUserDTO> CantidadUsuarios(){
+        List<String[]> lista = dS.CantUsers();
+        List<CantUserDTO> listaDTO = new ArrayList<>();
+        for(String[] data:lista){
+            CantUserDTO dto = new CantUserDTO();
+            dto.setCant(Long.parseLong(data[0]));
+            listaDTO.add(dto);
+        }
+        return listaDTO;
     }
 }

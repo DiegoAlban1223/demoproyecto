@@ -11,7 +11,7 @@
 	<groupId>pe.edu.upc.aaw</groupId>
 	<artifactId>demoproyecto</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>war</packaging>
+	<packaging>jar</packaging>
 	<name>demoproyecto</name>
 	<description>demoproyecto</description>
 	<properties>
@@ -77,6 +77,8 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-validation</artifactId>
 		</dependency>
+
+
 
 	</dependencies>
 

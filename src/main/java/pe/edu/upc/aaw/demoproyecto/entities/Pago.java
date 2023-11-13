@@ -21,13 +21,12 @@ public class Pago {
     @JoinColumn(name = "idMembresia")
     private Membresia membresia;
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "idCard")
     private Card card;
 
     public Pago() {
     }
-
 
     public Pago(int id, int quantityPago, boolean payConfirmed, LocalDate datePago, Membresia membresia, Card card) {
         this.id = id;

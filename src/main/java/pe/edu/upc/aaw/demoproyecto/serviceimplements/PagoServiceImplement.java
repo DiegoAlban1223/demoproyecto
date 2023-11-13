@@ -35,9 +35,17 @@ public class PagoServiceImplement implements IPagoService {
         return pR.findById(id).orElse(new Pago());
     }
 
+
+    @Override
+    public List<Pago> findPagosAnioActualMayor100Credito() {
+        return pR.findPagosAnioActualMayor100Credito();
+    }
+
     @Override
     public List<Pago> findByDatePago(LocalDate datePago) {
         return pR.findByDatePago(datePago);
     }
+
+
 }
 

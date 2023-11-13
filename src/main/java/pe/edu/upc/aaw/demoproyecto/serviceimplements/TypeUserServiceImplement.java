@@ -25,12 +25,12 @@ public class TypeUserServiceImplement implements ITypeUserService {
     }
 
     @Override
-    public void delete(int idTypeUser) {
+    public void delete(Long idTypeUser) {
         dR.deleteById(idTypeUser);
     }
 
     @Override
-    public TypeUser listId(int idTypeUser) {
+    public TypeUser listId(Long idTypeUser) {
         return dR.findById(idTypeUser).orElse(new TypeUser());
     }
 }
