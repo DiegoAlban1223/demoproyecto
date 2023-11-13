@@ -32,4 +32,8 @@ public class CalificacionServiceImplement implements ICalificacionService {
     public Calificacion listId(int idCalificacion) {
         return cR.findById(idCalificacion).orElse(new Calificacion());
     }
+    @Override
+    public List<String[]> promedioCalificaciones(int idcontenido) {
+        return cR.promedioCalificaciones(idcontenido);
+    }
 }

@@ -9,4 +9,5 @@ public interface ICalificacionService {
     public List<Calificacion> list();
     public void delete (int idCalificacion);
     public Calificacion listId(int idCalificacion);
+    public List<String[]>promedioCalificaciones(int idcontenido);
 }
