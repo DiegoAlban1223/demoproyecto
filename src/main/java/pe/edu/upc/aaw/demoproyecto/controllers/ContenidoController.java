@@ -6,9 +6,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.aaw.demoproyecto.dtos.ContenidoDTO;
+import pe.edu.upc.aaw.demoproyecto.dtos.ContenidoPorListaDTO;
+import pe.edu.upc.aaw.demoproyecto.dtos.ResenaPorContenidoDTO;
 import pe.edu.upc.aaw.demoproyecto.entities.Contenido;
 import pe.edu.upc.aaw.demoproyecto.serviceinterfaces.IContenidoService;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -58,5 +61,18 @@ public class ContenidoController {
             return m.map(x, ContenidoDTO.class);
         }).collect(Collectors.toList());
     }
-    //localhost:8080/contenidos/buscar?nombreLista=nueva
+    @GetMapping("/CantidadPorResenas")
+    // @PreAuthorize("hasAnyAuthority('admin')")
+    public List<ResenaPorContenidoDTO> cantidadResenaPorContenido(){
+        List<String[]>lista=cS.CantidadResenasPorContenido();
+        List<ResenaPorContenidoDTO> listaDTO=new ArrayList<>();
+
+        for(String[] data:lista){
+            ResenaPorContenidoDTO dto=new ResenaPorContenidoDTO();
+            dto.setTitleContenido(data[0]);
+            dto.setQuantityResenas(Integer.parseInt(data[1]));
+            listaDTO.add(dto);
+        }
+        return listaDTO;
+    }
 }

@@ -37,6 +37,7 @@ public class ContenidoServiceImplement implements IContenidoService {
     public List<Contenido> findContenidoByNameList(String nameList) {
         return cR.findContenidoByNameList(nameList);
     }
-
-
+    @Override
+    public List<String[]> CantidadResenasPorContenido() {return cR.CantidadResenasPorContenido();
+    }
 }

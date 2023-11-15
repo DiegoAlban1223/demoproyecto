@@ -12,7 +12,6 @@ public class ContenidoPorListaDTO {
     public void setNameListaDeReproduccion(String nameListaDeReproduccion) {
         this.nameListaDeReproduccion = nameListaDeReproduccion;
     }
-
     public int getQuantityContenido() {
         return quantityContenido;
     }

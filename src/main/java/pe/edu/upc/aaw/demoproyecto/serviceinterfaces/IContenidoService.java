@@ -11,8 +11,7 @@ public interface IContenidoService {
     public void insert(Contenido contenido);
     public List<Contenido> list();
     public void delete(int idContenido);
-
     public Contenido listId(int idContenido);
-
     List<Contenido> findContenidoByNameList( String nameList);
+    public List<String[]> CantidadResenasPorContenido();
 }
