@@ -51,6 +51,11 @@ public class UsuarioServiceImplement implements IUsuarioService {
         return dR.CantUsers();
     }
 
+    @Override
+    public List<String[]> CantidadDeClientesActivos() {
+        return dR.CantidadDeClientesActivos();
+    }
+
     public List<Usuario> findUsuarioByNameUsuario(String nameUsuario){
         return  dR.findUsuarioByNameUsuario(nameUsuario);
     }

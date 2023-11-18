@@ -6,6 +6,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.aaw.demoproyecto.dtos.CantUserDTO;
+import pe.edu.upc.aaw.demoproyecto.dtos.CantidadDeClientesActivosDTO;
 import pe.edu.upc.aaw.demoproyecto.dtos.UsuarioDTO;
 import pe.edu.upc.aaw.demoproyecto.entities.TypeUser;
 import pe.edu.upc.aaw.demoproyecto.entities.Usuario;
@@ -137,6 +138,19 @@ public class UsuarioController {
         for(String[] data:lista){
             CantUserDTO dto = new CantUserDTO();
             dto.setCant(Long.parseLong(data[0]));
+            listaDTO.add(dto);
+        }
+        return listaDTO;
+    }
+    @GetMapping("/cantclientesactivos")
+    // @PreAuthorize("hasAuthority('admin')")
+    public List<CantidadDeClientesActivosDTO> CantidadDeClientesActivos(){
+        List<String[]> lista = dS.CantidadDeClientesActivos();
+        List<CantidadDeClientesActivosDTO> listaDTO = new ArrayList<>();
+        for(String[] data:lista){
+            CantidadDeClientesActivosDTO dto = new CantidadDeClientesActivosDTO();
+            dto.setCantidad_usuarios_activos(Long.parseLong(data[0]));
+            dto.setCantidad_usuarios_inactivos(Long.parseLong(data[1]));
             listaDTO.add(dto);
         }
         return listaDTO;

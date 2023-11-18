@@ -16,6 +16,7 @@ public interface IUsuarioService {
     public List<String[]>UsersRolUser();
 
     public List<String[]>CantUsers();
+    public List<String[]> CantidadDeClientesActivos();
     public List<String[]> UsersRolAdmin();
 //PARA EL REGISTRAR
     public List<Usuario> findUsuarioByNameUsuario(String nameUsuario);
