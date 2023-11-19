@@ -51,10 +51,8 @@ public class UsuarioServiceImplement implements IUsuarioService {
         return dR.CantUsers();
     }
 
-<<<<<<< HEAD
-=======
+    @Override
     public List<Usuario> findUsuarioByNameUsuario(String nameUsuario){
         return  dR.findUsuarioByNameUsuario(nameUsuario);
     }
->>>>>>> Juan
 }
