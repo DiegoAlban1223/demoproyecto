@@ -5,5 +5,5 @@ import org.springframework.stereotype.Repository;
 import pe.edu.upc.aaw.demoproyecto.entities.TypeUser;
 
 @Repository
-public interface ITypeUserRepository extends JpaRepository<TypeUser,Integer> {
+public interface ITypeUserRepository extends JpaRepository<TypeUser,Long> {
 }

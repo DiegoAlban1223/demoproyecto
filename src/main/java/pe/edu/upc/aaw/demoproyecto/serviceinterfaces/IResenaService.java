@@ -9,4 +9,5 @@ public interface IResenaService {
     public List<Resena> list();
     public void delete(int idResena);
     public Resena listId(int idResena);
-}
+
+    public List<String[]>resenasdeContenido(int idcontenido);}

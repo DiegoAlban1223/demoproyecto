@@ -1,4 +1,5 @@
 package pe.edu.upc.aaw.demoproyecto.entities;
+
 import javax.persistence.*;
 
 @Entity
@@ -7,20 +8,24 @@ public class ListaDeReproduccion {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idListaDeReproduccion;
-    @Column(name = "nameListaDeReproduccion",length = 45)
+    @Column(name = "nameListaDeReproduccion", nullable = false, length = 45)
     private String nameListaDeReproduccion;
 
     @ManyToOne
-    @JoinColumn(name = "idUsuario")
+    @JoinColumn(name = "idUsuario", nullable = true)
     private Usuario usuario;
+    @ManyToOne
+    @JoinColumn(name = "idContenido", nullable = true)
+    private Contenido contenido;
 
     public ListaDeReproduccion() {
     }
 
-    public ListaDeReproduccion(int idListaDeReproduccion, String nameListaDeReproduccion, Usuario usuario) {
+    public ListaDeReproduccion(int idListaDeReproduccion, String nameListaDeReproduccion, Usuario usuario, Contenido contenido) {
         this.idListaDeReproduccion = idListaDeReproduccion;
         this.nameListaDeReproduccion = nameListaDeReproduccion;
         this.usuario = usuario;
+        this.contenido = contenido;
     }
 
     public int getIdListaDeReproduccion() {
@@ -45,5 +50,13 @@ public class ListaDeReproduccion {
 
     public void setUsuario(Usuario usuario) {
         this.usuario = usuario;
+    }
+
+    public Contenido getContenido() {
+        return contenido;
+    }
+
+    public void setContenido(Contenido contenido) {
+        this.contenido = contenido;
     }
 }

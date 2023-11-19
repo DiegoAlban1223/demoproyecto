@@ -57,7 +57,7 @@ public class ListaDeReproduccionController {
 
 
     @GetMapping("/cantidades")
-    @PreAuthorize("hasAnyAuthority('admin')")
+   // @PreAuthorize("hasAnyAuthority('admin')")
     public List<ContenidoPorListaDTO> cantidadContenidoPorLista(){
         List<String[]>lista=lS.CantidadContenidoPorListaDeReproduccion();
         List<ContenidoPorListaDTO> listaDTO=new ArrayList<>();
@@ -70,4 +70,24 @@ public class ListaDeReproduccionController {
         }
         return listaDTO;
     }
+
+    @DeleteMapping("/{idUsuario}/{idContenido}")
+    public void eliminarContenidoDeListaFavoritos(
+            @PathVariable("idUsuario") Integer idUsuario,
+            @PathVariable("idContenido") Integer idContenido
+    ) {
+        try {
+           List<ListaDeReproduccion> favoritos= lS.obtenerListaFavorito(idUsuario,idContenido);
+
+            for (ListaDeReproduccion lista : favoritos) {
+               lS.delete(lista.getIdListaDeReproduccion());
+            }
+
+        } catch (Exception e) {
+            // Log or print the exception details
+            e.printStackTrace();
+            // Handle the exception or rethrow if needed
+        }
+    }
+
 }

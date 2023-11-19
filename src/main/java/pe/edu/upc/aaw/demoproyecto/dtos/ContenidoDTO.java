@@ -3,20 +3,21 @@ package pe.edu.upc.aaw.demoproyecto.dtos;
 import pe.edu.upc.aaw.demoproyecto.entities.ListaDeReproduccion;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 
 public class ContenidoDTO {
 
     private int idContenido;
     private String titleContenido;
     private String descripContenido;
-    private int yearContenido;
+    private LocalDate yearContenido;
     private String directorContenido;
     private String typeContenido;
     private String genderContenido;
     private  String originCountryContenido;
     private String urlContenido;
+    private String urlImageContenido;
     private String languageContenido;
-    private ListaDeReproduccion listadereproduccion;
 
     public int getIdContenido() {
         return idContenido;
@@ -42,11 +43,11 @@ public class ContenidoDTO {
         this.descripContenido = descripContenido;
     }
 
-    public int getYearContenido() {
+    public LocalDate getYearContenido() {
         return yearContenido;
     }
 
-    public void setYearContenido(int yearContenido) {
+    public void setYearContenido(LocalDate yearContenido) {
         this.yearContenido = yearContenido;
     }
 
@@ -98,11 +99,12 @@ public class ContenidoDTO {
         this.languageContenido = languageContenido;
     }
 
-    public ListaDeReproduccion getListadereproduccion() {
-        return listadereproduccion;
+
+    public String getUrlImageContenido() {
+        return urlImageContenido;
     }
 
-    public void setListadereproduccion(ListaDeReproduccion listadereproduccion) {
-        this.listadereproduccion = listadereproduccion;
+    public void setUrlImageContenido(String urlImageContenido) {
+        this.urlImageContenido = urlImageContenido;
     }
 }

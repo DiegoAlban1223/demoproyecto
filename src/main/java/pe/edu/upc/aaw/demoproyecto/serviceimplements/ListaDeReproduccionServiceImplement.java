@@ -1,6 +1,7 @@
 package pe.edu.upc.aaw.demoproyecto.serviceimplements;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Service;
 import pe.edu.upc.aaw.demoproyecto.entities.ListaDeReproduccion;
 import pe.edu.upc.aaw.demoproyecto.repositories.IListaDeReproduccionRepository;
@@ -38,5 +39,9 @@ public class ListaDeReproduccionServiceImplement implements IListaDeReproduccion
         return dR.CantidadContenidoPorListaDeReproduccion();
     }
 
+    @Override
+    public List<ListaDeReproduccion> obtenerListaFavorito(Integer idUsuario,Integer idContenido){
+        return dR.obtenerListaFavorito(idUsuario,idContenido);
+    }
 
 }

@@ -4,6 +4,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
+import pe.edu.upc.aaw.demoproyecto.dtos.CantidadSupportMesDTO;
 import pe.edu.upc.aaw.demoproyecto.dtos.PagoDTO;
 import pe.edu.upc.aaw.demoproyecto.dtos.SupportDTO;
 import pe.edu.upc.aaw.demoproyecto.entities.Pago;
@@ -11,6 +12,7 @@ import pe.edu.upc.aaw.demoproyecto.entities.Support;
 import pe.edu.upc.aaw.demoproyecto.serviceinterfaces.ISupportService;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -26,8 +28,8 @@ public class SupportController {
         Support p = m.map(dto, Support.class);
         dS.insert(p);
     }
-    @PreAuthorize("hasAuthority('user') or hasAuthority('admin')")
     @GetMapping//es para retornar
+    //@PreAuthorize("hasAuthority('user') or hasAuthority('admin')")
     public List<SupportDTO> listar() {
         return dS.list().stream().map(x -> {
             ModelMapper m = new ModelMapper();
@@ -52,6 +54,25 @@ public class SupportController {
         ModelMapper m=new ModelMapper();
         SupportDTO d=m.map(dS.listId(id),SupportDTO.class);
         return d;
+    }
+
+    @GetMapping("/supportMes")
+    List<CantidadSupportMesDTO> cantidadSupportMesDTOS(){
+       List<String[]> lista= dS.inciddenciasXMes();
+
+       List<CantidadSupportMesDTO>listaDTO=new ArrayList<>();
+
+       for (String[]data:lista){
+           CantidadSupportMesDTO dto=new CantidadSupportMesDTO();
+
+
+           dto.setYear(Integer.parseInt(data[0]));
+           dto.setMonth(data[1]);
+           dto.setQuantitySupports(Integer.parseInt(data[2]));
+
+           listaDTO.add(dto);
+       }
+       return listaDTO;
     }
 /*
     @GetMapping("/{id}")

@@ -16,18 +16,29 @@ public class Support {
     @Column(name = "descriptionSupport", nullable = false, length = 100)
     private String descriptionSupport;
 
+    @Column( name = "pendienteSupport",nullable = false)
+    private boolean pendienteSupport;
     @ManyToOne
     @JoinColumn(name = "idUsuario")
-    private Usuario usuario;
+    private Usuario usuario; //siempre se usa idNombreDeLaClase
 
     public Support() {
     }
 
-    public Support(int idSupport, LocalDate dateSupport, String descriptionSupport, Usuario usuario) {
+    public Support(int idSupport, LocalDate dateSupport, String descriptionSupport, boolean pendienteSupport, Usuario usuario) {
         this.idSupport = idSupport;
         this.dateSupport = dateSupport;
         this.descriptionSupport = descriptionSupport;
+        this.pendienteSupport = pendienteSupport;
         this.usuario = usuario;
+    }
+
+    public boolean isPendienteSupport() {
+        return pendienteSupport;
+    }
+
+    public void setPendienteSupport(boolean pendienteSupport) {
+        this.pendienteSupport = pendienteSupport;
     }
 
     public int getIdSupport() {
