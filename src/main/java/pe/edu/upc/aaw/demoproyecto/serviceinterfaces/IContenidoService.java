@@ -19,4 +19,6 @@ public interface IContenidoService {
     public List<String[]> CantidadResenasPorContenido();
 
    public List<Contenido>peliculasFavoritas(Integer idUsuario);
+
+
 }

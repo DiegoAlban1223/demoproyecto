@@ -28,8 +28,8 @@ public class UsuarioServiceImplement implements IUsuarioService {
     public void delete(Long idUsuario) {
         if (dR.existsById(idUsuario)) {
             dR.deleteById(idUsuario);
-        }
-        else { throw new UsernameNotFoundException("User " + idUsuario + "no existe");
+        } else {
+            throw new UsernameNotFoundException("User " + idUsuario + "no existe");
         }
     }
 
@@ -37,10 +37,12 @@ public class UsuarioServiceImplement implements IUsuarioService {
     public Usuario listid(Long idUsuario) {
         return dR.findById(idUsuario).orElse(new Usuario());
     }
+
     @Override
-    public List<String[]> UsersRolAdmin(){
+    public List<String[]> UsersRolAdmin() {
         return dR.UsersRolAdmin();
     }
+
     @Override
     public List<String[]> UsersRolUser() {
         return dR.UsersRolUser();
@@ -51,7 +53,14 @@ public class UsuarioServiceImplement implements IUsuarioService {
         return dR.CantUsers();
     }
 
-    public List<Usuario> findUsuarioByNameUsuario(String nameUsuario){
-        return  dR.findUsuarioByNameUsuario(nameUsuario);
+    @Override
+    public List<Usuario> findUsuarioByNameUsuario(String nameUsuario) {
+        return dR.findUsuarioByNameUsuario(nameUsuario);
     }
+
+    @Override
+    public List<String[]> CantidadDeClientesActivos() {
+        return dR.CantidadDeClientesActivos();
+    }
+
 }

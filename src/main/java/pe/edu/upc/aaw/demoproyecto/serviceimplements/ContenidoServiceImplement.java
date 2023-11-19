@@ -46,7 +46,11 @@ public class ContenidoServiceImplement implements IContenidoService {
     }
 
     @Override
-    public List<Contenido>peliculasFavoritas( Integer idUsuario){
+    public List<Contenido> peliculasFavoritas(Integer idUsuario) {
         return cR.peliculasFavoritas(idUsuario);
     }
+
+
+
+
 }

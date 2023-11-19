@@ -35,4 +35,5 @@ public interface IContenidoRepository extends JpaRepository <Contenido,Integer> 
     List<Contenido>peliculasFavoritas(@Param("idUsuario") Integer idUsuario);
 
 
+
 }

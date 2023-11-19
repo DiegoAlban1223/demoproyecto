@@ -42,14 +42,28 @@ public class CalificacionController {
         cS.insert(d);
     }
     @GetMapping("/promedioCalificaciones")
-    public List<PromedioCalificacionesDTO> promedioCalificaciones(@RequestParam int idcontenido){
-        List<String[]>lista=cS.promedioCalificaciones(idcontenido);
-        List<PromedioCalificacionesDTO> listaDTO=new ArrayList<>();
-        for(String[] data:lista){
-            PromedioCalificacionesDTO dto=new PromedioCalificacionesDTO();
-            dto.setPromedio_calificado(data[0]);
-            listaDTO.add(dto);
+    public List<PromedioCalificacionesDTO> promedioCalificaciones(@RequestParam int idcontenido) {
+        List<String[]> lista = cS.promedioCalificaciones(idcontenido);
+
+        // Verificación de nulos
+        if (lista == null) {
+            // Manejar el caso en el que la lista es null
+            return new ArrayList<>(); // o lanzar una excepción, según tus necesidades
+        }
+
+        List<PromedioCalificacionesDTO> listaDTO = new ArrayList<>();
+        for (String[] data : lista) {
+            // Verificación de nulos para data
+            if (data != null && data.length > 0) {
+                PromedioCalificacionesDTO dto = new PromedioCalificacionesDTO();
+                dto.setPromedio_calificado(data[0]);
+                listaDTO.add(dto);
+            } else {
+                // Manejar el caso en el que data es null o está vacío
+                // Puedes imprimir un mensaje de registro o lanzar una excepción, según tus necesidades
+            }
         }
         return listaDTO;
     }
+
 }

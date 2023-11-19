@@ -53,6 +53,7 @@ public class ContenidoController {
         Contenido c = m.map(dto, Contenido.class);
         cS.insert(c);
     }
+
     @GetMapping("/buscar")
     public List<ContenidoDTO> buscar(@RequestParam String nombreLista) {
         return cS.findContenidoByNameList(nombreLista).stream().map(x -> {
@@ -60,15 +61,16 @@ public class ContenidoController {
             return m.map(x, ContenidoDTO.class);
         }).collect(Collectors.toList());
     }
+
     //localhost:8080/contenidos/buscar?nombreLista=nueva
     @GetMapping("/CantidadPorResenas")
     // @PreAuthorize("hasAnyAuthority('admin')")
-    public List<CantidadResenasPorContenidoDTO> cantidadResenaPorContenido(){
-        List<String[]>lista=cS.CantidadResenasPorContenido();
-        List<CantidadResenasPorContenidoDTO> listaDTO=new ArrayList<>();
+    public List<CantidadResenasPorContenidoDTO> cantidadResenaPorContenido() {
+        List<String[]> lista = cS.CantidadResenasPorContenido();
+        List<CantidadResenasPorContenidoDTO> listaDTO = new ArrayList<>();
 
-        for(String[] data:lista){
-            CantidadResenasPorContenidoDTO dto=new CantidadResenasPorContenidoDTO();
+        for (String[] data : lista) {
+            CantidadResenasPorContenidoDTO dto = new CantidadResenasPorContenidoDTO();
             dto.setTitleContenido(data[0]);
             dto.setQuantityResenas(Integer.parseInt(data[1]));
             listaDTO.add(dto);
@@ -77,12 +79,14 @@ public class ContenidoController {
     }
 
     @GetMapping("/peliculasFavoritas")
-    public List<ContenidoDTO>peliculasFavoritas(@RequestParam Integer idUsuario){
+    public List<ContenidoDTO> peliculasFavoritas(@RequestParam Integer idUsuario) {
 
-        return this.cS.peliculasFavoritas(idUsuario).stream().map(x->{
-            ModelMapper m=new ModelMapper();
-            return m.map(x,ContenidoDTO.class);
+        return this.cS.peliculasFavoritas(idUsuario).stream().map(x -> {
+            ModelMapper m = new ModelMapper();
+            return m.map(x, ContenidoDTO.class);
         }).collect(Collectors.toList());
 
     }
+
+
 }

@@ -38,6 +38,15 @@ public interface IUsuarioRepository extends JpaRepository<Usuario, Long> {
     @Query(value = "SELECT COUNT(id_usuario) FROM usuario \n", nativeQuery = true)
     public List<String[]> CantUsers();
 
+
+    //================================================================
+    @Query(value = "SELECT COUNT(*) FILTER(WHERE u.enabled_usuario = true) AS cantidad_usuarios_activos,\n" +
+            "COUNT(*) FILTER(WHERE u.enabled_usuario = false) AS cantidad_usuarios_inactivos\n" +
+            "FROM usuario u JOIN type_users tu ON u.id_usuario = tu.id_usuario\n" +
+            "WHERE tu.Type_type_user = 'user'", nativeQuery = true)
+    public List<String[]> CantidadDeClientesActivos();
     //PARA EL REGISTRAR
+
     public List<Usuario> findUsuarioByNameUsuario(String nameUsuario);
+
 }
