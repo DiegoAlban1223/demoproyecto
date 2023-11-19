@@ -25,21 +25,21 @@ public class Contenido {
     private String genderContenido;
     @Column(name = "originCountryContenido", nullable = false, length = 45)
     private String originCountryContenido;
-    @Column(name = "urlContenido", nullable = false, length = 100)
+    @Column(name = "urlContenido", nullable = false, length = 254)
     private String urlContenido;
     @Column(name = "urlImageContenido", nullable = false, length = 254)
     private String urlImageContenido;
     @Column(name = "languageContenido", nullable = false, length = 45)
     private String languageContenido;
-    @ManyToOne
+   /* @ManyToOne
     @JoinColumn(name = "idListaDeReproduccion",nullable = true)
     private ListaDeReproduccion listadereproduccion;
-
+*/
 
     public Contenido() {
     }
 
-    public Contenido(int idContenido, String titleContenido, String descripContenido, LocalDate yearContenido, String directorContenido, String typeContenido, String genderContenido, String originCountryContenido, String urlContenido, String urlImageContenido, String languageContenido, ListaDeReproduccion listadereproduccion) {
+    public Contenido(int idContenido, String titleContenido, String descripContenido, LocalDate yearContenido, String directorContenido, String typeContenido, String genderContenido, String originCountryContenido, String urlContenido, String urlImageContenido, String languageContenido) {
         this.idContenido = idContenido;
         this.titleContenido = titleContenido;
         this.descripContenido = descripContenido;
@@ -51,7 +51,6 @@ public class Contenido {
         this.urlContenido = urlContenido;
         this.urlImageContenido = urlImageContenido;
         this.languageContenido = languageContenido;
-        this.listadereproduccion = listadereproduccion;
     }
 
     public int getIdContenido() {
@@ -134,13 +133,7 @@ public class Contenido {
         this.languageContenido = languageContenido;
     }
 
-    public ListaDeReproduccion getListadereproduccion() {
-        return listadereproduccion;
-    }
 
-    public void setListadereproduccion(ListaDeReproduccion listadereproduccion) {
-        this.listadereproduccion = listadereproduccion;
-    }
 
     public String getUrlImageContenido() {
         return urlImageContenido;
