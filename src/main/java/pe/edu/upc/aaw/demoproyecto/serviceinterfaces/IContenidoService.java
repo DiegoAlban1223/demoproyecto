@@ -15,4 +15,8 @@ public interface IContenidoService {
     public Contenido listId(int idContenido);
 
     List<Contenido> findContenidoByNameList( String nameList);
+
+    public List<String[]> CantidadResenasPorContenido();
+
+   public List<Contenido>peliculasFavoritas(Integer idUsuario);
 }

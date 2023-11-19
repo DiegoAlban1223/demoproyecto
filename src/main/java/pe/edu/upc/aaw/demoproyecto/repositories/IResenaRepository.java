@@ -15,4 +15,7 @@ public interface IResenaRepository extends JpaRepository<Resena, Integer> {
             " JOIN resena r ON u.id_usuario = r.id_usuario" +
             " WHERE r.id_contenido = :idcontenido", nativeQuery = true)
     List<String[]> resenasdeContenido(@Param("idcontenido") int idcontenido);
+
+
+
 }
