@@ -1,5 +1,6 @@
 package pe.edu.upc.aaw.demoproyecto.repositories;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
@@ -16,4 +17,9 @@ public interface IListaDeReproduccionRepository extends JpaRepository<ListaDeRep
             "ON l.id_lista_de_reproduccion=c.id_lista_de_reproduccion\n" +
             "GROUP BY l.name_lista_de_reproduccion",nativeQuery = true)
     public List<String[]> CantidadContenidoPorListaDeReproduccion();
+
+    @Query(value = "SELECT * FROM lista_de_reproduccion WHERE id_usuario = :idUsuario AND id_contenido = :idContenido AND name_lista_de_reproduccion = 'favoritos'", nativeQuery = true)
+    List<ListaDeReproduccion> obtenerListaFavorito(@Param("idUsuario") Integer idUsuario, @Param("idContenido") Integer idContenido);
+
+
 }

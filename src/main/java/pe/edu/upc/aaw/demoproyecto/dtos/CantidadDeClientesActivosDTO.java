@@ -1,6 +1,8 @@
 package pe.edu.upc.aaw.demoproyecto.dtos;
 
 public class CantidadDeClientesActivosDTO {
+
+
     private Long cantidad_usuarios_activos;
     private Long cantidad_usuarios_inactivos;
 

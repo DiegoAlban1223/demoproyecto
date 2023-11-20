@@ -10,6 +10,7 @@ import java.util.List;
 
 @Repository
 public interface ICalificacionRepository extends JpaRepository <Calificacion,Integer>{
+
     @Query(value= "SELECT ROUND(AVG(c.score)) FROM Calificacion c " +
             "WHERE c.id_contenido = :idcontenido", nativeQuery = true)
     List<String[]> promedioCalificaciones(@Param("idcontenido") int idcontenido);

@@ -20,4 +20,7 @@ public interface IUsuarioService {
     public List<String[]> UsersRolAdmin();
 //PARA EL REGISTRAR
     public List<Usuario> findUsuarioByNameUsuario(String nameUsuario);
+
+    public List<String[]> CantidadDeClientesActivos();
+
 }

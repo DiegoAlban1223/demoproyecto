@@ -10,4 +10,6 @@ public interface ISupportService {
     public List<Support> list();
     public void delete(int idSupport);
     public Support listId(int idSupport);
+    List<String[]> inciddenciasXMes();
+
 }

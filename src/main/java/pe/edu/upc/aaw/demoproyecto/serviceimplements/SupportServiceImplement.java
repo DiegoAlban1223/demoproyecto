@@ -33,4 +33,11 @@ public class SupportServiceImplement implements ISupportService {
     public Support listId(int idSupport) {
         return dR.findById(idSupport).orElse(new Support());
     }
+
+    @Override
+    public List<String[]> inciddenciasXMes() {
+        return dR.inciddenciasXMes();
+    }
+
+
 }

@@ -5,8 +5,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.aaw.demoproyecto.dtos.CardDTO;
-import pe.edu.upc.aaw.demoproyecto.entities.Card;
-import pe.edu.upc.aaw.demoproyecto.entities.Pago;
+import pe.edu.upc.aaw.demoproyecto.dtos.PagoDTO;
+import pe.edu.upc.aaw.demoproyecto.dtos.SupportDTO;
+import pe.edu.upc.aaw.demoproyecto.entities.*;
 import pe.edu.upc.aaw.demoproyecto.serviceinterfaces.ICardService;
 import pe.edu.upc.aaw.demoproyecto.serviceinterfaces.IPagoService;
 
@@ -47,7 +48,7 @@ public class CardController {
         Card c = m.map(dto, Card.class);
         Pago p = (Pago) c.getPago();
 
-        if (p == null  p.getId() == 0 !PagoExiste(p.getId())) {
+        if (p == null || p.getId() == 0 ||!PagoExiste(p.getId())) {
             return ResponseEntity.badRequest().body("No existe pago asociada");
         }
 
@@ -82,8 +83,8 @@ public class CardController {
     }
     @DeleteMapping("/{id}")//es para borrar
     public ResponseEntity<String> eliminar(@PathVariable("id") Integer id) {
-        cS.delete(id);
-        return ResponseEntity.ok("Eliminado exitosamente");
+            cS.delete(id);
+            return ResponseEntity.ok("Eliminado exitosamente");
 
     }
 

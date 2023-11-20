@@ -23,4 +23,5 @@ public class CardDTO {
         this.typeTarjeta = typeTarjeta;
     }
 
+
 }

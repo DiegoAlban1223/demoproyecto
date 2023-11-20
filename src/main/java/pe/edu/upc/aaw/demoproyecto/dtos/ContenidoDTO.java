@@ -18,7 +18,6 @@ public class ContenidoDTO {
     private String urlContenido;
     private String urlImageContenido;
     private String languageContenido;
-    private ListaDeReproduccion listadereproduccion;
 
     public int getIdContenido() {
         return idContenido;
@@ -100,13 +99,6 @@ public class ContenidoDTO {
         this.languageContenido = languageContenido;
     }
 
-    public ListaDeReproduccion getListadereproduccion() {
-        return listadereproduccion;
-    }
-
-    public void setListadereproduccion(ListaDeReproduccion listadereproduccion) {
-        this.listadereproduccion = listadereproduccion;
-    }
 
     public String getUrlImageContenido() {
         return urlImageContenido;

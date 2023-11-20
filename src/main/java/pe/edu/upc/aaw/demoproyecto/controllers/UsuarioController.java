@@ -142,6 +142,7 @@ public class UsuarioController {
         }
         return listaDTO;
     }
+
     @GetMapping("/cantclientesactivos")
     // @PreAuthorize("hasAuthority('admin')")
     public List<CantidadDeClientesActivosDTO> CantidadDeClientesActivos(){
@@ -155,4 +156,5 @@ public class UsuarioController {
         }
         return listaDTO;
     }
+
 }
