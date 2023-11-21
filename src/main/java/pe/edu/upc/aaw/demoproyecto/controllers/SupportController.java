@@ -56,6 +56,7 @@ public class SupportController {
         return d;
     }
 
+    //  ============   REPORTE DE JUAN
     @GetMapping("/supportMes")
     List<CantidadSupportMesDTO> cantidadSupportMesDTOS(){
        List<String[]> lista= dS.inciddenciasXMes();
