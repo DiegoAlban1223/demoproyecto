@@ -12,13 +12,13 @@ public class SupportDTO {
     private int idSupport;
     private LocalDate dateSupport;
     private String descriptionSupport;
-    private boolean pendienteSupport;
+    private Boolean pendienteSupport;
 
-    public boolean isPendienteSupport() {
+    public Boolean isPendienteSupport() {
         return pendienteSupport;
     }
 
-    public void setPendienteSupport(boolean pendienteSupport) {
+    public void setPendienteSupport(Boolean pendienteSupport) {
         this.pendienteSupport = pendienteSupport;
     }
 

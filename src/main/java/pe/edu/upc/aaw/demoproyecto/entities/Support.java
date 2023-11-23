@@ -11,13 +11,13 @@ public class Support {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idSupport;
-    @Column(name = "dateSupport", nullable = false)
+    @Column(name = "dateSupport",nullable = false)
     private LocalDate dateSupport;
-    @Column(name = "descriptionSupport", nullable = false, length = 100)
+    @Column(name = "descriptionSupport",nullable = false, length = 100)
     private String descriptionSupport;
 
     @Column( name = "pendienteSupport",nullable = false)
-    private boolean pendienteSupport;
+    private Boolean pendienteSupport;
     @ManyToOne
     @JoinColumn(name = "idUsuario")
     private Usuario usuario; //siempre se usa idNombreDeLaClase
@@ -25,7 +25,7 @@ public class Support {
     public Support() {
     }
 
-    public Support(int idSupport, LocalDate dateSupport, String descriptionSupport, boolean pendienteSupport, Usuario usuario) {
+    public Support(int idSupport, LocalDate dateSupport, String descriptionSupport, Boolean pendienteSupport, Usuario usuario) {
         this.idSupport = idSupport;
         this.dateSupport = dateSupport;
         this.descriptionSupport = descriptionSupport;
@@ -33,11 +33,12 @@ public class Support {
         this.usuario = usuario;
     }
 
-    public boolean isPendienteSupport() {
+
+    public Boolean isPendienteSupport() {
         return pendienteSupport;
     }
 
-    public void setPendienteSupport(boolean pendienteSupport) {
+    public void setPendienteSupport(Boolean pendienteSupport) {
         this.pendienteSupport = pendienteSupport;
     }
 
